@@ -1,0 +1,38 @@
+{
+  "name": "@omni-dromenon-engine/performance-sdk",
+  "version": "0.1.0",
+  "description": "Unified interface for performers and audiences in participatory performances",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "keywords": [
+    "performance",
+    "react",
+    "ui-components",
+    "audience-participation",
+    "performer-dashboard"
+  ],
+  "author": "Anthony Padavano <4444@ivi374iviorf.org>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.7.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.8",
+    "vitest": "^1.1.0"
+  }
+}
