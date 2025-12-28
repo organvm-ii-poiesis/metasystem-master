@@ -1,0 +1,25 @@
+# Sub-Repositories (Ignored to prevent nested repo issues)
+core-engine/
+performance-sdk/
+client-sdk/
+audio-synthesis-bridge/
+example-generative-visual/
+example-generative-music/
+example-theatre-dialogue/
+example-choreographic-interface/
+academic-publication/
+artist-toolkit-and-templates/
+dreamcatcher/
+omni-dromenon-deploy/
+gcp/
+docs/
+
+# System
+.DS_Store
+.venv/
+__pycache__/
+
+# Secrets
+*.env
+*.key
+*.pem

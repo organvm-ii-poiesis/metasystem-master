@@ -1,0 +1,64 @@
+# ============================================================================
+# OMNI-DROMENON-ENGINE: PERFORMANCE-SDK DOCKERFILE
+# React frontend with optimized production build
+# ============================================================================
+
+FROM node:20-alpine AS base
+WORKDIR /app
+
+# ============================================================================
+# STAGE 1: DEPENDENCIES
+# ============================================================================
+FROM base AS dependencies
+COPY performance-sdk/package*.json ./
+RUN npm ci
+
+# ============================================================================
+# STAGE 2: BUILDER
+# ============================================================================
+FROM base AS builder
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY performance-sdk/ ./
+
+ARG REACT_APP_API_URL=http://localhost:3000
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
+ENV CI=true
+
+# Build React app
+RUN npm run build
+
+# ============================================================================
+# STAGE 3: PRODUCTION (nginx)
+# ============================================================================
+FROM nginx:alpine AS production
+
+# Copy built React app
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# Copy nginx config
+COPY docker/nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 3000
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD wget --quiet --tries=1 --spider http://localhost:3000 || exit 1
+
+CMD ["nginx", "-g", "daemon off;"]
+
+# ============================================================================
+# STAGE 4: DEVELOPMENT
+# ============================================================================
+FROM base AS development
+ENV NODE_ENV=development
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY performance-sdk/ ./
+
+EXPOSE 3000
+CMD ["npm", "start"]
+
+# ============================================================================
+# LABELS
+# ============================================================================
+LABEL org.opencontainers.image.title="Omni-Dromenon-Performance-SDK"
+LABEL org.opencontainers.image.description="React frontend for performer/audience interfaces"
+LABEL org.opencontainers.image.url="https://github.com/omni-dromenon-engine"

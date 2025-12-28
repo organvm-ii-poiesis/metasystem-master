@@ -1,0 +1,10 @@
+{
+  "name": "Omni-Dromenon Release",
+  "description": "Automated release workflow triggered by version tags. Creates GitHub releases with changelog generation.",
+  "iconName": "octicon tag",
+  "categories": [
+    "Node.js",
+    "Release",
+    "Deployment"
+  ]
+}
