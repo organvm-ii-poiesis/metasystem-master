@@ -18,17 +18,31 @@ def sign_payload(payload):
     # Actually, the best way is to send raw bytes and sign them.
     return hmac.new(SECRET.encode(), body.encode(), hashlib.sha256).hexdigest()
 
-def test_webhook():
-    payload = {
-        "ref": "refs/heads/main",
-        "repository": {
-            "full_name": "omni-dromenon-machina/core-engine",
-            "html_url": "https://github.com/..."
-        },
-        "sender": {
-            "login": "4444JPP"
+def test_webhook(event_type="push"):
+    if event_type == "push":
+        payload = {
+            "ref": "refs/heads/main",
+            "repository": {
+                "full_name": "omni-dromenon-machina/core-engine",
+                "html_url": "https://github.com/..."
+            },
+            "sender": {
+                "login": "4444JPP"
+            }
         }
-    }
+    else:
+        payload = {
+            "action": "opened",
+            "pull_request": {
+                "number": 42,
+                "title": "feat: add commercial payment logic",
+                "body": "This PR adds a payment gateway to the Alchemist repo."
+            },
+            "repository": {
+                "full_name": "ivviiviivvi/magic-app"
+            },
+            "sender": { "login": "4444JPP" }
+        }
     
     body = json.dumps(payload)
     signature = "sha256=" + hmac.new(SECRET.encode(), body.encode(), hashlib.sha256).hexdigest()
@@ -36,23 +50,24 @@ def test_webhook():
     headers = {
         "Content-Type": "application/json",
         "X-Hub-Signature-256": signature,
-        "X-GitHub-Event": "push"
+        "X-GitHub-Event": event_type
     }
     
-    print(f"⚡ Firing Neuron at {URL}...")
+    print(f"⚡ Firing {event_type} Neuron at {URL}...")
     try:
-        res = requests.post(URL, data=body, headers=headers, timeout=2)
+        res = requests.post(URL, data=body, headers=headers, timeout=5)
         print(f"   Status: {res.status_code}")
         print(f"   Response: {res.text}")
         
         if res.status_code == 200:
-            print("✅ Neural Link Active.")
+            print(f"✅ {event_type.capitalize()} Neural Link Active.")
         else:
-            print("❌ Neural Link Broken.")
+            print(f"❌ {event_type.capitalize()} Neural Link Broken.")
             
     except Exception as e:
         print(f"❌ Connection Failed: {e}")
-        print("   (Is the core-engine running?)")
 
 if __name__ == "__main__":
-    test_webhook()
+    test_webhook("push")
+    time.sleep(1)
+    test_webhook("pull_request")

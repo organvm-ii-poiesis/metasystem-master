@@ -17,6 +17,7 @@ services:
       - FIRESTORE_EMULATOR_HOST=firestore-emulator:8080
       - LOG_LEVEL=debug
       - GITHUB_WEBHOOK_SECRET=development-secret
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
     depends_on:
       - redis
       # - firestore-emulator

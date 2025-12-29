@@ -18,6 +18,7 @@ docs/
 .DS_Store
 .venv/
 __pycache__/
+data/
 
 # Secrets
 *.env
