@@ -4,7 +4,7 @@ services:
   # Core engine service
   core-engine:
     build:
-      context: ../..
+      context: .
       dockerfile: docker/Dockerfile.core-engine
     container_name: omni-dromenon-core
     ports:
@@ -16,12 +16,13 @@ services:
       - FIRESTORE_PROJECT_ID=${GCP_PROJECT_ID:-omni-dromenon}
       - FIRESTORE_EMULATOR_HOST=firestore-emulator:8080
       - LOG_LEVEL=debug
+      - GITHUB_WEBHOOK_SECRET=development-secret
     depends_on:
       - redis
-      - firestore-emulator
+      # - firestore-emulator
     volumes:
-      - ../../../core-engine/src:/app/src
-      - ../../../core-engine/dist:/app/dist
+      - ./core-engine/src:/app/src
+      - ./core-engine/dist:/app/dist
     networks:
       - omni-network
     healthcheck:
@@ -33,7 +34,7 @@ services:
   # Performance SDK (React frontend)
   performance-sdk:
     build:
-      context: ../..
+      context: .
       dockerfile: docker/Dockerfile.performance-sdk
     container_name: omni-dromenon-sdk
     ports:
@@ -44,8 +45,8 @@ services:
     depends_on:
       - core-engine
     volumes:
-      - ../../../performance-sdk/src:/app/src
-      - ../../../performance-sdk/public:/app/public
+      - ./performance-sdk/src:/app/src
+      - ./performance-sdk/public:/app/public
     networks:
       - omni-network
 
@@ -80,7 +81,7 @@ services:
   # Audio synthesis bridge (optional, for OSC testing)
   audio-bridge:
     build:
-      context: ../..
+      context: .
       dockerfile: docker/Dockerfile.audio-bridge
     container_name: omni-dromenon-audio
     ports:
@@ -99,7 +100,7 @@ services:
       - "443:443"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ../../../website/dist:/usr/share/nginx/html:ro
+      - ./web:/usr/share/nginx/html:ro
       - ./ssl:/etc/nginx/ssl:ro
     depends_on:
       - core-engine
