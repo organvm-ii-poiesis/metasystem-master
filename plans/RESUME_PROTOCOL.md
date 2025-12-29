@@ -20,6 +20,8 @@
 
 ## ▶️ Next Actions (To Execute Next Session)
 
+> **See `plans/MASTER_EXECUTION_PLAN.md` for the full roadmap.**
+
 ### 1. Resume the Archival (Manual Batching)
 The "Ark" is empty. We need to fill `~/Workspace/4444JPP`.
 Do not run the mass script. Run these batches manually in your terminal:
