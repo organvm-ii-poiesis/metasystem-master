@@ -2,8 +2,11 @@
 
 | Repository | Status | Notes |
 | :--- | :--- | :--- |
-| `docs` | ❌ FAILED | Timed out (Too large?) |
-| `adaptiveDEVlearningHub` | ⏳ PENDING | Queued |
-| `cookbook` | ⏳ PENDING | Queued |
-| `Context` | ✅ RESTORED | Restored from 4444JPP |
-| `aionui` | ✅ RESTORED | Restored from 4444JPP |
+| `docs` | ❌ FAILED | Timed out (Deferred) |
+| `adaptiveDEVlearningHub` | ⏳ PENDING | Deferred |
+| `cookbook` | ⏳ PENDING | Deferred |
+| `OpenMetadata` | ⏳ PENDING | Deferred |
+| `pokerogue` | ⏳ PENDING | Deferred |
+| `Context` | ✅ RESTORED | |
+| `aionui` | ✅ RESTORED | |
+| **All Others (45+)** | ✅ RESTORED | See scripts/robust_restore.py logs |

@@ -1,11 +1,11 @@
 # ✅ Metasystem TODO
 
 ## 🔥 High Priority: The Great Archival (4444JPP)
-- [ ] Restore **Batch A** (Knowledge): `docs`, `adaptiveDEVlearningHub`, `cookbook`
-- [ ] Restore **Batch B** (Agents): `terminal-ai`, `Automated-Coach`, `BabyAGI`
-- [ ] Restore **Batch C** (Tools): `mac-setup`, `dotfiles`
-- [ ] Restore **Batch D** (Archive): Remaining 40+ repositories
-- [ ] Final Inoculation Sweep: Run `scripts/inoculate_seeds.py`
+- [x] Restore **Batch A** (Knowledge): `docs` (Deferred), others done.
+- [x] Restore **Batch B** (Agents): `terminal-ai`, `Automated-Coach`, `BabyAGI` (Done)
+- [x] Restore **Batch C** (Tools): `mac-setup`, `dotfiles` (Done)
+- [x] Restore **Batch D** (Archive): Remaining 40+ repositories (Done)
+- [x] Final Inoculation Sweep: Run `scripts/inoculate_seeds.py` (Auto-ran)
 
 ## 🏛️ Infrastructure: Labores Profani Crux (The Guild)
 - [ ] Create `labores-profani-crux` Organization on GitHub
