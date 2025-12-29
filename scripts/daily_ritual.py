@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import subprocess
 import os
+import sys
 from pathlib import Path
 import datetime
 
@@ -8,12 +9,13 @@ import datetime
 WORKSPACE_ROOT = Path("/Users/4jp/Workspace")
 METASYSTEM_ROOT = WORKSPACE_ROOT / "omni-dromenon-machina"
 LOG_FILE = METASYSTEM_ROOT / "plans/RITUAL_LOG.md"
+VENV_PYTHON = METASYSTEM_ROOT / ".venv/bin/python3"
 
 def run_script(script_name):
     script_path = METASYSTEM_ROOT / "scripts" / script_name
     print(f"\n🔮 Invoking {script_name}...")
     try:
-        subprocess.run(["python3", str(script_path)], check=True)
+        subprocess.run([str(VENV_PYTHON), str(script_path)], check=True)
         return True
     except Exception as e:
         print(f"❌ Failed: {e}")
