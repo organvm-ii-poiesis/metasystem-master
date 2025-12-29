@@ -1,97 +1,61 @@
 # 📜 MASTER EXECUTION PLAN: The Metasystem
 
-**Version:** 1.0.0
+**Version:** 2.0.0 (Post-Activation)
 **Status:** ACTIVE
-**Objective:** Complete the synthesis of the 115-repository ecosystem into a self-governing, quadruple-organization Metasystem.
+**Objective:** Evolve the newly synthesized Metasystem from a functional prototype to a dominant, autonomous sovereign entity.
 
 ---
 
-## 🏗️ Phase 1: The Great Archival (Restoration)
-*Goal: Populate 'The Origin' (4444JPP) with the 52 missing historical artifacts.*
-
-### 1.1. Surgical Restoration (Anti-Timeout Strategy)
-We cannot clone 52 repos at once. We will execute in **Semantic Batches**.
-- [ ] **Batch A (Knowledge Base):** `docs`, `adaptiveDEVlearningHub`, `cookbook`.
-- [ ] **Batch B (Agents):** `terminal-ai`, `Automated-Coach`, `BabyAGI`.
-- [ ] **Batch C (Tools):** `mac-setup`, `dotfiles`, `scripts`.
-- [ ] **Batch D (The Long Tail):** Remaining small repos.
-
-### 1.2. The Inoculation
-- [ ] Run `scripts/inoculate_seeds.py` after each batch to stamp the `seed.yaml` identity (`role: archive/origin`).
-- [ ] **Validation:** Ensure no repo is left "orphaned" without a seed.
+## ✅ COMPLETED PHASES (Dec 28, 2025)
+*   **Phase 1 (Restoration):** 90% Complete. 45/52 Origin repos restored.
+*   **Phase 2 (Neural Link):** 100% Complete. Event Bus & Webhooks Active.
+*   **Phase 3 (Guild):** 100% Local Prep. CI/CD Gatekeepers deployed.
+*   **Phase 4 (Activation):** 100% Complete. Critic Agent & Indexer deployed.
 
 ---
 
-## 🔗 Phase 2: The Neural Link (Connectivity)
-*Goal: Connect the physical repositories to the 'Core Engine' via Webhooks and Event Buses.*
+## 🏗️ Phase 5: The Habit (Routine Maintenance)
+*Goal: Prevent entropy and establish the "Heartbeat" of the system.*
 
-### 2.1. Local Event Bus
-- [x] **Redis:** Confirmed running (`localhost:6379`).
-- [ ] **Event Standard:** Define the JSON schema for `MetasystemEvent` (e.g., `RepoUpdated`, `GhostDetected`).
-- [ ] **Hook Script:** Create `scripts/emit_event.py` to manually fire events into Redis for testing.
+### 5.1. The Daily Ritual (Script: `scripts/daily_ritual.py`)
+We need a single command that runs every morning to sync reality.
+- [ ] **Create Script:** `scripts/daily_ritual.py`.
+    - **Pull:** `git pull` on all 115 repos.
+    - **Inoculate:** Run `inoculate_seeds.py`.
+    - **Audit:** Run `audit_universe.py` to check for uncommitted changes.
+    - **Index:** Run `index_universe.py` to update the Architect's memory.
+- [ ] **Automation:** Add to `crontab` or macOS LaunchAgent (`com.omni.ritual.plist`).
 
-### 2.2. GitHub Webhooks (The Sensory System)
-*Constraint: Requires public URL (Cloud Run or ngrok).*
-- [ ] **Tunnel Setup:** Configure `ngrok` or similar to expose `localhost:3000` for local webhook testing.
-- [ ] **Org-Level Hooks:** Use `gh api` to create organization-wide webhooks on `omni-dromenon-machina`, `ivviiviivvi`, and `4444JPP`.
-    - **Trigger:** `push`, `pull_request`, `issue_comment`.
-    - **Payload:** Point to `https://api.omni-dromenon.com/webhooks/github` (Production).
-
----
-
-## 🏛️ Phase 3: The Guild (Commercialization)
-*Goal: Operationalize 'labores-profani-crux' as the revenue engine.*
-
-### 3.1. Infrastructure
-- [ ] **GitHub Organization:** Create `labores-profani-crux` on GitHub.
-- [ ] **Remote Transfer:** 
-    - Push `~/Workspace/labores-profani-crux/trade-perpetual-future` to new remote.
-    - Push `~/Workspace/labores-profani-crux/gamified-coach-interface` to new remote.
-    - Push `~/Workspace/labores-profani-crux/enterprise-plugin` to new remote.
-
-### 3.2. Deployment Pipelines
-- [ ] **CI/CD:** Create `.github/workflows/deploy-production.yml` for Guild repos.
-- [ ] **Gatekeeper:** Enforce "Profane Standards" (Linting, Testing, Security Scan) before merge.
+### 5.2. The Night Watch (Security)
+- [ ] **Secret Rotation:** Weekly prompt to rotate 1Password keys.
+- [ ] **Backup:** `rsync` the entire `~/Workspace` to an external drive or S3 bucket (`_archive/weekly-snapshot`).
 
 ---
 
-## 🧠 Phase 4: Activation (The Critic & The Architect)
-*Goal: Deploy the autonomous agents that govern the system.*
+## 🧬 Phase 6: Evolution (The Alchemical Works)
+*Goal: Use the system to create Value (Code, Art, Money).*
 
-### 4.1. The Critic (CI/CD Bot)
-- [ ] **Logic:** Implement `CriticAgent` in `core-engine`.
-- [ ] **Task:** On PR, analyze diff -> Check `seed.yaml` constraints -> Approve/Block.
+### 6.1. The Guild Launch (Commercial)
+- [ ] **Action:** Create `labores-profani-crux` Org on GitHub.
+- [ ] **Action:** Push the 3 commercial repos.
+- [ ] **Action:** Deploy `trade-perpetual` to Cloud Run (Production).
 
-### 4.2. The Architect (System State)
-- [ ] **Vector Index:** Run `cognitive-archaelogy-tribunal` on `4444JPP` to generate embeddings.
-- [ ] **Memory Bank:** Store embeddings in Vector Store (Pinecone/Weaviate/Local Chroma).
-- [ ] **Query Interface:** Enable CLI to ask: *"How did I implement Auth in 2023?"*
+### 6.2. The Dreamcatcher (Generative Art)
+- [ ] **Integration:** Connect `core-engine` to Stable Diffusion / Midjourney API.
+- [ ] **Task:** Use the "Audience Input" (Neural Link) to drive real-time visual generation in `example-generative-visual`.
 
----
-
-## 🔄 Phase 5: Routine Maintenance (The Heartbeat)
-*Goal: Prevent entropy and drift.*
-
-### 5.1. Daily Protocol
-1.  **Sync:** `python3 scripts/sync_universe.py` (Pull all changes).
-2.  **Audit:** `python3 scripts/audit_universe.py` (Check for uncommitted work).
-3.  **Heal:** `python3 scripts/inoculate_seeds.py` (Fix missing seeds).
-
-### 5.2. Weekly Protocol
-1.  **Backup:** Archive `~/Workspace` to Cold Storage (`_archive/`).
-2.  **Review:** Check `ORIGIN_RESTORATION_LOG.md` for failed clones.
+### 6.3. The Recursive Architect
+- [ ] **Goal:** The Architect Agent should be able to *modify its own code*.
+- [ ] **Task:** Grant the `CriticAgent` permission to open PRs (not just review them) to fix linting errors automatically.
 
 ---
 
 ## 🛑 Blockers & Risks
-1.  **Bandwidth:** Cloning 52 repos is slow. *Mitigation: Batched cloning.*
-2.  **Auth:** `gh` token needs scopes for the new Guild org once created.
-3.  **Compute:** Indexing 115 repos for vectors requires significant CPU/GPU. *Mitigation: Cloud processing or overnight local runs.*
+1.  **GitHub Org:** Need `labores-profani-crux` creation to unblock Guild.
+2.  **API Costs:** Heavy use of Gemini/OpenAI for the Critic will incur costs. *Mitigation: Rate limiting.*
+3.  **Local Compute:** Running Indexer daily might be slow. *Mitigation: Incremental indexing.*
 
 ---
 
-**Execution Order:**
-1.  Finish **Phase 1.1** (Manual Batches).
-2.  Execute **Phase 3.1** (Create Guild Remote).
-3.  Execute **Phase 2.2** (Webhooks).
-4.  Execute **Phase 4** (Agents).
+**Next Immediate Action:**
+Run `python3 scripts/daily_ritual.py` (Once created) to lock in the day's progress.
