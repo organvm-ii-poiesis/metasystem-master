@@ -1,0 +1,287 @@
+# gate-definitions.yaml
+# Defines gates as resolution points (cadences) in the harmonic flow system
+# Gates control transitions between organs and release accumulated tension
+
+version: "1.0"
+name: "gate-definitions"
+description: >
+  Gates function as cadences in the harmonic flow system.
+  Each gate releases a specific amount of tension and creates
+  resolution points in the artifact lifecycle.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CADENCE TYPES
+# Musical cadence concepts mapped to workflow gates
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cadence_types:
+  authentic:
+    description: "Full resolution - complete cycle closure (V→I equivalent)"
+    tension_release: 1.0
+    finality: "complete"
+    continuation_allowed: true
+
+  half:
+    description: "Partial resolution - pause point, not final (I→V equivalent)"
+    tension_release: 0.5
+    finality: "partial"
+    continuation_allowed: true
+
+  plagal:
+    description: "Soft resolution - gentle closure without dominant tension (IV→I)"
+    tension_release: 0.7
+    finality: "soft"
+    continuation_allowed: true
+
+  imperfect:
+    description: "Incomplete resolution - resolved but may not return to Origin"
+    tension_release: 0.4
+    finality: "incomplete"
+    continuation_allowed: true
+
+  deceptive:
+    description: "Unexpected resolution - redirects to unexpected organ"
+    tension_release: 0.3
+    finality: "redirected"
+    continuation_allowed: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GATE DEFINITIONS
+# Each gate with its cadence type and properties
+# ═══════════════════════════════════════════════════════════════════════════════
+
+gates:
+  version-freeze:
+    name: "Version Freeze"
+    description: "Lock artifact version for review - pause creative iteration"
+    position:
+      from: II   # Art
+      to: III    # Commerce
+    cadence:
+      type: "half"
+      tension_released: 0.4
+      description: "Pauses creative process but doesn't finalize"
+    requirements:
+      - "artifact.version != null"
+      - "artifact.changelog != empty"
+    on_pass:
+      action: "advance_to_next_organ"
+      emit: "VERSION_FROZEN"
+    on_fail:
+      action: "return_to_previous_organ"
+      emit: "VERSION_REJECTED"
+    reviewers:
+      minimum: 1
+      roles: ["creator", "maintainer"]
+
+  security-review:
+    name: "Security Review"
+    description: "Validate artifact meets security requirements before public release"
+    position:
+      from: III  # Commerce
+      to: V      # Public
+    cadence:
+      type: "half"
+      tension_released: 0.5
+      description: "Public but not community-validated"
+    requirements:
+      - "artifact.security_scan == 'passed'"
+      - "artifact.license != null"
+      - "artifact.dependencies_audited == true"
+    on_pass:
+      action: "advance_to_next_organ"
+      emit: "SECURITY_APPROVED"
+    on_fail:
+      action: "hold_at_current_organ"
+      emit: "SECURITY_FLAGGED"
+    reviewers:
+      minimum: 2
+      roles: ["security", "maintainer"]
+
+  community-approval:
+    name: "Community Approval"
+    description: "Collective endorsement from community stakeholders"
+    position:
+      from: VI   # Community
+      to: VII    # Marketing
+    cadence:
+      type: "plagal"
+      tension_released: 0.7
+      description: "Soft community blessing - not forced, organic acceptance"
+    requirements:
+      - "artifact.community_votes >= threshold"
+      - "artifact.feedback_addressed == true"
+    on_pass:
+      action: "advance_to_next_organ"
+      emit: "COMMUNITY_APPROVED"
+    on_fail:
+      action: "iterate_at_current_organ"
+      emit: "COMMUNITY_FEEDBACK"
+    reviewers:
+      minimum: 3
+      roles: ["community_member", "maintainer", "contributor"]
+    voting:
+      threshold_type: "percentage"
+      threshold_value: 0.66
+      quorum_required: 5
+
+  quality-threshold:
+    name: "Quality Threshold"
+    description: "Technical quality gate before amplification"
+    position:
+      from: VII  # Marketing
+      to: I      # Origin (completion)
+    cadence:
+      type: "imperfect"
+      tension_released: 0.4
+      description: "May not complete full cycle - can branch to other flows"
+    requirements:
+      - "artifact.test_coverage >= 0.8"
+      - "artifact.documentation_complete == true"
+      - "artifact.performance_benchmarks == 'met'"
+    on_pass:
+      action: "advance_or_branch"
+      emit: "QUALITY_MET"
+    on_fail:
+      action: "return_for_improvement"
+      emit: "QUALITY_FAILED"
+    reviewers:
+      minimum: 1
+      roles: ["qa", "maintainer"]
+
+  synthesis-review:
+    name: "Synthesis Review"
+    description: "Final integration check - complete cycle closure"
+    position:
+      from: VII  # Marketing (or last active organ)
+      to: I      # Origin
+    cadence:
+      type: "authentic"
+      tension_released: 1.0
+      description: "Full cycle completion - all tension resolved"
+    requirements:
+      - "artifact.all_gates_passed == true"
+      - "artifact.synthesis_complete == true"
+      - "artifact.origin_updated == true"
+    on_pass:
+      action: "complete_cycle"
+      emit: "CYCLE_COMPLETE"
+    on_fail:
+      action: "identify_unresolved"
+      emit: "SYNTHESIS_INCOMPLETE"
+    reviewers:
+      minimum: 1
+      roles: ["orchestrator", "creator"]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TENSION TRACKING
+# System for monitoring and resolving accumulated tension
+# ═══════════════════════════════════════════════════════════════════════════════
+
+tension_tracking:
+  measure: "unresolved_tension"
+  description: "Sum of tension values from organs visited without gate resolution"
+
+  threshold: 2.0
+  description_threshold: "Maximum tension before forced resolution"
+
+  action_on_exceed: "force_authentic_cadence"
+  description_action: >
+    When tension exceeds threshold, system forces a return to Origin
+    through the nearest authentic cadence (synthesis-review)
+
+  decay:
+    enabled: true
+    rate: 0.1
+    interval: "per_day"
+    description: "Tension naturally decays over time if artifact is inactive"
+
+  accumulation_rules:
+    - organ: I
+      adds: 0
+      reason: "Origin has no tension"
+    - organ: II
+      adds: 2
+      reason: "Creative phase builds energy"
+    - organ: III
+      adds: 1
+      reason: "Commerce adds mild tension"
+    - organ: IV
+      adds: 0
+      reason: "Orchestration is neutral"
+    - organ: V
+      adds: 3
+      reason: "Public exposure creates high tension"
+    - organ: VI
+      adds: 2
+      reason: "Community involvement adds expectation"
+    - organ: VII
+      adds: 4
+      reason: "Marketing creates maximum tension"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ELISION HANDLING
+# Rules for when gates are skipped (passing tones)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+elision_handling:
+  description: >
+    When an organ is skipped (passing tone), its associated gate is elided.
+    Tension tracking must account for skipped organs.
+
+  rules:
+    - skipped_organ: III
+      skipped_gate: "security-review"
+      tension_adjustment: -1
+      reason: "Non-commercial artifacts don't need security review for commerce"
+      required_compensating_gate: null
+
+    - skipped_organ: VI
+      skipped_gate: "community-approval"
+      tension_adjustment: 0
+      reason: "Solo projects maintain tension until quality-threshold"
+      required_compensating_gate: "quality-threshold"
+
+    - skipped_organ: VII
+      skipped_gate: "quality-threshold"
+      tension_adjustment: +1
+      reason: "Skipping marketing increases pressure on synthesis-review"
+      required_compensating_gate: "synthesis-review"
+
+  post_elision_validation:
+    enabled: true
+    check: "tension_within_bounds"
+    action_on_violation: "insert_compensating_gate"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GATE SEQUENCES
+# Predefined gate orderings for common flows
+# ═══════════════════════════════════════════════════════════════════════════════
+
+gate_sequences:
+  standard:
+    gates: ["version-freeze", "security-review", "community-approval", "quality-threshold", "synthesis-review"]
+    total_tension_capacity: 12
+
+  expedited:
+    gates: ["version-freeze", "synthesis-review"]
+    total_tension_capacity: 6
+    requires_approval: true
+
+  community_first:
+    gates: ["version-freeze", "community-approval", "quality-threshold", "synthesis-review"]
+    total_tension_capacity: 9
+
+  research:
+    gates: ["version-freeze", "quality-threshold", "synthesis-review"]
+    total_tension_capacity: 8
+
+metadata:
+  created: "2025-01-25"
+  author: "omni-dromenon-machina"
+  schema_version: "1.0"
+  references:
+    - name: "Musical Cadences"
+      description: "Authentic, half, plagal, imperfect, and deceptive cadences"
+    - name: "Resolution Theory"
+      description: "Tension and release patterns in harmonic progressions"

@@ -1,0 +1,350 @@
+# harmonic-progressions.yaml
+# Defines progression templates, inversions, and modulation rules
+# Progressions are chord-chart-like patterns for artifact lifecycle flows
+
+version: "1.0"
+name: "harmonic-progressions"
+description: >
+  Progression templates define common paths through the organ system.
+  Like chord progressions in music, these provide reusable patterns
+  that can be adapted through inversion and modulation.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CORE PROGRESSIONS
+# Standard progression templates for different use cases
+# ═══════════════════════════════════════════════════════════════════════════════
+
+progressions:
+  standard_cycle:
+    id: "standard_cycle"
+    name: "Standard Cycle"
+    description: "Complete artifact lifecycle through all organs"
+    pattern: [I, II, III, V, VI, VII, I]
+    cadence: "authentic"
+    use_case: "Standard artifact lifecycle - full commercial path"
+    tension_profile:
+      peak: VII
+      resolution: I
+      total_accumulated: 12
+    gates_required:
+      - position: [II, III]
+        gate: "version-freeze"
+      - position: [III, V]
+        gate: "security-review"
+      - position: [VI, VII]
+        gate: "community-approval"
+      - position: [VII, I]
+        gate: "synthesis-review"
+    characteristics:
+      commercial: true
+      community_involved: true
+      public_facing: true
+
+  experimental:
+    id: "experimental"
+    name: "Experimental / Rapid Prototype"
+    description: "Quick iteration cycle for prototyping"
+    pattern: [I, II, IV, I]
+    cadence: "half"
+    use_case: "Rapid prototyping - fast feedback loops"
+    tension_profile:
+      peak: II
+      resolution: I
+      total_accumulated: 2
+    gates_required:
+      - position: [II, IV]
+        gate: "version-freeze"
+    characteristics:
+      commercial: false
+      community_involved: false
+      public_facing: false
+    notes: "Orchestration (IV) provides coordination without full cycle"
+
+  community_first:
+    id: "community_first"
+    name: "Community First"
+    description: "Open source / community-driven development"
+    pattern: [I, II, VI, VII, I]
+    cadence: "plagal"
+    use_case: "Open source projects - community before commerce"
+    tension_profile:
+      peak: VII
+      resolution: I
+      total_accumulated: 8
+    gates_required:
+      - position: [II, VI]
+        gate: "version-freeze"
+      - position: [VI, VII]
+        gate: "community-approval"
+      - position: [VII, I]
+        gate: "synthesis-review"
+    characteristics:
+      commercial: false
+      community_involved: true
+      public_facing: true
+    notes: "Skips Commerce (III) and Public (V) - community handles distribution"
+
+  product_launch:
+    id: "product_launch"
+    name: "Product Launch"
+    description: "Commercial release path - commerce to visibility"
+    pattern: [I, II, III, VII, I]
+    cadence: "imperfect"
+    use_case: "Commercial releases - monetization-first approach"
+    tension_profile:
+      peak: VII
+      resolution: I
+      total_accumulated: 7
+    gates_required:
+      - position: [II, III]
+        gate: "version-freeze"
+      - position: [III, VII]
+        gate: "security-review"
+      - position: [VII, I]
+        gate: "quality-threshold"
+    characteristics:
+      commercial: true
+      community_involved: false
+      public_facing: true
+    notes: "Skips Public (V) and Community (VI) - direct to marketing"
+
+  grant_application:
+    id: "grant_application"
+    name: "Grant Application"
+    description: "Deadline-driven path for grant submissions"
+    pattern: [I, IV, VII, I]
+    cadence: "authentic"
+    use_case: "Grant deadlines - coordination-heavy, visibility-focused"
+    tension_profile:
+      peak: VII
+      resolution: I
+      total_accumulated: 4
+    gates_required:
+      - position: [IV, VII]
+        gate: "quality-threshold"
+      - position: [VII, I]
+        gate: "synthesis-review"
+    characteristics:
+      commercial: false
+      community_involved: false
+      public_facing: true
+    notes: "Orchestration (IV) manages timeline, Marketing (VII) handles presentation"
+
+  academic:
+    id: "academic"
+    name: "Academic Publication"
+    description: "Research publication pathway"
+    pattern: [I, II, IV, V, I]
+    cadence: "authentic"
+    use_case: "Research publication - peer review process"
+    tension_profile:
+      peak: V
+      resolution: I
+      total_accumulated: 5
+    gates_required:
+      - position: [II, IV]
+        gate: "version-freeze"
+      - position: [IV, V]
+        gate: "security-review"
+      - position: [V, I]
+        gate: "synthesis-review"
+    characteristics:
+      commercial: false
+      community_involved: false
+      public_facing: true
+    notes: "Orchestration coordinates peer review, Public is journal publication"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INVERSIONS
+# Same progression with different starting organ
+# ═══════════════════════════════════════════════════════════════════════════════
+
+inversions:
+  standard_cycle:
+    root_position:
+      root: I
+      pattern: [I, II, III, V, VI, VII, I]
+      description: "Standard - idea-first approach"
+
+    first_inversion:
+      root: II
+      pattern: [II, III, V, VI, VII, I, II]
+      description: "Art-led - creative vision drives the cycle"
+      use_case: "Artist has existing work, needs to complete lifecycle"
+      entry_condition: "artifact.state == 'in_progress'"
+
+    second_inversion:
+      root: V
+      pattern: [V, VI, VII, I, II, III, V]
+      description: "Public demand-driven - audience request initiates"
+      use_case: "Market demand or user request drives creation"
+      entry_condition: "artifact.origin == 'external_request'"
+
+    third_inversion:
+      root: VI
+      pattern: [VI, VII, I, II, III, V, VI]
+      description: "Community-initiated - collective need drives creation"
+      use_case: "Community identifies gap, requests artifact"
+      entry_condition: "artifact.origin == 'community_request'"
+
+  community_first:
+    root_position:
+      root: I
+      pattern: [I, II, VI, VII, I]
+      description: "Standard community-first"
+
+    first_inversion:
+      root: VI
+      pattern: [VI, VII, I, II, VI]
+      description: "Community-led - community owns the cycle"
+      use_case: "Existing community project needs refresh"
+      entry_condition: "artifact.community_owned == true"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MODULATIONS
+# Mid-flow route changes based on context
+# ═══════════════════════════════════════════════════════════════════════════════
+
+modulations:
+  pivot:
+    description: "Smooth transition via shared organ (pivot chord)"
+    rules:
+      - id: "urgent_experimental"
+        from: "standard_cycle"
+        to: "experimental"
+        via: IV
+        when: "flow.priority == 'urgent'"
+        description: "Urgent priority triggers pivot to rapid prototyping"
+        tension_adjustment: -4
+
+      - id: "community_demand"
+        from: "product_launch"
+        to: "community_first"
+        via: VI
+        when: "artifact.community_interest > 0.8"
+        description: "High community interest redirects to community-first"
+        tension_adjustment: 0
+
+      - id: "academic_opportunity"
+        from: "standard_cycle"
+        to: "academic"
+        via: IV
+        when: "artifact.research_potential == true"
+        description: "Research potential detected, pivot to academic path"
+        tension_adjustment: -2
+
+  direct:
+    description: "Abrupt transition triggered by external event"
+    rules:
+      - id: "grant_deadline"
+        trigger: "grant_deadline_discovered"
+        new_progression: "grant_application"
+        from_any_organ: true
+        tension_reset: true
+        description: "Grant deadline discovered - immediate redirect"
+
+      - id: "security_incident"
+        trigger: "security_vulnerability_found"
+        new_progression: "experimental"
+        target_organ: IV
+        tension_reset: false
+        description: "Security issue requires immediate attention via Orchestration"
+
+      - id: "viral_moment"
+        trigger: "artifact.viral_indicator == true"
+        new_progression: "product_launch"
+        target_organ: VII
+        tension_reset: false
+        description: "Viral traction detected - accelerate to Marketing"
+
+  chromatic:
+    description: "Gradual shift through borrowed organs"
+    rules:
+      - id: "gradual_commercialization"
+        from: "community_first"
+        to: "standard_cycle"
+        via_sequence: [VI, III, V]
+        when: "artifact.monetization_potential > 0.6"
+        description: "Gradually introduce commerce without disrupting community"
+        duration: "extended"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TEMPO SETTINGS
+# Flow speed configurations
+# ═══════════════════════════════════════════════════════════════════════════════
+
+tempo:
+  urgent:
+    multiplier: 2.0
+    max_organ_duration: "1_day"
+    gate_timeout: "4_hours"
+    description: "Emergency pace - minimal review periods"
+    allowed_progressions: ["experimental", "grant_application"]
+
+  fast:
+    multiplier: 1.5
+    max_organ_duration: "3_days"
+    gate_timeout: "1_day"
+    description: "Accelerated pace - reduced review windows"
+    allowed_progressions: ["*"]
+
+  normal:
+    multiplier: 1.0
+    max_organ_duration: "1_week"
+    gate_timeout: "3_days"
+    description: "Standard pace - full review cycles"
+    allowed_progressions: ["*"]
+
+  slow:
+    multiplier: 0.5
+    max_organ_duration: "2_weeks"
+    gate_timeout: "1_week"
+    description: "Deliberate pace - extended consideration"
+    allowed_progressions: ["standard_cycle", "academic"]
+    recommended_for: ["complex_artifacts", "high_stakes_releases"]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROGRESSION SELECTION
+# Rules for choosing the right progression
+# ═══════════════════════════════════════════════════════════════════════════════
+
+selection_rules:
+  priority_order:
+    - condition: "artifact.deadline_type == 'grant'"
+      progression: "grant_application"
+      reason: "Grant deadlines take precedence"
+
+    - condition: "artifact.priority == 'urgent'"
+      progression: "experimental"
+      reason: "Urgent items need rapid iteration"
+
+    - condition: "artifact.type == 'research'"
+      progression: "academic"
+      reason: "Research follows academic publication path"
+
+    - condition: "artifact.license == 'open_source'"
+      progression: "community_first"
+      reason: "Open source prioritizes community"
+
+    - condition: "artifact.monetization == true"
+      progression: "product_launch"
+      reason: "Commercial artifacts follow product launch"
+
+    - condition: "default"
+      progression: "standard_cycle"
+      reason: "Default to full lifecycle"
+
+  override_allowed: true
+  override_requires_justification: true
+
+metadata:
+  created: "2025-01-25"
+  author: "omni-dromenon-machina"
+  schema_version: "1.0"
+  references:
+    - name: "Chord Progressions"
+      description: "Common patterns like I-IV-V-I, ii-V-I, etc."
+    - name: "Modulation"
+      description: "Key changes in music theory"
+    - name: "Inversions"
+      description: "Same chord with different bass note"

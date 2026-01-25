@@ -1,0 +1,422 @@
+# flow-notation.yaml
+# Chord chart notation system for expressing organ flows
+# Provides a concise syntax for describing complex flow patterns
+
+version: "1.0"
+name: "flow-notation"
+description: >
+  A symbolic notation system for expressing organ flows, analogous to
+  chord charts in music. Enables concise expression of sequential,
+  gated, parallel, and modified flows.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SYMBOL VOCABULARY
+# Core symbols and their meanings
+# ═══════════════════════════════════════════════════════════════════════════════
+
+symbols:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Flow Direction Symbols
+  # ─────────────────────────────────────────────────────────────────────────────
+  flow_direction:
+    "->":
+      name: "sequential"
+      meaning: "Sequential flow without gate"
+      example: "I -> II"
+      description: "Direct transition from one organ to the next"
+
+    "=>":
+      name: "gated"
+      meaning: "Flow through a gate (requires approval)"
+      example: "II => III"
+      description: "Transition requires passing a gate"
+
+    "~>":
+      name: "optional"
+      meaning: "Optional flow (can be skipped)"
+      example: "V ~> VI"
+      description: "Organ can be bypassed if conditions met"
+
+    "<->":
+      name: "bidirectional"
+      meaning: "Flow can go either direction"
+      example: "II <-> IV"
+      description: "Bidirectional relationship (rare)"
+
+    "<-":
+      name: "reverse"
+      meaning: "Flow returns to previous organ"
+      example: "III <- II"
+      description: "Regression to earlier phase"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Grouping Symbols
+  # ─────────────────────────────────────────────────────────────────────────────
+  grouping:
+    "(...)":
+      name: "group"
+      meaning: "Group of organs treated as unit"
+      example: "(III V)"
+      description: "Organs processed together"
+
+    "|":
+      name: "parallel"
+      meaning: "Parallel flow (simultaneous processing)"
+      example: "(III | V)"
+      description: "Organs can be processed in parallel"
+
+    "[...]":
+      name: "optional_group"
+      meaning: "Optional group (entire group can be skipped)"
+      example: "[III -> V]"
+      description: "Entire sequence is optional"
+
+    "{...}":
+      name: "choice"
+      meaning: "Choice between paths"
+      example: "{III | VI}"
+      description: "Must choose one path, not both"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Modifier Symbols
+  # ─────────────────────────────────────────────────────────────────────────────
+  modifiers:
+    "/":
+      name: "substitution"
+      meaning: "Substitution (right replaces left's function)"
+      example: "III/V"
+      description: "Commerce substitutes for Public's function"
+      position: "suffix"
+
+    "+":
+      name: "extra_review"
+      meaning: "Additional review required"
+      example: "I+"
+      description: "Organ requires extra scrutiny"
+      position: "suffix"
+
+    "-":
+      name: "expedited"
+      meaning: "Expedited processing"
+      example: "III-"
+      description: "Reduced review requirements"
+      position: "suffix"
+
+    "7":
+      name: "tension_unresolved"
+      meaning: "Tension remains unresolved"
+      example: "V7"
+      description: "Dominant tension carries forward"
+      position: "suffix"
+
+    "sus":
+      name: "suspended"
+      meaning: "Organ in suspended state"
+      example: "IIsus"
+      description: "Waiting for external input"
+      position: "suffix"
+
+    "dim":
+      name: "diminished"
+      meaning: "Reduced scope/capacity"
+      example: "IIIdim"
+      description: "Operating at reduced capacity"
+      position: "suffix"
+
+    "aug":
+      name: "augmented"
+      meaning: "Enhanced scope/capacity"
+      example: "Vaug"
+      description: "Operating with expanded resources"
+      position: "suffix"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Repetition and Structure
+  # ─────────────────────────────────────────────────────────────────────────────
+  structure:
+    "||:":
+      name: "repeat_start"
+      meaning: "Start of repeated section"
+      example: "||: II -> III :||"
+      description: "Section can be repeated"
+
+    ":||":
+      name: "repeat_end"
+      meaning: "End of repeated section"
+      example: "||: II -> III :||"
+      description: "Marks end of repeatable section"
+
+    "x2":
+      name: "repeat_count"
+      meaning: "Number of repetitions"
+      example: "||: II -> III :|| x2"
+      description: "Repeat twice"
+
+    "//":
+      name: "section_break"
+      meaning: "Section boundary"
+      example: "I -> II // III -> V"
+      description: "Logical separation between phases"
+
+    "D.C.":
+      name: "da_capo"
+      meaning: "Return to beginning"
+      example: "VII -> D.C."
+      description: "Return to Origin (I) from any point"
+
+    "Fine":
+      name: "fine"
+      meaning: "End point"
+      example: "I Fine"
+      description: "Marks definitive end of flow"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Annotation Symbols
+  # ─────────────────────────────────────────────────────────────────────────────
+  annotations:
+    "@":
+      name: "gate_reference"
+      meaning: "Reference specific gate"
+      example: "II @version-freeze=> III"
+      description: "Names the gate being passed"
+
+    "#":
+      name: "tag"
+      meaning: "Tag for tracking/filtering"
+      example: "I #startup"
+      description: "Labels flow for categorization"
+
+    "!":
+      name: "alert"
+      meaning: "Requires attention"
+      example: "V!"
+      description: "Organ has pending issues"
+
+    "?":
+      name: "uncertain"
+      meaning: "Path uncertain/conditional"
+      example: "III? -> V"
+      description: "Transition depends on evaluation"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PARSING RULES
+# How to interpret notation strings
+# ═══════════════════════════════════════════════════════════════════════════════
+
+parsing:
+  priority:
+    description: "Order of precedence when parsing notation"
+    order:
+      - grouping      # Process groups first
+      - modifiers     # Apply modifiers to organs
+      - annotations   # Attach metadata
+      - flow          # Determine flow direction
+      - structure     # Handle repeats and sections
+
+  whitespace:
+    handling: "ignore"
+    description: "Whitespace is not significant"
+
+  case_sensitivity:
+    organs: "case_insensitive"
+    modifiers: "case_sensitive"
+
+  validation:
+    - rule: "organ_exists"
+      description: "All organ references must be valid (I-VII)"
+    - rule: "flow_continuity"
+      description: "Flow must connect adjacent organs"
+    - rule: "gate_required"
+      description: "Gated flows (=>) must have gate defined"
+    - rule: "balanced_groups"
+      description: "All grouping symbols must be balanced"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE NOTATIONS
+# Common patterns expressed in notation
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  standard_cycle:
+    notation: "I -> II => III => V -> VI => VII => I"
+    description: "Full lifecycle with standard gates"
+    expanded:
+      - step: "I -> II"
+        meaning: "Origin to Art (no gate)"
+      - step: "II => III"
+        meaning: "Art to Commerce (version-freeze gate)"
+      - step: "III => V"
+        meaning: "Commerce to Public (security-review gate)"
+      - step: "V -> VI"
+        meaning: "Public to Community (no gate)"
+      - step: "VI => VII"
+        meaning: "Community to Marketing (community-approval gate)"
+      - step: "VII => I"
+        meaning: "Marketing to Origin (synthesis-review gate)"
+
+  community_first:
+    notation: "I -> II ~> VI => VII => I"
+    description: "Community-first, skipping Commerce and Public"
+    notes: "~> indicates III and V are optional/skipped"
+
+  with_substitution:
+    notation: "I -> II => III/VII -> I"
+    description: "Commerce acts as Marketing (substitution)"
+    notes: "III/VII means Commerce substitutes for Marketing's function"
+
+  parallel_flow:
+    notation: "I -> II => (III | V) -> VI => VII => I"
+    description: "Commerce and Public processed in parallel"
+    notes: "Both organs can be active simultaneously"
+
+  with_tension:
+    notation: "I -> II => III => V7 -> VI => VII => I"
+    description: "Public organ has unresolved tension"
+    notes: "V7 indicates dominant tension carried forward"
+
+  expedited_with_extra_review:
+    notation: "I -> II- => III+ => V -> VI => VII => I"
+    description: "Expedited Art, extra review on Commerce"
+    notes: "- reduces time, + adds review"
+
+  repeated_iteration:
+    notation: "||: I -> II => III :|| x3 -> V -> VI => VII => I"
+    description: "Iterate through creation phase 3 times"
+    notes: "Repeat section for rapid prototyping"
+
+  conditional_path:
+    notation: "I -> II => {III | VI} -> VII => I"
+    description: "Choose either Commerce OR Community path"
+    notes: "Curly braces indicate exclusive choice"
+
+  with_gate_names:
+    notation: "I -> II @version-freeze=> III @security-review=> V"
+    description: "Explicitly named gates"
+    notes: "@ prefix names the specific gate"
+
+  tagged_flow:
+    notation: "I #urgent -> II- => IV -> I"
+    description: "Urgent tagged experimental flow"
+    notes: "# applies tag for filtering/tracking"
+
+  suspended_organ:
+    notation: "I -> IIsus -> II => III"
+    description: "Art organ in suspended state (awaiting input)"
+    notes: "sus indicates waiting for external event"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VALIDATION RULES
+# Constraints for valid notation
+# ═══════════════════════════════════════════════════════════════════════════════
+
+validation:
+  syntax_rules:
+    - id: "valid_organs"
+      rule: "organ IN [I, II, III, IV, V, VI, VII]"
+      error: "Unknown organ reference"
+
+    - id: "flow_operators"
+      rule: "operator IN [->, =>, ~>, <->, <-]"
+      error: "Invalid flow operator"
+
+    - id: "modifier_position"
+      rule: "modifier follows organ without space"
+      error: "Modifier must directly follow organ"
+
+    - id: "balanced_parentheses"
+      rule: "count('(') == count(')')"
+      error: "Unbalanced parentheses"
+
+    - id: "balanced_brackets"
+      rule: "count('[') == count(']')"
+      error: "Unbalanced brackets"
+
+    - id: "balanced_braces"
+      rule: "count('{') == count('}')"
+      error: "Unbalanced braces"
+
+  semantic_rules:
+    - id: "no_self_loop"
+      rule: "organ != next_organ unless repeating"
+      error: "Organ cannot directly flow to itself"
+
+    - id: "gated_requires_gate"
+      rule: "=> implies gate_defined"
+      error: "Gated flow requires gate definition"
+
+    - id: "substitution_valid"
+      rule: "A/B implies A can_substitute_for B"
+      error: "Invalid substitution - check substitution rules"
+
+    - id: "parallel_compatible"
+      rule: "(A | B) implies A and B can run parallel"
+      error: "Organs cannot be processed in parallel"
+
+  warnings:
+    - id: "high_tension"
+      condition: "count(tension_modifiers) > 2"
+      message: "High tension accumulation - consider resolution"
+
+    - id: "long_skip"
+      condition: "optional_path_length > 3"
+      message: "Long optional path - may miss important gates"
+
+    - id: "expedited_chain"
+      condition: "consecutive_expedited > 2"
+      message: "Multiple expedited organs - quality risk"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOTATION TO FLOW CONVERSION
+# How to convert notation to executable flow
+# ═══════════════════════════════════════════════════════════════════════════════
+
+conversion:
+  description: >
+    Process to convert notation string to executable flow definition
+
+  steps:
+    - step: 1
+      action: "tokenize"
+      description: "Break notation into tokens (organs, operators, modifiers)"
+
+    - step: 2
+      action: "parse_groups"
+      description: "Identify and process grouping structures"
+
+    - step: 3
+      action: "apply_modifiers"
+      description: "Attach modifiers to their target organs"
+
+    - step: 4
+      action: "build_graph"
+      description: "Construct flow graph from tokens"
+
+    - step: 5
+      action: "resolve_gates"
+      description: "Map gated flows to gate definitions"
+
+    - step: 6
+      action: "validate"
+      description: "Check against validation rules"
+
+    - step: 7
+      action: "optimize"
+      description: "Identify parallel execution opportunities"
+
+  output_format:
+    type: "flow_graph"
+    nodes: "organs with modifiers"
+    edges: "flow connections with gate references"
+    metadata: "tags, annotations, tension tracking"
+
+metadata:
+  created: "2025-01-25"
+  author: "omni-dromenon-machina"
+  schema_version: "1.0"
+  references:
+    - name: "Chord Chart Notation"
+      description: "Nashville number system and chord symbols"
+    - name: "Lead Sheet Conventions"
+      description: "Standard notation for jazz charts"
+    - name: "BPMN"
+      description: "Business process modeling notation influences"

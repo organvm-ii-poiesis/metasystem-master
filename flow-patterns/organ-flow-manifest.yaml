@@ -1,0 +1,247 @@
+# organ-flow-manifest.yaml
+# Defines the seven organs of the Omni-Dromenon system and their harmonic relationships
+# Based on musical chord function theory applied to creative artifact lifecycle
+
+version: "1.0"
+name: "organ-flow-manifest"
+description: >
+  The organ flow system maps creative artifacts through seven organs,
+  each functioning like scale degrees in a musical system.
+  This manifest defines organ functions, substitutions, and passing tones.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ORGAN DEFINITIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+organs:
+  I:
+    name: "Origin"
+    description: "Genesis point - where artifacts emerge from conceptual void"
+    domain: "ideation"
+
+  II:
+    name: "Art"
+    description: "Creative development - where vision takes form"
+    domain: "creation"
+
+  III:
+    name: "Commerce"
+    description: "Value exchange - where artifacts meet markets"
+    domain: "monetization"
+
+  IV:
+    name: "Orchestration"
+    description: "Coordination hub - observes and connects all organs"
+    domain: "management"
+
+  V:
+    name: "Public"
+    description: "External interface - where artifacts meet audiences"
+    domain: "distribution"
+
+  VI:
+    name: "Community"
+    description: "Collective stewardship - where artifacts find belonging"
+    domain: "collaboration"
+
+  VII:
+    name: "Marketing"
+    description: "Amplification - where artifacts gain visibility"
+    domain: "promotion"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HARMONIC SYSTEM
+# Musical function theory applied to organ flow
+# ═══════════════════════════════════════════════════════════════════════════════
+
+harmonic_system:
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Organ Functions (analogous to chord functions in music theory)
+  # ─────────────────────────────────────────────────────────────────────────────
+  organ_functions:
+    I:
+      function: "tonic"
+      tension: 0
+      can_resolve_to: [I]
+      description: "Home base - complete stability, no forward motion required"
+
+    II:
+      function: "supertonic"
+      tension: 2
+      can_resolve_to: [III, V, VII]
+      description: "Creative momentum - builds energy toward expression"
+
+    III:
+      function: "mediant"
+      tension: 1
+      can_resolve_to: [V, VI, I]
+      description: "Transitional - bridges creation and distribution"
+
+    IV:
+      function: "subdominant"
+      tension: 0
+      can_resolve_to: ["*"]  # Observes all - special case
+      description: "The Conductor - accessible from and to all organs"
+
+    V:
+      function: "dominant"
+      tension: 3
+      can_resolve_to: [I, VI]
+      description: "Maximum external pressure - demands resolution"
+
+    VI:
+      function: "submediant"
+      tension: 2
+      can_resolve_to: [VII, IV, II]
+      description: "Collective energy - community-driven momentum"
+
+    VII:
+      function: "leading_tone"
+      tension: 4
+      can_resolve_to: [I, III]
+      description: "Highest tension - strong pull toward Origin completion"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Substitutions (organs that can swap in specific contexts)
+  # ─────────────────────────────────────────────────────────────────────────────
+  substitutions:
+    VI:
+      can_substitute_for: [V]
+      when: "artifact.audience == 'internal'"
+      rationale: "Internal artifacts skip public release, community handles distribution"
+
+    III:
+      can_substitute_for: [VII]
+      when: "artifact.type == 'product_launch'"
+      rationale: "Product launches can monetize directly without separate marketing phase"
+
+    IV:
+      can_substitute_for: ["any"]
+      when: "flow.requires_coordination == true"
+      rationale: "Orchestration can intervene at any point when coordination is needed"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Passing Tones (organs that can be skipped in certain flows)
+  # ─────────────────────────────────────────────────────────────────────────────
+  passing_tones:
+    III:
+      skippable_when: "artifact.monetization == false"
+      alt_path: [II, V]
+      rationale: "Non-commercial artifacts bypass Commerce entirely"
+
+    VI:
+      skippable_when: "artifact.type == 'solo_project'"
+      alt_path: [V, VII]
+      rationale: "Solo projects may not need community involvement"
+
+    VII:
+      skippable_when: "artifact.visibility == 'internal'"
+      alt_path: [VI, I]
+      rationale: "Internal artifacts need no external marketing"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Voice Leading Rules (smooth transitions between organs)
+  # ─────────────────────────────────────────────────────────────────────────────
+  voice_leading:
+    preferred_motion:
+      stepwise: 0.6        # Adjacent organs (I→II, II→III, etc.)
+      third: 0.3           # Skip one organ (I→III, II→V, etc.)
+      leap: 0.1            # Larger jumps (rare, requires justification)
+
+    avoid:
+      - from: VII
+        to: II
+        reason: "High tension (VII) shouldn't return to early creative phase (II)"
+      - from: V
+        to: II
+        reason: "Public phase shouldn't regress to Art without Origin reset"
+
+    smooth_transitions:
+      - pair: [II, III]
+        smoothness: 0.9
+        description: "Natural progression from creation to commerce"
+      - pair: [V, VI]
+        smoothness: 0.85
+        description: "Public distribution naturally builds community"
+      - pair: [VII, I]
+        smoothness: 0.95
+        description: "Marketing completion naturally returns to Origin"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# STANDARD FLOWS
+# Predefined organ sequences for common artifact types
+# ═══════════════════════════════════════════════════════════════════════════════
+
+standard_flows:
+  full_cycle:
+    description: "Complete passage through all organs"
+    sequence: [I, II, III, V, VI, VII, I]
+    gates: [null, "version-freeze", "security-review", null, "community-approval", "quality-threshold", "synthesis-review"]
+
+  rapid_prototype:
+    description: "Quick iteration cycle"
+    sequence: [I, II, IV, I]
+    gates: [null, "version-freeze", null, null]
+
+  open_source:
+    description: "Community-first development"
+    sequence: [I, II, VI, VII, I]
+    gates: [null, "version-freeze", "community-approval", "quality-threshold", "synthesis-review"]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HARMONIC WEIGHTING
+# Integration with consensus weighting patterns
+# ═══════════════════════════════════════════════════════════════════════════════
+
+harmonic_weighting:
+  progressionFidelity: 0.4      # Weight for staying on defined progression
+  contextualAdaptation: 0.3    # Weight for allowing modulation
+  voiceLeadingSmoothness: 0.3  # Weight for preferring smooth transitions
+
+  # Genre presets for different project types
+  genre_presets:
+    startup:
+      fidelity: 0.2
+      adaptation: 0.6
+      smoothness: 0.2
+      default_progression: "experimental"
+      description: "High adaptability, low adherence to standard flows"
+
+    enterprise:
+      fidelity: 0.7
+      adaptation: 0.1
+      smoothness: 0.2
+      default_progression: "standard_cycle"
+      description: "Strict adherence to established processes"
+
+    open_source:
+      fidelity: 0.3
+      adaptation: 0.3
+      smoothness: 0.4
+      default_progression: "community_first"
+      description: "Balanced approach with emphasis on smooth community transitions"
+
+    research:
+      fidelity: 0.4
+      adaptation: 0.4
+      smoothness: 0.2
+      default_progression: "academic"
+      description: "Flexible with room for exploration and pivots"
+
+    solo_artist:
+      fidelity: 0.1
+      adaptation: 0.5
+      smoothness: 0.4
+      default_progression: "experimental"
+      description: "Maximum creative freedom with smooth flow"
+
+metadata:
+  created: "2025-01-25"
+  author: "omni-dromenon-machina"
+  schema_version: "1.0"
+  references:
+    - name: "Musical Function Theory"
+      description: "Harmonic functions (tonic, dominant, subdominant) applied to workflow"
+    - name: "Voice Leading"
+      description: "Principles of smooth melodic motion between chord tones"
