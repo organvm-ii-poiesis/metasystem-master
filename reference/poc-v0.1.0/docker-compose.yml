@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # Consensus Server
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - CONSENSUS_MODE=arithmetic
+      - CONSENSUS_INTERVAL=50
+      - OSC_HOST=host.docker.internal
+      - OSC_PORT=57120
+      - OSC_ENABLED=true
+      - CLIENT_ORIGIN=http://localhost:3000
+      - PERFORMER_TOKEN=performer-secret
+    volumes:
+      - ./server/src:/app/src
+    networks:
+      - ope-network
+    restart: unless-stopped
+
+  # React Client (development server)
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_SERVER_URL=http://localhost:3001
+    volumes:
+      - ./client/src:/app/src
+      - ./client/public:/app/public
+    depends_on:
+      - server
+    networks:
+      - ope-network
+    restart: unless-stopped
+
+networks:
+  ope-network:
+    driver: bridge
+
+# Note: SuperCollider runs on the host machine for audio output.
+# OSC messages are sent to host.docker.internal:57120

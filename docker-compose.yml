@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   # Core engine service
   core-engine:
@@ -18,8 +16,10 @@ services:
       - LOG_LEVEL=debug
       - GITHUB_WEBHOOK_SECRET=development-secret
       - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - CHROMA_URL=http://chroma:8000
     depends_on:
       - redis
+      - chroma
       # - firestore-emulator
     volumes:
       - ./core-engine/src:/app/src
@@ -51,6 +51,19 @@ services:
     networks:
       - omni-network
 
+  # ChromaDB - Long Term Memory Vector Store
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: omni-dromenon-chroma
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma-data:/chroma/chroma
+    environment:
+      - IS_PERSISTENT=TRUE
+    networks:
+      - omni-network
+
   # Redis for session state
   redis:
     image: redis:7-alpine
@@ -68,29 +81,29 @@ services:
       retries: 3
 
   # Firestore emulator for local development
-  firestore-emulator:
-    image: google/cloud-firestore-emulator:latest
-    container_name: omni-dromenon-firestore
-    ports:
-      - "8080:8080"
-      - "8081:8081"
-    environment:
-      - PORT=8080
-    networks:
-      - omni-network
+  # firestore-emulator:
+  #   image: google/cloud-firestore-emulator:latest
+  #   container_name: omni-dromenon-firestore
+  #   ports:
+  #     - "8080:8080"
+  #     - "8081:8081"
+  #   environment:
+  #     - PORT=8080
+  #   networks:
+  #     - omni-network
 
   # Audio synthesis bridge (optional, for OSC testing)
-  audio-bridge:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile.audio-bridge
-    container_name: omni-dromenon-audio
-    ports:
-      - "9000:9000/udp"
-    depends_on:
-      - core-engine
-    networks:
-      - omni-network
+  # audio-bridge:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/Dockerfile.audio-bridge
+  #   container_name: omni-dromenon-audio
+  #   ports:
+  #     - "9000:9000/udp"
+  #   depends_on:
+  #     - core-engine
+  #   networks:
+  #     - omni-network
 
   # Nginx reverse proxy & static site
   nginx:
@@ -111,6 +124,8 @@ services:
 
 volumes:
   redis-data:
+    driver: local
+  chroma-data:
     driver: local
 
 networks:

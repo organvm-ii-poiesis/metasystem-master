@@ -6,7 +6,12 @@ from pathlib import Path
 
 # --- Configuration ---
 WORKSPACE_ROOT = Path("/Users/4jp/Workspace")
-ORGS = ["4444JPP", "ivviiviivvi", "omni-dromenon-machina"]
+ORGS = ["4444JPP", "ivviiviivvi", "omni-dromenon-machina", "labores-profani-crux"]
+
+# Map Local Folder Name -> Remote Repo Name
+REPO_ALIASES = {
+    "omni-dromenon-machina": "metasystem-master"
+}
 
 def run_command(cmd, cwd=None):
     try:
@@ -130,8 +135,11 @@ def main():
 
     # Sync Existing
     for name, path in local_repos.items():
-        if name in remote_repos:
-            sync_repo(name, path, remote_repos[name])
+        # Check direct match or alias
+        remote_name = REPO_ALIASES.get(name, name)
+        
+        if remote_name in remote_repos:
+            sync_repo(name, path, remote_repos[remote_name])
         else:
             print(f"\n👻 Orphan: {name} (No matching remote in targeted orgs)")
 
