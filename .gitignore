@@ -1,26 +1,39 @@
-# Sub-Repositories (Ignored to prevent nested repo issues)
-core-engine/
-performance-sdk/
-client-sdk/
-audio-synthesis-bridge/
-example-generative-visual/
-example-generative-music/
-example-theatre-dialogue/
-example-choreographic-interface/
-academic-publication/
-artist-toolkit-and-templates/
-dreamcatcher/
-omni-dromenon-deploy/
-gcp/
-docs/
-
 # System
 .DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Python
 .venv/
 __pycache__/
+*.pyc
+*.egg-info/
+
+# Runtime
 data/
 
 # Secrets
 *.env
 *.key
 *.pem
+
+# Archive (historical backups)
+_archive/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+mnt/
+ssl/
