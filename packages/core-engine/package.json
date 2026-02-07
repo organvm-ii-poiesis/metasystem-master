@@ -1,5 +1,5 @@
 {
-  "name": "@omni-dromenon-engine/core-engine",
+  "name": "@omni-dromenon/core-engine",
   "version": "0.1.0",
   "description": "Real-time audience-participatory performance server with weighted consensus",
   "main": "dist/index.js",

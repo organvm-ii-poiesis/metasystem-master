@@ -1,5 +1,5 @@
 {
-  "name": "@omni-dromenon-engine/performance-sdk",
+  "name": "@omni-dromenon/performance-sdk",
   "version": "0.1.0",
   "description": "Unified interface for performers and audiences in participatory performances",
   "main": "dist/index.js",
