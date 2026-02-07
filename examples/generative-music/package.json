@@ -1,5 +1,5 @@
 {
-  "name": "@omni-dromenon-engine/example-generative-music",
+  "name": "@omni-dromenon/example-generative-music",
   "version": "0.1.0",
   "description": "Reference implementation: Audience-controlled generative music",
   "main": "src/server/index.js",

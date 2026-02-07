@@ -1,0 +1,11 @@
+{
+  "name": "@omni-dromenon/example-theatre-dialogue",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Theatre dialogue example with branching narrative",
+  "scripts": {
+    "dev": "node src/server/index.js",
+    "test": "echo \"no tests yet\""
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@omni-dromenon/example-generative-visual",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Generative visual art example with shader-based rendering",
+  "scripts": {
+    "dev": "node src/server/index.js",
+    "test": "echo \"no tests yet\""
+  },
+  "license": "MIT"
+}
