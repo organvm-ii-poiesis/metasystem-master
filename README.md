@@ -1,65 +1,107 @@
-# 4jp Metasystem
+# Omni-Dromenon Machina
 
-**Autonomous Development Ecosystem**
+**Real-time audience-participatory performance system with weighted consensus algorithms**
 
-This workspace is managed by the **Omni-Dromenon Machina** (Universal Orchestrator), which coordinates development across multiple distinct projects.
+[![CI](https://github.com/omni-dromenon-machina/metasystem-master/actions/workflows/metasystem-ci.yml/badge.svg)](https://github.com/omni-dromenon-machina/metasystem-master/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](./tsconfig.base.json)
+[![pnpm](https://img.shields.io/badge/pnpm-workspace-F69220.svg)](./pnpm-workspace.yaml)
 
-## 🧠 The Orchestrator
-- **[omni-dromenon-machina](./omni-dromenon-machina)**: The central nervous system. It runs autonomous agents, manages CI/CD, and enforces architectural constraints across the workspace.
+Omni-Dromenon enables collective audience control over live artistic performances. Audience inputs are spatially and temporally weighted through consensus algorithms, creating emergent group dynamics while preserving performer agency.
 
-## 🌍 Managed Workspaces
+**Core innovation:** Performers maintain override authority while audiences shape the performance in real time - a democratic instrument for live art.
 
-### Active Projects
-- **[life-my--midst--in](./life-my--midst--in)**: Interactive CV/Résumé system with identity masking.
-  - *Status:* Active Development (Codex Agents)
-  - *Tech:* Next.js, Neo4j, TypeScript
-  - *Docs:* [Architecture](./life-my--midst--in/ARCH-001-system-architecture.md), [Seed](./life-my--midst--in/seed.yaml)
-
-- **[gamified-coach-interface](./gamified-coach-interface)**: 3D Holographic fitness strategy platform.
-  - *Status:* Live Prototype
-  - *Tech:* React, Three.js, Python
-  - *Docs:* [Architecture](./gamified-coach-interface/ARCHITECTURE.md), [Seed](./gamified-coach-interface/seed.yaml)
-
-- **[trade-perpetual-future](./trade-perpetual-future)**: Non-custodial Solana trading terminal.
-  - *Status:* Production Ready
-  - *Tech:* React, Solana Web3.js, Drift Protocol
-  - *Docs:* [Readme](./trade-perpetual-future/README.md), [Seed](./trade-perpetual-future/seed.yaml)
-
-### Tools & Utilities
-- **[my--father-mother](./my--father-mother)**: Local memory augmentation and clipboard manager.
-- **[mail_automation](./mail_automation)**: Gmail processing agents.
-- **[mcp-servers](./mcp-servers)**: Local Model Context Protocol infrastructure.
-
-## 🔗 Architecture
-The system is defined by `4jp-metasystem.yaml`, which maps the relationships between the Orchestrator and its managed satellites.
+## Architecture
 
 ```mermaid
-graph TD
-    A[Omni-Dromenon Machina] -->|Orchestrates| B[life-my--midst--in]
-    A -->|Monitors| C[gamified-coach-interface]
-    A -->|Indexes| D[my--father-mother]
-    A -->|Deploys| E[trade-perpetual-future]
-    
-    subgraph Shared Infrastructure
-    F[@4jp/design-system]
-    G[Identity Wallet (Solana)]
+graph LR
+    subgraph Audience
+        A1[Phone 1] --> WS
+        A2[Phone 2] --> WS
+        A3[Phone N] --> WS
     end
-    
-    B --> F
-    C --> F
-    E --> G
-    A --> G
+
+    subgraph Core Engine
+        WS[WebSocket Server] --> PB[Parameter Bus]
+        PB --> CA[Consensus Aggregator]
+        CA -->|weighted vote| PO[Performer Override]
+    end
+
+    subgraph Output
+        PO --> SDK[Performance SDK]
+        PO --> OSC[OSC Bridge]
+        OSC --> SC[SuperCollider]
+        OSC --> MAX[Max/MSP]
+    end
+
+    P[Performer Dashboard] --> PO
 ```
 
-## 🚀 Operations
-To invoke the orchestrator:
+**P95 latency target: <2ms** from audience input to consensus output.
+
+## Packages
+
+| Package | Description | Language |
+|---------|------------|----------|
+| [`@omni-dromenon/core-engine`](./packages/core-engine) | WebSocket server, consensus algorithm, parameter bus | TypeScript |
+| [`@omni-dromenon/performance-sdk`](./packages/performance-sdk) | React UI (performer dashboard + audience interface) | TypeScript/React |
+| [`@omni-dromenon/client-sdk`](./packages/client-sdk) | WebSocket client library | TypeScript |
+| [`@omni-dromenon/audio-synthesis-bridge`](./packages/audio-synthesis-bridge) | OSC gateway for external synthesizers | TypeScript |
+| [`orchestrate`](./packages/orchestrate) | Multi-AI orchestration CLI | Python |
+
+## Examples
+
+| Example | Domain |
+|---------|--------|
+| [Generative Music](./examples/generative-music) | Real-time audience-driven music generation |
+| [Generative Visual](./examples/generative-visual) | Shader-based visual art controlled by consensus |
+| [Choreographic Interface](./examples/choreographic-interface) | Motion capture + pose detection |
+| [Theatre Dialogue](./examples/theatre-dialogue) | Branching narrative driven by audience votes |
+
+## Quick Start
+
 ```bash
-cd omni-dromenon-machina
-# Run autonomous development cycle
-npm run orchestrate
+# Clone and install
+git clone https://github.com/omni-dromenon-machina/metasystem-master.git
+cd metasystem-master
+pnpm install
+
+# Development
+pnpm dev              # Start all packages in dev mode
+pnpm build            # Build all TypeScript packages
+pnpm test             # Run all tests
+
+# Docker (full stack)
+docker compose up     # Core engine + SDK + Redis + Nginx
 ```
 
-## 📚 Grand Index
-- **Orchestrator Docs:** `omni-dromenon-machina/docs/`
-- **Identity Theory:** `life-my--midst--in/packages/schema/README.md`
-- **Trading Specs:** `trade-perpetual-future/docs/guides/FEATURES.md`
+### Single Package
+
+```bash
+# Core engine only
+cd packages/core-engine
+pnpm dev              # Hot reload with tsx
+pnpm test             # Vitest
+pnpm run test:bench   # Consensus latency benchmarks
+```
+
+## Project Structure
+
+```
+omni-dromenon-machina/
+  .config/            Tooling configs (seed.yaml, metasystem.yaml)
+  .github/            CI/CD, issue templates, community health
+  docs/               Documentation (architecture, guides, specs, theory)
+  examples/           Reference implementations (4 domains)
+  infra/              Docker, GCP, nginx, static site
+  packages/           Source code (pnpm workspaces)
+  tools/              Build scripts, utilities
+```
+
+## Contributing
+
+See [CONTRIBUTING.md](./.github/CONTRIBUTING.md) for guidelines. This project follows a phase-based development model - check [docs/plans/](./docs/plans/) for current priorities.
+
+## License
+
+[MIT](./LICENSE)
