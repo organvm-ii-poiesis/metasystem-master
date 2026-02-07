@@ -1,0 +1,353 @@
+## GATE 1: RESEARCH VALIDATION GATE
+## Purpose: Validate Phase 1 outputs before proceeding to Phase 2
+
+You are validating research findings before the project proceeds to specification hardening.
+
+## PHASE 1 OUTPUTS
+{phase1_results}
+
+## VALIDATION CRITERIA
+
+### 1. PRECEDENT VERIFICATION QUALITY
+- [ ] At least 80% of claims have primary source verification
+- [ ] Contradicted claims are flagged and explained
+- [ ] Technical specifications are documented where available
+- [ ] Novelty gaps are clearly articulated
+
+### 2. FUNDING LANDSCAPE COMPLETENESS
+- [ ] At least 10 realistic funding opportunities identified
+- [ ] At least 3 opportunities with deadlines in next 90 days
+- [ ] Alignment scores are justified with rationale
+- [ ] Eligibility requirements are verified
+
+### 3. CRITICAL FINDINGS
+- [ ] No show-stopping contradictions in precedent claims
+- [ ] At least one high-priority funding path identified
+- [ ] Key differentiators from existing work are clear
+
+## GATE DECISION
+
+Based on the validation criteria:
+
+**PASS**: All criteria met. Proceed to Phase 2.
+**REVISE**: Some criteria not met. Specify which tasks need re-running.
+**FAIL**: Fundamental issues found. Return to project definition.
+
+## OUTPUT FORMAT
+```json
+{
+  "gate": 1,
+  "name": "research_validation",
+  "validation_results": {
+    "precedent_quality": {
+      "claims_verified": "number",
+      "claims_contradicted": "number", 
+      "claims_unverifiable": "number",
+      "criteria_met": "boolean",
+      "notes": "string"
+    },
+    "funding_completeness": {
+      "opportunities_found": "number",
+      "near_term_deadlines": "number",
+      "criteria_met": "boolean",
+      "notes": "string"
+    },
+    "critical_findings": {
+      "blockers_found": "boolean",
+      "high_priority_path_exists": "boolean",
+      "differentiators_clear": "boolean",
+      "notes": "string"
+    }
+  },
+  "decision": "pass | revise | fail",
+  "revise_tasks": ["task_name if revise"],
+  "blocking_issues": ["issue if fail"],
+  "recommendations": ["string"],
+  "timestamp": "ISO datetime"
+}
+```
+
+---
+
+## GATE 2: SPECIFICATION HARDENING GATE
+## Purpose: Validate Phase 2 outputs before proceeding to messaging
+
+You are validating specification analysis before the project proceeds to messaging synthesis.
+
+## PHASE 2 OUTPUTS
+{phase2_results}
+
+## VALIDATION CRITERIA
+
+### 1. EDGE-CASE MATRIX COMPLETENESS
+- [ ] All 25 cells (5×5 matrix) are populated
+- [ ] Critical and high-priority issues have mitigations
+- [ ] Safety-critical scenarios are identified and addressed
+- [ ] Specification gaps are documented
+
+### 2. CONSTRAINT VALIDATION QUALITY
+- [ ] Latency breakdown accounts for all components
+- [ ] Scalability limits are quantified
+- [ ] At least 2 architecture variants are provided
+- [ ] Bottlenecks are identified with optimization paths
+
+### 3. ARCHITECTURE VIABILITY
+- [ ] No fundamental redesign required for core constraints
+- [ ] Trade-offs are clearly articulated
+- [ ] Recommended variant is justified
+
+## GATE DECISION
+
+**PASS**: Architecture is viable with known mitigations. Proceed to Phase 3.
+**REVISE**: Constraints need re-evaluation. Iterate Phase 2.
+**FAIL**: Architecture fundamentally flawed. Return to Phase 1.
+
+## OUTPUT FORMAT
+```json
+{
+  "gate": 2,
+  "name": "specification_hardening",
+  "validation_results": {
+    "edge_case_matrix": {
+      "cells_populated": "number (of 25)",
+      "critical_issues": "number",
+      "mitigations_provided": "number",
+      "criteria_met": "boolean",
+      "notes": "string"
+    },
+    "constraint_validation": {
+      "latency_achievable": "boolean",
+      "scale_achievable": "boolean",
+      "variants_provided": "number",
+      "criteria_met": "boolean",
+      "notes": "string"
+    },
+    "architecture_viability": {
+      "viable": "boolean",
+      "redesign_required": "none | minor | major | fundamental",
+      "criteria_met": "boolean",
+      "notes": "string"
+    }
+  },
+  "decision": "pass | revise | fail",
+  "revise_tasks": ["task_name if revise"],
+  "blocking_issues": ["issue if fail"],
+  "recommendations": ["string"],
+  "timestamp": "ISO datetime"
+}
+```
+
+---
+
+## GATE 3: MESSAGING COHERENCE GATE
+## Purpose: Validate Phase 3 outputs before proceeding to implementation planning
+
+You are validating messaging synthesis for coherence and quality.
+
+## PHASE 3 OUTPUTS
+{phase3_results}
+
+## VALIDATION CRITERIA
+
+### 1. NARRATIVE QUALITY
+- [ ] Each funder narrative addresses specific funder priorities
+- [ ] Technical claims are consistent with Phase 2 findings
+- [ ] Word counts are within specified limits
+- [ ] Tone is appropriate for each audience
+
+### 2. CROSS-NARRATIVE COHERENCE
+- [ ] Core message is consistent across all variants
+- [ ] No contradictions between funder narratives
+- [ ] Technical specifications align across documents
+- [ ] Timeline claims are consistent
+
+### 3. ARTIST STATEMENT QUALITY
+- [ ] Statement is authentic and compelling
+- [ ] Bridges technical and artistic concerns
+- [ ] Adaptable across contexts
+- [ ] No contradictions with grant narratives
+
+## GATE DECISION
+
+**PASS**: Messaging is coherent and ready. Proceed to Phase 4.
+**REVISE**: Specific narratives need revision. Iterate with feedback.
+**FAIL**: Fundamental messaging strategy needs rethinking.
+
+## OUTPUT FORMAT
+```json
+{
+  "gate": 3,
+  "name": "messaging_synthesis",
+  "validation_results": {
+    "narrative_quality": {
+      "narratives_reviewed": "number",
+      "meet_quality_bar": "number",
+      "criteria_met": "boolean",
+      "notes": "string"
+    },
+    "coherence": {
+      "contradictions_found": "number",
+      "contradictions": ["string"],
+      "criteria_met": "boolean",
+      "notes": "string"
+    },
+    "artist_statement": {
+      "authentic": "boolean",
+      "bridges_concerns": "boolean",
+      "adaptable": "boolean",
+      "criteria_met": "boolean",
+      "notes": "string"
+    }
+  },
+  "decision": "pass | revise | fail",
+  "revise_tasks": ["task_name if revise"],
+  "blocking_issues": ["issue if fail"],
+  "recommendations": ["string"],
+  "timestamp": "ISO datetime"
+}
+```
+
+---
+
+## GATE 4: IMPLEMENTATION PLANNING GATE
+## Purpose: Validate Phase 4 outputs before proceeding to vulnerability audit
+
+You are validating implementation planning for realism and completeness.
+
+## PHASE 4 OUTPUTS
+{phase4_results}
+
+## VALIDATION CRITERIA
+
+### 1. ARCHITECTURE REVIEW QUALITY
+- [ ] All major dependencies assessed
+- [ ] Latency analysis is complete with bottleneck identification
+- [ ] Scalability limits are quantified
+- [ ] Timeline has realistic milestones
+
+### 2. BUDGET REALISM
+- [ ] All cost categories covered
+- [ ] Contingency is included (≥20%)
+- [ ] Multiple scenarios provided
+- [ ] ROI analysis is present
+
+### 3. RISK ASSESSMENT
+- [ ] Critical risks identified
+- [ ] Mitigations are actionable
+- [ ] Timeline risks are addressed
+- [ ] Resource gaps are documented with solutions
+
+## GATE DECISION
+
+**PASS**: Implementation plan is realistic. Proceed to Phase 5.
+**REVISE**: Timeline/budget needs adjustment. Iterate with constraints.
+**FAIL**: Implementation fundamentally unrealistic. Scope reduction required.
+
+## OUTPUT FORMAT
+```json
+{
+  "gate": 4,
+  "name": "implementation_planning",
+  "validation_results": {
+    "architecture_review": {
+      "dependencies_assessed": "number",
+      "high_risk_dependencies": "number",
+      "latency_achievable": "boolean",
+      "criteria_met": "boolean",
+      "notes": "string"
+    },
+    "budget_realism": {
+      "total_budget": "number",
+      "contingency_percent": "number",
+      "scenarios_provided": "number",
+      "criteria_met": "boolean",
+      "notes": "string"
+    },
+    "risk_assessment": {
+      "critical_risks": "number",
+      "mitigations_provided": "number",
+      "resource_gaps": "number",
+      "criteria_met": "boolean",
+      "notes": "string"
+    }
+  },
+  "decision": "pass | revise | fail",
+  "revise_tasks": ["task_name if revise"],
+  "blocking_issues": ["issue if fail"],
+  "recommendations": ["string"],
+  "timestamp": "ISO datetime"
+}
+```
+
+---
+
+## GATE 5: VULNERABILITY AUDIT GATE
+## Purpose: Final validation before synthesis
+
+You are reviewing the vulnerability audit for completeness and actionability.
+
+## PHASE 5 OUTPUTS
+{phase5_results}
+
+## VALIDATION CRITERIA
+
+### 1. ASSUMPTION CRITIQUE COVERAGE
+- [ ] All 6 assumption categories covered
+- [ ] Red flag assumptions have validation plans
+- [ ] Probe questions are specific and answerable
+- [ ] Meta-critique included
+
+### 2. FAILURE SCENARIO COMPLETENESS
+- [ ] At least 10 scenarios across all categories
+- [ ] Cascade effects are traced
+- [ ] Contingency plans are actionable
+- [ ] Interaction analysis included
+
+### 3. ACTIONABILITY
+- [ ] Priority ranking is clear
+- [ ] "Must validate before proceeding" list is present
+- [ ] Mitigation recommendations are specific
+- [ ] Risk matrix is complete
+
+## GATE DECISION
+
+**PASS**: Vulnerability audit is complete. Proceed to synthesis.
+**REVISE**: Additional scenarios or validation needed.
+**FAIL**: Critical blind spot discovered. Return to earlier phase.
+
+## OUTPUT FORMAT
+```json
+{
+  "gate": 5,
+  "name": "vulnerability_audit",
+  "validation_results": {
+    "assumption_critique": {
+      "categories_covered": "number (of 6)",
+      "red_flags": "number",
+      "validation_plans": "number",
+      "criteria_met": "boolean",
+      "notes": "string"
+    },
+    "failure_scenarios": {
+      "scenarios_generated": "number",
+      "categories_covered": "number (of 5)",
+      "contingencies_provided": "number",
+      "criteria_met": "boolean",
+      "notes": "string"
+    },
+    "actionability": {
+      "priority_ranking_present": "boolean",
+      "must_validate_list_present": "boolean",
+      "mitigations_specific": "boolean",
+      "criteria_met": "boolean",
+      "notes": "string"
+    }
+  },
+  "decision": "pass | revise | fail",
+  "revise_tasks": ["task_name if revise"],
+  "blocking_issues": ["issue if fail"],
+  "recommendations": ["string"],
+  "ready_for_synthesis": "boolean",
+  "timestamp": "ISO datetime"
+}
+```

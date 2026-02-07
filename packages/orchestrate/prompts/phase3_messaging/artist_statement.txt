@@ -1,0 +1,197 @@
+## PHASE 3d: UNIFIED ARTIST STATEMENT
+## Service: ChatGPT
+## Purpose: Generate project artist statement (adaptable across contexts)
+
+You are crafting a unified artist statement for Omni-Performative Engine that can serve as the foundation for all external communications.
+
+## PROJECT CORE
+{project_summary}
+
+## APPLICANT PROFILE
+{applicant_profile}
+
+## VALIDATED PRECEDENTS (from Phase 1)
+{validated_precedents}
+
+## TECHNICAL VALIDATION (from Phase 2)
+{technical_validation_summary}
+
+## FUNDER NARRATIVES GENERATED (Phase 3a-c)
+{narrative_summaries}
+
+---
+
+## ARTIST STATEMENT REQUIREMENTS
+
+**Length**: 500-700 words
+**Purpose**: Adaptable foundation for:
+- Grant applications (as project description)
+- Festival submissions
+- Residency applications
+- Press materials
+- Personal website
+
+---
+
+## STRUCTURE GUIDELINES
+
+**NOT a rigid template.** The statement should flow as a single narrative that naturally addresses:
+
+### Opening (Hook)
+- Begin with the core question or provocation
+- Establish what's at stake
+- Create immediate engagement
+
+### Context (Brief)
+- Position in artistic practice
+- Why this project, why now
+- What precedes this (without being biographical)
+
+### The Work
+- What it IS (not just what it does)
+- What experience it creates
+- What it asks of participants
+
+### Technical Approach (Integrated)
+- Weave technology into artistic vision
+- Tech as material, not as feature list
+- What the technology enables aesthetically
+
+### Stakes / Vision
+- What this changes
+- What questions it opens
+- Where it leads
+
+### Closing (Not Summary)
+- End with forward motion
+- A question, an invitation, a provocation
+
+---
+
+## VOICE REQUIREMENTS
+
+**Do**:
+- Write in first person where appropriate
+- Be specific and concrete
+- Ground claims in evidence
+- Show personal investment
+- Take a clear position
+
+**Don't**:
+- Use buzzwords ("innovative," "revolutionary," "cutting-edge")
+- Be vague or abstract
+- Over-explain technology
+- Sound like marketing copy
+- Apologize or hedge excessively
+
+---
+
+## OUTPUT FORMAT
+
+### Primary Output: Artist Statement (Markdown)
+```markdown
+# [Project Title]
+
+[Single continuous narrative, 500-700 words]
+[No section headers in final output]
+[Should flow as readable prose]
+```
+
+### Secondary Output: Variant Hooks (Markdown)
+```markdown
+## Alternate Openings
+
+### Technical Audience Hook
+[1-2 sentences]
+
+### Arts/Humanities Audience Hook
+[1-2 sentences]
+
+### General Public Hook
+[1-2 sentences]
+
+### Festival/Exhibition Hook
+[1-2 sentences]
+```
+
+### Tertiary Output: JSON Metadata
+```json
+{
+  "statement_metadata": {
+    "word_count": "number",
+    "reading_time_seconds": "number",
+    "core_claims": ["string"],
+    "key_terms_introduced": [
+      {
+        "term": "string",
+        "definition_in_text": "yes | no",
+        "audience_familiarity": "low | medium | high"
+      }
+    ],
+    "tonal_register": "academic | artistic | accessible | hybrid",
+    "adaptability_notes": {
+      "for_technical_context": "string (what to emphasize/de-emphasize)",
+      "for_humanities_context": "string",
+      "for_general_context": "string"
+    },
+    "coherence_check": {
+      "aligns_with_nsf_narrative": "boolean",
+      "aligns_with_neh_narrative": "boolean",
+      "aligns_with_ars_narrative": "boolean",
+      "contradictions_found": ["string"]
+    }
+  },
+  "metadata": {
+    "service": "chatgpt",
+    "model": "string",
+    "timestamp": "ISO datetime",
+    "token_usage": "number"
+  }
+}
+```
+
+---
+
+## QUALITY CRITERIA
+
+The statement succeeds if it:
+
+1. **Engages** on first reading (not just informs)
+2. **Distinguishes** this project from similar work
+3. **Grounds** artistic vision in concrete specifics
+4. **Bridges** technical and artistic concerns
+5. **Invites** rather than concludes
+
+---
+
+## COHERENCE REQUIREMENTS
+
+This statement must NOT contradict the Phase 3a-c narratives:
+- Technical claims must match NSF narrative
+- Humanities framing must align with NEH narrative  
+- Artistic positioning must resonate with Ars narrative
+
+Flag any tensions between these framings in the metadata.
+
+---
+
+## EXAMPLE QUALITIES (Not Templates)
+
+**Strong opening example qualities**:
+- Poses a question the reader hasn't considered
+- Places the reader in an experience
+- Makes a claim that demands engagement
+
+**Strong closing example qualities**:
+- Opens rather than closes
+- Points beyond the current work
+- Leaves the reader with something to consider
+
+---
+
+## DO NOT INCLUDE
+- Biography (that's separate)
+- Full technical specifications
+- Timeline or budget
+- Acknowledgments
+- Citations (this is a statement, not an academic paper)

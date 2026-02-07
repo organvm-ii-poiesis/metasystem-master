@@ -1,0 +1,199 @@
+## PHASE 3c: GRANT/RESIDENCY NARRATIVE - ARS ELECTRONICA
+## Service: ChatGPT
+## Purpose: Generate narrative for Ars Electronica residencies/prizes/commissions
+
+You are drafting a submission for Ars Electronica (residency, STARTS Prize, or Futurelab collaboration).
+
+## PROJECT CORE
+{project_summary}
+
+## APPLICANT PROFILE
+{applicant_profile}
+
+## FUNDER PROFILE (from Phase 1 research)
+{funder_profile}
+
+## PRECEDENT VALIDATION (from Phase 1)
+{validated_precedents}
+
+## TECHNICAL VALIDATION (from Phase 2)
+{technical_validation_summary}
+
+---
+
+## ARS ELECTRONICA CONTEXT
+
+**Organizational Focus**: Art, technology, society intersection
+**Programs**: 
+- STARTS Prize (Science, Technology, Arts)
+- Residencies (Futurelab, various partners)
+- Festival commissions
+**Winning Work**: Technically sophisticated + culturally provocative + socially engaged
+**Aesthetic**: European experimental tradition; critical engagement with technology
+
+---
+
+## KEY POSITIONING FOR ARS
+
+Unlike American funders, Ars values:
+- **Critical stance**: Technology as subject of inquiry, not just tool
+- **Artistic vision**: Personal voice, risk-taking, conceptual depth
+- **Social relevance**: What does this say about our moment?
+- **European context**: Connection to media art history (ZKM, Transmediale, etc.)
+
+---
+
+## NARRATIVE STRUCTURE (800-1200 words, flexible format)
+
+### 1. ARTISTIC STATEMENT (300 words)
+
+**The Vision**
+- What is the artwork/system trying to achieve?
+- What experience do you want participants to have?
+- What question does this pose to the audience?
+
+**Conceptual Framework**
+- Reference points (historical, theoretical, artistic)
+- Position in media art discourse
+- Relationship to "interactive art" tradition (and how this differs)
+
+**Personal Stake**
+- Why you? Why now?
+- What drives this inquiry?
+- What risk are you taking?
+
+### 2. TECHNICAL INNOVATION (250 words)
+
+**Novel Contribution**
+- What's technically new? (for Ars, "new" must be genuinely novel)
+- How does the technology enable new aesthetic possibilities?
+- What couldn't exist without this?
+
+**Architecture Summary**
+- High-level description (accessible to art-tech hybrid audience)
+- Key design decisions and their artistic rationale
+
+### 3. SOCIAL/CULTURAL RELEVANCE (250 words)
+
+**Critical Engagement**
+- What does this project say about technology and society?
+- Power dynamics: Who controls the performance?
+- Questions of agency, consent, collective action
+
+**Timeliness**
+- Why is this relevant now?
+- Connection to current cultural/political moment
+- Historical precedents and how this moment differs
+
+### 4. REALIZATION PLAN (200 words)
+
+**Development Pathway**
+- Current state (where are you now?)
+- Residency goals (what will you accomplish with support?)
+- Resources needed (space, equipment, expertise)
+
+**Exhibition/Performance Context**
+- Where will this be shown?
+- What does the experience look like?
+- Duration, scale, audience numbers
+
+### 5. BIOGRAPHY/PRACTICE (200 words)
+
+**Artistic Practice**
+- Overview of your work
+- Previous projects (relevant to this)
+- Recognition (exhibitions, awards, publications)
+
+---
+
+## OUTPUT FORMAT
+
+### Primary Output: Narrative Document (Markdown)
+```markdown
+# [Project Title]: Ars Electronica Submission
+
+## Artistic Statement
+[content - personal voice, first person acceptable]
+
+## Technical Innovation
+[content]
+
+## Social and Cultural Relevance
+[content]
+
+## Realization Plan
+[content]
+
+## About the Artist
+[content]
+```
+
+### Secondary Output: JSON Metadata
+```json
+{
+  "narrative_metadata": {
+    "funder": "Ars Electronica",
+    "program": "STARTS Prize | Residency | Commission",
+    "word_count": "number",
+    "artistic_framing": {
+      "conceptual_references": ["string (artists, theorists)"],
+      "media_art_context": "string",
+      "critical_stance": "string",
+      "aesthetic_position": "string"
+    },
+    "social_relevance": {
+      "key_questions": ["string"],
+      "current_moment_connection": "string",
+      "power_dynamics_addressed": ["string"]
+    },
+    "technical_claims": [
+      {
+        "claim": "string",
+        "novelty_level": "incremental | significant | breakthrough",
+        "evidence": "string"
+      }
+    ],
+    "exhibition_context": {
+      "format": "installation | performance | workshop | hybrid",
+      "duration": "string",
+      "scale": "string",
+      "audience_engagement": "string"
+    },
+    "risk_flags": ["string"],
+    "suggested_documentation": [
+      {
+        "type": "video | image | diagram | code",
+        "description": "string"
+      }
+    ]
+  },
+  "metadata": {
+    "service": "chatgpt",
+    "model": "string",
+    "timestamp": "ISO datetime",
+    "token_usage": "number"
+  }
+}
+```
+
+## VOICE & TONE
+
+**Acceptable**: Personal, visionary, critical, ambitious, questioning
+**Avoid**: Corporate, purely technical, uncritical techno-optimism
+**First person**: Yes, appropriate for artist statements
+**Jargon**: Art/theory jargon acceptable; tech jargon needs translation
+
+## CRITICAL POSITIONING
+
+Frame CAL not as "efficiency" but as:
+- Exploration of collective intelligence in performance
+- Questioning the myth of the "genius" creator
+- Technology as medium for relational aesthetics
+- Instrument for new forms of presence and liveness
+
+## REFERENCE POINTS TO CONSIDER
+- Relational Aesthetics (Bourriaud)
+- Participation (Bishop)
+- New media art history (Manovich, Paul)
+- Performance (Auslander, Phelan)
+- Interactive art (Sermon, Rokeby, Sommerer/Mignonneau)

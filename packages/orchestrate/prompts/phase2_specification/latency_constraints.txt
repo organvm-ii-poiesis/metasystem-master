@@ -1,0 +1,197 @@
+## PHASE 2b: LATENCY & RESOURCE CONSTRAINT VALIDATION
+## Service: Gemini (long-context)
+## Purpose: Validate whether performance constraints are achievable
+
+You are validating architectural constraints for a real-time performance system.
+
+## CONSTRAINT SPECIFICATION
+{constraints}
+
+## PROPOSED ARCHITECTURE
+{architecture}
+
+## EDGE CASES FROM PHASE 2a
+{edge_case_summary}
+
+## PRIMARY CONSTRAINTS TO VALIDATE
+
+| Constraint | Target | Tolerance | Criticality |
+|------------|--------|-----------|-------------|
+| End-to-end latency | <100ms | Hard limit | Safety-critical |
+| Concurrent audience | 5,000 | Soft limit | Scalability |
+| Performer CPU overhead | <20% | Soft limit | User experience |
+| Network bandwidth | 1 Mbps | Hard limit | Venue constraint |
+| Memory per client | <50MB | Soft limit | Device compatibility |
+
+## ANALYSIS TASK
+
+### FOR EACH CONSTRAINT:
+
+#### 1. ACHIEVABILITY ASSESSMENT
+- **Status**: Yes | No | Conditional
+- **Confidence Level**: High | Medium | Low
+- **Evidence**: (benchmarks, documentation, similar systems)
+- **Conditions** (if conditional): What must be true for this to work?
+
+#### 2. LATENCY BREAKDOWN (for latency constraint)
+```
+LATENCY WATERFALL:
+┌─────────────────────────────────────────────────┐
+│ Input capture (sensor/device)      │    Xms    │
+├─────────────────────────────────────────────────┤
+│ Network: Client → Server           │    Xms    │
+├─────────────────────────────────────────────────┤
+│ CAL Processing (consensus)         │    Xms    │
+├─────────────────────────────────────────────────┤
+│ State update + broadcast           │    Xms    │
+├─────────────────────────────────────────────────┤
+│ Network: Server → Clients          │    Xms    │
+├─────────────────────────────────────────────────┤
+│ Client render (audio/visual)       │    Xms    │
+├─────────────────────────────────────────────────┤
+│ TOTAL                              │    Xms    │
+└─────────────────────────────────────────────────┘
+```
+
+- **Bottleneck identification**: Which stage dominates?
+- **Optimization opportunity**: Where can time be saved?
+- **Irreducible minimum**: What's the physics-limited floor?
+
+#### 3. RESOURCE CONSUMPTION MODEL
+
+| Component | CPU % | Memory MB | Bandwidth Kbps | Notes |
+|-----------|-------|-----------|----------------|-------|
+| CAL Engine | | | | |
+| Performer UI | | | | |
+| Audience Client | | | | |
+| Audio Pipeline | | | | |
+| State Sync | | | | |
+| **TOTAL** | | | | |
+
+#### 4. SCALABILITY ANALYSIS
+- **Linear scaling range**: 1 - N clients (where performance degrades linearly)
+- **Cliff point**: At what N does performance collapse?
+- **Limiting factor**: CPU | Memory | Network | Consensus algorithm
+- **Horizontal scaling possible?**: Yes/No and how
+
+#### 5. FAILURE POINT ANALYSIS
+- **At what scale does this break?**: Specific number
+- **How does it fail?**: Gracefully | Catastrophically | Silently
+- **Warning signs**: What metrics indicate approaching failure?
+- **Recovery mechanism**: How to restore after overload?
+
+#### 6. ALTERNATIVE ARCHITECTURES
+
+**Variant A: Baseline (as specified)**
+- Achieves: [constraints met]
+- Fails at: [constraint not met]
+- Tradeoff: [what you sacrifice]
+
+**Variant B: Optimized for Latency**
+- Architecture changes: [list]
+- Achieves: [constraints met]
+- Fails at: [constraint not met]
+- Tradeoff: [what you sacrifice]
+
+**Variant C: Optimized for Scale**
+- Architecture changes: [list]
+- Achieves: [constraints met]
+- Fails at: [constraint not met]
+- Tradeoff: [what you sacrifice]
+
+**Variant D: Minimal Viable (budget/timeline constrained)**
+- Architecture changes: [list]
+- Achieves: [constraints met]
+- Fails at: [constraint not met]
+- Tradeoff: [what you sacrifice]
+
+## OUTPUT FORMAT
+
+### JSON Schema:
+```json
+{
+  "constraint_validation": {
+    "constraints": [
+      {
+        "name": "end_to_end_latency",
+        "target": "100ms",
+        "achievable": "yes | no | conditional",
+        "confidence": "high | medium | low",
+        "evidence": "string",
+        "conditions": ["string"] 
+      }
+    ],
+    "latency_waterfall": {
+      "stages": [
+        {"name": "input_capture", "latency_ms": "number", "notes": "string"},
+        {"name": "network_up", "latency_ms": "number", "notes": "string"},
+        {"name": "cal_processing", "latency_ms": "number", "notes": "string"},
+        {"name": "state_broadcast", "latency_ms": "number", "notes": "string"},
+        {"name": "network_down", "latency_ms": "number", "notes": "string"},
+        {"name": "client_render", "latency_ms": "number", "notes": "string"}
+      ],
+      "total_ms": "number",
+      "bottleneck": "string",
+      "optimization_opportunity": "string",
+      "irreducible_minimum_ms": "number"
+    },
+    "resource_budget": {
+      "components": [
+        {
+          "name": "string",
+          "cpu_percent": "number",
+          "memory_mb": "number",
+          "bandwidth_kbps": "number"
+        }
+      ],
+      "totals": {
+        "cpu_percent": "number",
+        "memory_mb": "number", 
+        "bandwidth_kbps": "number"
+      }
+    },
+    "scalability": {
+      "linear_range_max": "number",
+      "cliff_point": "number",
+      "limiting_factor": "cpu | memory | network | consensus",
+      "horizontal_scaling": "boolean",
+      "horizontal_scaling_notes": "string"
+    },
+    "failure_analysis": {
+      "failure_scale": "number",
+      "failure_mode": "graceful | catastrophic | silent",
+      "warning_metrics": ["string"],
+      "recovery_mechanism": "string"
+    },
+    "architecture_variants": [
+      {
+        "name": "baseline | optimized_latency | optimized_scale | minimal",
+        "changes": ["string"],
+        "constraints_met": ["string"],
+        "constraints_failed": ["string"],
+        "tradeoffs": "string"
+      }
+    ]
+  },
+  "critical_finding": "string (most important insight)",
+  "recommended_variant": "string",
+  "metadata": {
+    "service": "gemini",
+    "model": "string",
+    "timestamp": "ISO datetime",
+    "token_usage": "number"
+  }
+}
+```
+
+## CRITICAL QUESTIONS TO ANSWER
+1. **Most likely constraint to break in production?** Why?
+2. **If you had to sacrifice one constraint, which one?** Why that one?
+3. **What's the single most important optimization?** Cost/benefit?
+4. **Should the constraint targets be revised?** What's realistic?
+
+## ASSUMPTIONS TO STATE
+- Network characteristics (jitter, packet loss assumptions)
+- Device capabilities (minimum spec for audience client)
+- Venue conditions (WiFi contention model)
+- Usage patterns (peak vs. average load)

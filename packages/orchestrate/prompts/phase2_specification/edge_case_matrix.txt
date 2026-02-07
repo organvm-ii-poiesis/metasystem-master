@@ -1,0 +1,153 @@
+## PHASE 2a: CAL EDGE-CASE MATRIX
+## Service: Gemini (long-context)
+## Purpose: Stress-test CAL architecture against real-world failure modes
+
+You are an expert systems architect reviewing a real-time performance system specification for edge-case vulnerabilities.
+
+## SYSTEM SPECIFICATION
+{cal_specification}
+
+## ARCHITECTURE CONTEXT
+{architecture_context}
+
+## TASK: Generate a comprehensive edge-case matrix
+
+### MATRIX DIMENSIONS
+
+**COLUMNS (Input Vectors):**
+1. **Performer State** - Physical input, gesture, vocal, instrument signals
+2. **Band/Ensemble Inputs** - Multi-performer synchronization signals
+3. **Audience Signals** - Voting, movement, biometric, mobile inputs
+4. **Environmental Context** - Venue acoustics, lighting, spatial data
+5. **Meta-State Memory** - Historical performance context, learned patterns
+
+**ROWS (Failure Modes):**
+1. **Network Latency Spikes** - >500ms delay in signal propagation
+2. **Contradictory Inputs** - Audience wants silence while performer demands intensity
+3. **Scale Overload** - 10,000+ concurrent audience participants
+4. **Sensor Failure** - Environment tracking drops, partial data loss
+5. **Consensus Deadlock** - Weighted votes produce tie states or oscillation
+
+## FOR EACH CELL (25 total), PROVIDE:
+
+### Analysis Structure:
+```
+CELL [Row, Column]: {Failure Mode} × {Input Vector}
+
+1. SCENARIO DESCRIPTION
+   - Specific, testable condition
+   - Trigger conditions (what causes this?)
+   - Frequency estimate (rare | occasional | common)
+
+2. CURRENT CAL BEHAVIOR (from spec)
+   - What the specification says should happen
+   - What actually happens (if different)
+   - Specification gap (yes/no)
+
+3. FAILURE MODES
+   - Primary failure: What breaks first?
+   - Cascade effects: What else fails?
+   - User experience impact: What does performer/audience see?
+   - Safety implications: Any physical/psychological risk?
+
+4. MITIGATION STRATEGY
+   - Immediate fix (one-sentence implementation)
+   - Graceful degradation: How to fail safely?
+   - Recovery procedure: How to restore normal operation?
+
+5. IMPLEMENTATION ASSESSMENT
+   - Cost: Trivial | Low | Medium | High
+   - Risk if not addressed: Safety | Artistic | Financial | Timeline
+   - Priority: Critical | High | Medium | Low
+   - Dependencies: What else must be built first?
+```
+
+## OUTPUT FORMAT
+
+### Markdown Table (Summary View):
+| Cell | Scenario | Current Behavior | Primary Failure | Mitigation | Cost | Priority |
+|------|----------|------------------|-----------------|------------|------|----------|
+| 1,1  | ...      | ...              | ...             | ...        | Low  | High     |
+
+### JSON (Detailed, for parsing):
+```json
+{
+  "edge_case_matrix": {
+    "dimensions": {
+      "columns": ["performer_state", "band_inputs", "audience_signals", "environmental", "meta_state"],
+      "rows": ["latency_spike", "contradictory_input", "scale_overload", "sensor_failure", "consensus_deadlock"]
+    },
+    "cells": [
+      {
+        "id": "1_1",
+        "row": "latency_spike",
+        "column": "performer_state",
+        "scenario": {
+          "description": "string",
+          "trigger_conditions": ["string"],
+          "frequency": "rare | occasional | common"
+        },
+        "current_behavior": {
+          "spec_says": "string",
+          "actual_behavior": "string",
+          "spec_gap": "boolean"
+        },
+        "failure_analysis": {
+          "primary_failure": "string",
+          "cascade_effects": ["string"],
+          "ux_impact": {
+            "performer": "string",
+            "audience": "string"
+          },
+          "safety_implications": "string | null"
+        },
+        "mitigation": {
+          "immediate_fix": "string",
+          "graceful_degradation": "string",
+          "recovery_procedure": "string"
+        },
+        "assessment": {
+          "cost": "trivial | low | medium | high",
+          "risk_type": "safety | artistic | financial | timeline",
+          "priority": "critical | high | medium | low",
+          "dependencies": ["string"]
+        }
+      }
+    ]
+  },
+  "summary": {
+    "critical_count": "number",
+    "high_count": "number",
+    "spec_gaps_found": "number",
+    "safety_concerns": ["string"],
+    "recommended_order": ["cell_id in priority order"]
+  },
+  "metadata": {
+    "service": "gemini",
+    "model": "string",
+    "timestamp": "ISO datetime",
+    "token_usage": "number",
+    "context_tokens": "number"
+  }
+}
+```
+
+## ADDITIONAL ANALYSIS
+
+### Cross-Cell Interactions
+Identify any cell combinations that compound risk:
+- Which failures cascade across multiple cells?
+- Which mitigations address multiple cells simultaneously?
+
+### Specification Gaps Summary
+List all cases where the spec does not define behavior:
+- Gap description
+- Proposed default behavior
+- Rationale
+
+## CRITICAL INSTRUCTIONS
+- Be adversarial: assume Murphy's Law applies
+- Prioritize safety-critical scenarios (physical harm, psychological distress)
+- Consider both technical failures AND human factors
+- Note where testing is required vs. where analysis is sufficient
+- Flag any edge cases that require fundamental architecture changes

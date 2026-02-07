@@ -1,0 +1,94 @@
+## PHASE 1a: PRECEDENT VERIFICATION
+## Service: Perplexity
+## Purpose: Validate existing claims about audience-driven performance systems
+
+You are validating research for an academic project on audience-driven adaptive performance systems.
+
+## CONTEXT
+Project: Omni-Performative Engine
+Goal: Unified platform enabling real-time audience-performer co-creation across genres
+
+## EXISTING PRECEDENT CLAIMS TO VERIFY
+{precedent_claims}
+
+## TASK
+For EACH claim listed above, provide:
+
+### 1. SOURCE VERIFICATION
+- **Primary Source**: (Academic paper DOI, official documentation URL, verified interview citation)
+- **Source Quality**: (Peer-reviewed | Official Documentation | Verified Interview | Secondary Source | Unverified)
+- **Access Date**: (When source was last verified accessible)
+
+### 2. CLAIM ACCURACY
+- **Verification Status**: (Confirmed | Partially Confirmed | Contradicted | Unverifiable)
+- **Actual Finding**: (What the source actually says, if different from claim)
+- **Discrepancy Notes**: (If any mismatch between claim and source)
+
+### 3. ADDITIONAL CONTEXT
+- **Related Systems**: (Other projects using similar technology/approach)
+- **Technical Specifications**: (Concrete numbers: latency, scale, resolution if available)
+- **Limitations Noted**: (What the source identifies as constraints)
+
+### 4. NOVELTY ASSESSMENT
+- **Gap Identified**: (What is missing from this precedent that Omni-PE addresses?)
+- **Overlap Risk**: (Could this be seen as prior art? How differentiated is Omni-PE?)
+
+## OUTPUT FORMAT
+Return results in both:
+1. **JSON** (for parsing): Array of verification objects
+2. **Markdown** (for human review): Formatted report with citations
+
+## JSON SCHEMA
+```json
+{
+  "verification_results": [
+    {
+      "claim_id": "string (e.g., 'CLAIM_001')",
+      "original_claim": "string",
+      "source": {
+        "type": "academic_paper | documentation | interview | secondary | unverified",
+        "citation": "string (full citation)",
+        "url": "string | null",
+        "doi": "string | null",
+        "access_date": "ISO date string"
+      },
+      "verification": {
+        "status": "confirmed | partially_confirmed | contradicted | unverifiable",
+        "actual_finding": "string",
+        "discrepancy": "string | null"
+      },
+      "technical_specs": {
+        "latency_ms": "number | null",
+        "scale_users": "number | null",
+        "resolution": "string | null",
+        "other": {}
+      },
+      "novelty": {
+        "gap_identified": "string",
+        "overlap_risk": "low | medium | high",
+        "differentiation_notes": "string"
+      },
+      "related_systems": ["string"]
+    }
+  ],
+  "summary": {
+    "total_claims": "number",
+    "confirmed": "number",
+    "contradicted": "number",
+    "unverifiable": "number",
+    "high_priority_gaps": ["string"]
+  },
+  "metadata": {
+    "service": "perplexity",
+    "model": "string",
+    "timestamp": "ISO datetime",
+    "token_usage": "number"
+  }
+}
+```
+
+## CRITICAL INSTRUCTIONS
+- Prioritize academic and official sources over news articles or blog posts
+- Flag any claim that cannot be verified with a primary source
+- Note when specifications are estimated vs. documented
+- Identify if any precedents have been discontinued or superseded

@@ -1,0 +1,75 @@
+# Omni-Orchestration Configuration
+# Copy this to config.yaml and fill in your API keys
+
+# API Keys (can use environment variable references)
+api_keys:
+  perplexity: "${PERPLEXITY_API_KEY}"
+  gemini: "${GEMINI_API_KEY}"
+  chatgpt: "${OPENAI_API_KEY}"
+  copilot: "${OPENAI_API_KEY}"  # Uses OpenAI API with code-focused prompting
+  grok: "${GROK_API_KEY}"
+
+# Output directory for results
+output_dir: "./results"
+
+# Prompts directory
+prompts_dir: "./prompts"
+
+# Service-specific configuration
+service_config:
+  perplexity:
+    model: "llama-3.1-sonar-large-128k-online"
+    max_tokens: 4000
+    temperature: 0.3  # Lower for factual accuracy
+    
+  gemini:
+    model: "gemini-1.5-pro"
+    max_tokens: 8000  # Long-context for multi-doc analysis
+    temperature: 0.4
+    
+  chatgpt:
+    model: "gpt-4-turbo"
+    max_tokens: 4000
+    temperature: 0.7  # Slightly higher for narrative variety
+    
+  copilot:
+    model: "gpt-4-turbo"
+    max_tokens: 4000
+    temperature: 0.3  # Lower for technical precision
+    
+  grok:
+    model: "grok-beta"
+    max_tokens: 4000
+    temperature: 0.8  # Higher for provocative critique
+
+# Phase configuration (optional overrides)
+phases:
+  - name: "research_validation"
+    parallel_limit: 2
+    gate_required: true
+    timeout_seconds: 300
+    
+  - name: "spec_hardening"
+    parallel_limit: 2
+    gate_required: true
+    timeout_seconds: 600
+    
+  - name: "messaging_synthesis"
+    parallel_limit: 3  # Can run multiple narratives in parallel
+    gate_required: true
+    timeout_seconds: 300
+    
+  - name: "implementation_planning"
+    parallel_limit: 2
+    gate_required: true
+    timeout_seconds: 300
+    
+  - name: "vulnerability_audit"
+    parallel_limit: 2
+    gate_required: false  # Final phase, synthesized manually
+    timeout_seconds: 300
+
+# Output formats
+output_formats:
+  - json
+  - markdown

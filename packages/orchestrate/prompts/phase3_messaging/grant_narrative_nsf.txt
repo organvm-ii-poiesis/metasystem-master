@@ -1,0 +1,175 @@
+## PHASE 3a: GRANT NARRATIVE - NSF CREATIVE IT
+## Service: ChatGPT
+## Purpose: Generate funder-specific narrative for NSF Creative IT program
+
+You are drafting a grant narrative for the NSF Creative IT program (US$300K, technology + creative practice focus).
+
+## PROJECT CORE
+{project_summary}
+
+## APPLICANT PROFILE
+{applicant_profile}
+
+## FUNDER PROFILE (from Phase 1 research)
+{funder_profile}
+
+## PRECEDENT VALIDATION (from Phase 1)
+{validated_precedents}
+
+## TECHNICAL VALIDATION (from Phase 2)
+{technical_validation_summary}
+
+---
+
+## NSF CREATIVE IT REQUIREMENTS
+
+**Program Focus**: Novel computational methods with social/cultural impact
+**Typical Winners**: Cross-disciplinary teams, academic + industry partnerships
+**Winning Messaging**: "democratizing creative technology" + "open-source models"
+**Common Weaknesses**: Underestimated timelines, overstated adoption claims
+
+---
+
+## NARRATIVE STRUCTURE (2 pages, NSF format)
+
+### 1. PROBLEM STATEMENT (1 paragraph, ~200 words)
+
+Write a compelling problem statement that addresses:
+- **Current state**: What is broken/limited in live performance today?
+- **Why it matters**: Stakes for performers, audiences, culture
+- **Why it's hard**: Technical and creative challenges
+- **Why now**: What makes this moment ripe for intervention?
+
+**Tone**: Urgent but grounded; avoid hyperbole
+**Evidence**: Reference validated precedents from Phase 1
+
+### 2. PROPOSED SOLUTION (1.5 pages, ~750 words)
+
+#### 2.1 Core Innovation: CAL (Contextual Awareness Layer)
+- What it is (one paragraph, accessible to reviewers)
+- Algorithmic contribution (what's novel computationally?)
+- Theoretical contribution (what's novel conceptually?)
+
+#### 2.2 Architecture Overview
+- High-level system diagram (describe in text for later visualization)
+- Key components and their interactions
+- Why this architecture vs. alternatives?
+
+#### 2.3 Novelty Claim
+- How Omni-PE differs from existing systems (cite Phase 1 precedents)
+- What specific gap does it fill?
+- Contribution to HCI/music computing/performance studies fields
+
+#### 2.4 Proof-of-Concept Timeline (12 months)
+- Quarter-by-quarter milestones
+- Deliverables at each stage
+- Risk mitigation built into timeline
+
+### 3. BROADER IMPACTS (0.5 pages, ~250 words)
+
+#### 3.1 Beneficiaries
+- Artists and performers (creative empowerment)
+- Technologists (open tools, new paradigms)
+- Audiences (agency, engagement)
+- Institutions (new programming possibilities)
+
+#### 3.2 Dissemination Plan
+- Open-source repository (license, community model)
+- Academic publication targets (specific venues)
+- Workshops and tutorials (venues, audiences)
+
+#### 3.3 Educational Component
+- Curriculum integration possibilities
+- Toolkit for artists/developers
+- Accessibility considerations
+
+### 4. QUALIFICATIONS & RESOURCES (brief, ~100 words)
+- Why this team/individual is positioned to succeed
+- Institutional support (if any)
+- Preliminary work completed
+
+---
+
+## OUTPUT FORMAT
+
+### Primary Output: Narrative Document (Markdown)
+```markdown
+# [Project Title]: NSF Creative IT Narrative
+
+## Problem Statement
+[content]
+
+## Proposed Solution
+
+### Core Innovation
+[content]
+
+### Architecture
+[content]
+
+### Novelty
+[content]
+
+### Timeline
+[content]
+
+## Broader Impacts
+[content]
+
+## Team Qualifications
+[content]
+```
+
+### Secondary Output: JSON Metadata
+```json
+{
+  "narrative_metadata": {
+    "funder": "NSF",
+    "program": "Creative IT",
+    "word_count": "number",
+    "sections": {
+      "problem_statement": "number words",
+      "proposed_solution": "number words",
+      "broader_impacts": "number words",
+      "qualifications": "number words"
+    },
+    "key_claims": [
+      {
+        "claim": "string",
+        "evidence_source": "phase1 | phase2 | applicant",
+        "strength": "strong | moderate | weak"
+      }
+    ],
+    "differentiation_points": ["string"],
+    "risk_flags": ["string (anything reviewers might question)"],
+    "suggested_figures": [
+      {
+        "figure_id": "F1",
+        "description": "string",
+        "purpose": "string"
+      }
+    ]
+  },
+  "metadata": {
+    "service": "chatgpt",
+    "model": "string",
+    "timestamp": "ISO datetime",
+    "token_usage": "number"
+  }
+}
+```
+
+## WRITING GUIDELINES
+
+**Voice**: Confident but not arrogant; precise but not jargon-heavy
+**Evidence**: Every major claim should reference Phase 1/2 findings
+**Specificity**: Use concrete numbers, timelines, deliverables
+**Accessibility**: Write for intelligent non-specialists (diverse review panels)
+**Structure**: Clear topic sentences; one idea per paragraph
+
+## AVOID
+- Vague claims ("revolutionary", "unprecedented") without evidence
+- Overpromising on timeline or adoption
+- Ignoring limitations or risks
+- Field-specific jargon without explanation
+- Passive voice where active is clearer

@@ -1,0 +1,257 @@
+## PHASE 4a: CODE ARCHITECTURE STRESS-TEST
+## Service: Copilot
+## Purpose: Review proof-of-concept architecture for production readiness
+
+You are reviewing a real-time performance system proof-of-concept architecture for production readiness, timeline realism, and hidden risks.
+
+## ARCHITECTURE SPECIFICATION
+{architecture_spec}
+
+## PROPOSED STACK
+- **Backend**: Rust (CAL engine + consensus algorithm)
+- **Frontend**: Flutter (performer + audience UI)  
+- **Audio**: SuperCollider integration
+- **Protocol**: OSC (Open Sound Control) for inter-service communication
+- **State Management**: {state_management_approach}
+
+## CONSTRAINTS (from Phase 2)
+{constraints_summary}
+
+## EDGE CASES (from Phase 2)
+{edge_case_summary}
+
+---
+
+## CODE REVIEW TASK
+
+### 1. DEPENDENCY RISK ASSESSMENT
+
+For each major dependency:
+
+| Dependency | Version | Last Updated | Maintenance Status | Risk Level |
+|------------|---------|--------------|-------------------|------------|
+| [crate/package] | X.Y.Z | YYYY-MM-DD | Active/Minimal/Abandoned | Low/Med/High |
+
+**Questions to answer**:
+- Are all crates/libraries actively maintained?
+- Any version conflicts between Rust + Flutter + SuperCollider?
+- Are there known security vulnerabilities?
+- Would you use these exact versions in production?
+- What's the upgrade path if a dependency breaks?
+
+**For each HIGH risk dependency**:
+- Alternative options
+- Migration effort estimate
+- Risk if not migrated
+
+### 2. LATENCY BOTTLENECK ANALYSIS
+
+Break down the end-to-end latency budget:
+
+```
+COMPONENT LATENCY BREAKDOWN:
+┌────────────────────────────────────────────────────────────┐
+│ Component                        │ Budget │ Actual │ Risk │
+├────────────────────────────────────────────────────────────┤
+│ Input deserialization (OSC)      │   5ms  │   ?ms  │  ?   │
+│ CAL consensus computation        │  20ms  │   ?ms  │  ?   │
+│ State mutation + validation      │   5ms  │   ?ms  │  ?   │
+│ Output serialization             │   5ms  │   ?ms  │  ?   │
+│ Network RTT (server-client)      │  40ms  │   ?ms  │  ?   │
+│ Client render (Flutter)          │  16ms  │   ?ms  │  ?   │
+│ Audio output (SuperCollider)     │  10ms  │   ?ms  │  ?   │
+├────────────────────────────────────────────────────────────┤
+│ TOTAL                            │ 100ms  │   ?ms  │      │
+└────────────────────────────────────────────────────────────┘
+```
+
+**Questions to answer**:
+- Which component will hit the constraint first?
+- OSC serialization overhead vs. alternatives (protobuf, flatbuffers)?
+- Database query latency (if any state persistence)?
+- Network round-trip assumptions (realistic for venue WiFi)?
+- Where can parallelization help?
+
+### 3. SCALABILITY VALIDATION
+
+Analyze the proposed architecture against scale requirements:
+
+**Thread Model**:
+- Will Rust async/thread-per-actor model handle 5,000 connections?
+- Memory overhead per client (estimate)?
+- What's the thread/task limit before OS contention?
+
+**Consensus Algorithm Complexity**:
+- Current complexity: O(?) for N participants
+- At what N does this become problematic?
+- Can complexity be reduced without changing semantics?
+
+**Network Model**:
+- Bandwidth per client (estimate)?
+- Total bandwidth at 5,000 clients?
+- Is pub/sub architecture appropriate?
+
+**Scale Failure Analysis**:
+- What fails first: network, memory, or CPU?
+- At what scale?
+- What does failure look like (graceful degradation vs. crash)?
+
+### 4. DEVELOPMENT RISK & TIMELINE
+
+#### Timeline Breakdown (12 weeks):
+| Week | Module | Deliverable | Risk | Dependencies |
+|------|--------|-------------|------|--------------|
+| 1-2 | Setup | Build system, CI, dev environment | | |
+| 3-4 | CAL Core | Consensus algorithm MVP | | |
+| 5-6 | Backend | State management, OSC integration | | CAL Core |
+| 7-8 | Frontend | Flutter performer UI | | Backend |
+| 9-10 | Integration | End-to-end flow | | All above |
+| 11-12 | Testing | Load testing, bug fixes | | Integration |
+
+**Questions to answer**:
+- What's the critical path (longest dependency chain)?
+- What could delay this? (dependency issues, API changes, etc.)
+- Realistic 12-week outcome: POC demo or production-ready?
+- What scope must be cut if timeline slips?
+
+#### Risk Register:
+| Risk | Probability | Impact | Mitigation |
+|------|-------------|--------|------------|
+| [risk] | Low/Med/High | Low/Med/High | [action] |
+
+### 5. RECOMMENDATIONS
+
+**Top 3 Optimizations** (if must reduce latency by 30%):
+1. [Optimization]: [Expected improvement] | [Implementation effort]
+2. [Optimization]: [Expected improvement] | [Implementation effort]
+3. [Optimization]: [Expected improvement] | [Implementation effort]
+
+**Top 2 Alternatives** (if consensus algorithm doesn't scale):
+1. [Alternative approach]: [Trade-offs]
+2. [Alternative approach]: [Trade-offs]
+
+**#1 Critical Risk** (must mitigate before starting):
+- [Risk description]
+- [Why it's critical]
+- [Mitigation steps]
+
+---
+
+## OUTPUT FORMAT
+
+### JSON Schema:
+```json
+{
+  "architecture_review": {
+    "dependencies": [
+      {
+        "name": "string",
+        "version": "string",
+        "last_updated": "ISO date",
+        "maintenance_status": "active | minimal | abandoned",
+        "risk_level": "low | medium | high",
+        "alternatives": ["string"],
+        "migration_effort_days": "number"
+      }
+    ],
+    "latency_analysis": {
+      "components": [
+        {
+          "name": "string",
+          "budget_ms": "number",
+          "estimated_ms": "number",
+          "risk": "low | medium | high",
+          "optimization_potential": "string"
+        }
+      ],
+      "total_budget_ms": "number",
+      "total_estimated_ms": "number",
+      "bottleneck": "string",
+      "meets_constraint": "boolean"
+    },
+    "scalability_analysis": {
+      "thread_model": {
+        "pattern": "string",
+        "max_connections": "number",
+        "memory_per_client_kb": "number"
+      },
+      "consensus_complexity": {
+        "big_o": "string",
+        "problematic_at_n": "number",
+        "reducible": "boolean"
+      },
+      "network_model": {
+        "bandwidth_per_client_kbps": "number",
+        "total_bandwidth_at_5000_mbps": "number",
+        "pub_sub_appropriate": "boolean"
+      },
+      "failure_analysis": {
+        "first_failure": "network | memory | cpu",
+        "failure_scale": "number",
+        "failure_mode": "graceful | crash"
+      }
+    },
+    "timeline": {
+      "weeks": [
+        {
+          "week_range": "string",
+          "module": "string",
+          "deliverable": "string",
+          "risk": "low | medium | high",
+          "dependencies": ["string"]
+        }
+      ],
+      "critical_path": ["string"],
+      "realistic_outcome": "poc_demo | production_ready | partial",
+      "scope_cut_if_slip": ["string"]
+    },
+    "risks": [
+      {
+        "risk": "string",
+        "probability": "low | medium | high",
+        "impact": "low | medium | high",
+        "mitigation": "string"
+      }
+    ],
+    "recommendations": {
+      "optimizations": [
+        {
+          "description": "string",
+          "expected_improvement": "string",
+          "effort_days": "number"
+        }
+      ],
+      "alternatives_if_fails": [
+        {
+          "description": "string",
+          "tradeoffs": "string"
+        }
+      ],
+      "critical_risk": {
+        "description": "string",
+        "why_critical": "string",
+        "mitigation_steps": ["string"]
+      }
+    }
+  },
+  "summary": {
+    "architecture_viable": "boolean",
+    "timeline_realistic": "boolean",
+    "major_concerns": ["string"],
+    "confidence_level": "high | medium | low"
+  },
+  "metadata": {
+    "service": "copilot",
+    "model": "string",
+    "timestamp": "ISO datetime",
+    "token_usage": "number"
+  }
+}
+```
+
+## CRITICAL QUESTIONS TO ANSWER
+
+1. **Is 12 weeks realistic?** If not, what IS realistic?
+2. **What's the single biggest risk?** Not the most likely—the most damaging.
+3. **If you had to cut 30% of scope, what goes?**
+4. **What would make you recommend NOT building this?**

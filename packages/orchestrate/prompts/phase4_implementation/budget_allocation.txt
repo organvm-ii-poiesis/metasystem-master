@@ -1,0 +1,300 @@
+## PHASE 4b: BUDGET & RESOURCE ALLOCATION
+## Service: Copilot
+## Purpose: Create realistic budget and timeline for proof-of-concept
+
+You are creating a detailed budget and resource allocation for an 8-12 week proof-of-concept development cycle.
+
+## CONTEXT
+{project_context}
+
+## ARCHITECTURE (from Phase 4a)
+{architecture_summary}
+
+## TIMELINE ASSESSMENT (from Phase 4a)
+{timeline_assessment}
+
+## FUNDING TARGETS (from Phase 1)
+{funding_summary}
+
+---
+
+## BUDGET PARAMETERS
+
+**Scenario Baseline**:
+- Primary developer: {developer_profile}
+- Timeline: 12 weeks
+- Budget target: €30,000 (adjustable in scenarios)
+- Geographic base: {geographic_base}
+
+---
+
+## BUDGET ANALYSIS TASK
+
+### 1. PERSONNEL COSTS
+
+#### Your Time Allocation:
+| Week Range | Focus Area | Hours/Week | Hourly Rate | Total |
+|------------|-----------|------------|-------------|-------|
+| 1-2 | Setup | | €X | €X |
+| 3-4 | CAL Core | | €X | €X |
+| ... | ... | | | |
+
+**Questions to answer**:
+- Realistic hours/week given other commitments?
+- What's your effective hourly rate for budgeting?
+- Total personal time investment (hours)?
+
+#### Contractor/Collaborator Needs:
+| Role | Hours Needed | Rate Range | When Needed | Total |
+|------|--------------|------------|-------------|-------|
+| Flutter specialist | X | €45-80/hr | Weeks 7-10 | €X |
+| Audio engineer | X | €40-70/hr | Weeks 5-8 | €X |
+| UX/Design | X | €50-90/hr | Weeks 6-8 | €X |
+| ... | | | | |
+
+**Questions to answer**:
+- Which tasks REQUIRE external help vs. "nice to have"?
+- Can any contractor work be deferred to post-POC?
+- Are rates realistic for {geographic_base}?
+
+### 2. INFRASTRUCTURE & TOOLS
+
+| Category | Item | One-time | Monthly | Duration | Total |
+|----------|------|----------|---------|----------|-------|
+| Cloud | Dev/test server (AWS/GCP) | | €X | 3 mo | €X |
+| Cloud | Production test (load testing) | | €X | 1 mo | €X |
+| Software | IDE/tools licenses | €X | | | €X |
+| Hardware | Audio interface | €X | | | €X |
+| Hardware | Test devices (phones/tablets) | €X | | | €X |
+| Services | Domain, SSL, misc | €X | €X | | €X |
+
+**Questions to answer**:
+- What's the minimum viable infrastructure?
+- Any free tier options that defer costs?
+- What hardware is essential vs. nice-to-have?
+
+### 3. TRAVEL & EVENTS (if applicable)
+
+| Item | Purpose | Cost | Notes |
+|------|---------|------|-------|
+| Conference | Present POC | €X | Optional/stretch |
+| User testing | On-site with performers | €X | If not remote |
+
+### 4. CONTINGENCY PLANNING
+
+**Risk-based contingency**:
+| Risk | Probability | Cost Impact | Contingency |
+|------|-------------|-------------|-------------|
+| Timeline slip +2 weeks | Medium | €X | +X hours @ €Y |
+| Contractor unavailable | Low | €X | Alternative sourcing |
+| Tech pivot required | Low | €X | Descope or extend |
+
+**Recommended contingency**: X% of total budget
+
+### 5. BUDGET SCENARIOS
+
+#### Scenario A: Full Budget (€30K, 12 weeks, solo dev + contractors)
+```
+BUDGET BREAKDOWN:
+├── Personnel
+│   ├── Your time:        €X,XXX (XX%)
+│   ├── Contractors:      €X,XXX (XX%)
+│   └── Subtotal:         €X,XXX
+├── Infrastructure
+│   ├── Cloud:            €X,XXX (XX%)
+│   ├── Tools:            €X,XXX (XX%)
+│   ├── Hardware:         €X,XXX (XX%)
+│   └── Subtotal:         €X,XXX
+├── Travel/Events:        €X,XXX (XX%)
+├── Contingency (X%):     €X,XXX
+└── TOTAL:                €30,000
+```
+**Deliverable**: Full POC, ready for user testing
+**Risk level**: Medium
+
+#### Scenario B: Lean Budget (€15K, 16 weeks, solo dev)
+```
+[Same structure, different numbers]
+```
+**Deliverable**: Core CAL + minimal UI
+**Scope cuts**: [list what's deferred]
+**Risk level**: Medium-High (timeline risk)
+
+#### Scenario C: Accelerated (€50K, 8 weeks, team)
+```
+[Same structure, different numbers]
+```
+**Deliverable**: Full POC + polish
+**Added resources**: [what the extra money buys]
+**Risk level**: Low-Medium
+
+#### Scenario D: Bootstrap (€5K, 20 weeks, nights/weekends)
+```
+[Same structure, different numbers]
+```
+**Deliverable**: Technical prototype only
+**Scope cuts**: [list what's deferred]
+**Risk level**: High (motivation, timeline)
+
+### 6. RESOURCE GAP ANALYSIS
+
+| Gap | When | Hours Needed | Skill | Solution Options |
+|-----|------|--------------|-------|------------------|
+| [gap] | Week X | Y hours | [skill] | Contractor / Learn / Defer |
+
+**Critical gaps** (must fill to succeed):
+1. [Gap]: [Why critical] → [Recommended solution]
+
+**Deferrable gaps** (can work around):
+1. [Gap]: [Workaround]
+
+### 7. ROI / BREAK-EVEN ANALYSIS
+
+**Investment**: €30,000 + X hours personal time
+**Potential returns**:
+| Outcome | Probability | Value | Expected Value |
+|---------|-------------|-------|----------------|
+| Grant (e.g., NSF) | X% | €X | €X |
+| Residency | X% | €X | €X |
+| Commission | X% | €X | €X |
+| Speaking/workshop | X% | €X | €X |
+
+**Break-even timeline**: If POC leads to [grant/contract], ROI in X months
+
+---
+
+## OUTPUT FORMAT
+
+### JSON Schema:
+```json
+{
+  "budget_analysis": {
+    "parameters": {
+      "timeline_weeks": "number",
+      "budget_target": "number",
+      "currency": "string",
+      "developer_profile": "string"
+    },
+    "personnel": {
+      "your_time": {
+        "total_hours": "number",
+        "hourly_rate": "number",
+        "total_cost": "number",
+        "by_phase": [
+          {
+            "weeks": "string",
+            "focus": "string",
+            "hours_per_week": "number"
+          }
+        ]
+      },
+      "contractors": [
+        {
+          "role": "string",
+          "hours": "number",
+          "rate_range": {"min": "number", "max": "number"},
+          "weeks_needed": "string",
+          "estimated_cost": "number",
+          "essential": "boolean"
+        }
+      ],
+      "subtotal": "number"
+    },
+    "infrastructure": {
+      "items": [
+        {
+          "category": "cloud | software | hardware | services",
+          "item": "string",
+          "one_time": "number",
+          "monthly": "number",
+          "duration_months": "number",
+          "total": "number"
+        }
+      ],
+      "subtotal": "number"
+    },
+    "travel_events": {
+      "items": [
+        {
+          "item": "string",
+          "purpose": "string",
+          "cost": "number",
+          "optional": "boolean"
+        }
+      ],
+      "subtotal": "number"
+    },
+    "contingency": {
+      "percentage": "number",
+      "amount": "number",
+      "risks_covered": ["string"]
+    },
+    "scenarios": [
+      {
+        "name": "full | lean | accelerated | bootstrap",
+        "budget": "number",
+        "timeline_weeks": "number",
+        "team_size": "number",
+        "deliverable": "string",
+        "scope_cuts": ["string"],
+        "risk_level": "low | medium | high",
+        "breakdown": {
+          "personnel": "number",
+          "infrastructure": "number",
+          "travel": "number",
+          "contingency": "number"
+        }
+      }
+    ],
+    "resource_gaps": [
+      {
+        "gap": "string",
+        "when_week": "number",
+        "hours_needed": "number",
+        "skill": "string",
+        "critical": "boolean",
+        "solutions": ["string"]
+      }
+    ],
+    "roi_analysis": {
+      "investment": "number",
+      "potential_returns": [
+        {
+          "outcome": "string",
+          "probability_percent": "number",
+          "value": "number",
+          "expected_value": "number"
+        }
+      ],
+      "break_even_months": "number"
+    }
+  },
+  "recommendation": {
+    "recommended_scenario": "string",
+    "rationale": "string",
+    "critical_success_factors": ["string"],
+    "biggest_budget_risk": "string"
+  },
+  "metadata": {
+    "service": "copilot",
+    "model": "string",
+    "timestamp": "ISO datetime",
+    "token_usage": "number"
+  }
+}
+```
+
+### CSV Output (for spreadsheet import):
+```csv
+Category,Item,Amount,Percentage,Notes
+Personnel,Your time,XXXX,XX%,XX hours @ €XX/hr
+Personnel,Flutter contractor,XXXX,XX%,XX hours @ €XX/hr
+...
+```
+
+## CRITICAL QUESTIONS
+
+1. **What's the minimum budget to produce something demonstrable?**
+2. **Where is money being wasted in the full scenario?**
+3. **What's the single most expensive mistake you could make?**
+4. **If forced to cut 30% budget, what goes first?**

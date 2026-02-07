@@ -1,0 +1,192 @@
+## PHASE 3b: GRANT NARRATIVE - NEH DIGITAL HUMANITIES
+## Service: ChatGPT
+## Purpose: Generate funder-specific narrative for NEH Digital Humanities program
+
+You are drafting a grant narrative for NEH Digital Humanities Advancement Grants (US$50K-150K, humanities + technology).
+
+## PROJECT CORE
+{project_summary}
+
+## APPLICANT PROFILE
+{applicant_profile}
+
+## FUNDER PROFILE (from Phase 1 research)
+{funder_profile}
+
+## PRECEDENT VALIDATION (from Phase 1)
+{validated_precedents}
+
+## TECHNICAL VALIDATION (from Phase 2)
+{technical_validation_summary}
+
+---
+
+## NEH DIGITAL HUMANITIES REQUIREMENTS
+
+**Program Focus**: Technology in service of humanities research and public engagement
+**Typical Winners**: University-based projects, strong humanities framing, public benefit
+**Winning Messaging**: "expanding access to cultural heritage" + "new forms of scholarly inquiry"
+**Common Weaknesses**: Tech-forward projects that forget the humanities; weak evaluation plans
+
+---
+
+## KEY REFRAMING FOR NEH
+
+Unlike NSF (technology-first), NEH requires **humanities-first** framing:
+- Lead with cultural/scholarly questions, not technical innovation
+- Position technology as tool, not end goal
+- Emphasize public benefit and accessibility
+- Connect to humanities disciplines (performance studies, musicology, theater studies)
+
+---
+
+## NARRATIVE STRUCTURE (1500-2000 words, NEH format)
+
+### 1. SIGNIFICANCE AND CONTRIBUTION (400 words)
+
+#### Humanities Questions Addressed
+- What scholarly questions does this project enable?
+- How does audience agency change our understanding of performance?
+- What does "co-creation" mean for authorship, reception, liveness?
+
+#### Connection to Fields
+- Performance Studies: Liveness, presence, the "repertoire"
+- Musicology: Improvisation, audience-performer dynamics
+- Theater Studies: Immersive theater, audience participation
+- Digital Humanities: Computational methods for cultural analysis
+
+#### Public Benefit
+- How will non-specialists benefit?
+- Educational applications
+- Cultural democratization argument
+
+### 2. HISTORY AND DURATION (300 words)
+
+#### Project Genesis
+- How did this project emerge from humanities inquiry?
+- Prior work and preliminary investigations
+- Evolution of the concept
+
+#### Timeline and Phases
+- Phase 1: Foundation (months 1-6)
+- Phase 2: Development (months 7-12)
+- Phase 3: Evaluation/Dissemination (months 13-18)
+
+### 3. METHODOLOGY (500 words)
+
+#### Conceptual Framework
+- Theoretical grounding (cite relevant humanists)
+- How does CAL embody humanities principles?
+- Interdisciplinary methodology
+
+#### Technical Approach
+- Architecture (simplified for humanities audience)
+- Why these technology choices serve humanities goals
+- Accessibility and sustainability
+
+#### Evaluation Plan
+- How will success be measured?
+- User studies (performers, audiences)
+- Scholarly output metrics
+- Public engagement metrics
+
+### 4. WORK PLAN (300 words)
+
+#### Deliverables by Phase
+- Milestone table with humanities-relevant outputs
+- Scholarly publications planned
+- Public-facing outputs
+
+#### Personnel and Responsibilities
+- Humanities expertise on team
+- Technical expertise
+- Advisory board (if applicable)
+
+### 5. FINAL PRODUCT AND DISSEMINATION (200 words)
+
+#### Outputs
+- Open-source toolkit
+- Documentation and tutorials
+- Scholarly publications
+- Public presentations
+
+#### Sustainability
+- How will project continue after grant?
+- Open-source community model
+- Institutional support
+
+---
+
+## OUTPUT FORMAT
+
+### Primary Output: Narrative Document (Markdown)
+```markdown
+# [Project Title]: NEH Digital Humanities Advancement Grant Narrative
+
+## Significance and Contribution
+[content]
+
+## History and Duration of the Project
+[content]
+
+## Methodology
+[content]
+
+## Work Plan
+[content]
+
+## Final Product and Dissemination
+[content]
+```
+
+### Secondary Output: JSON Metadata
+```json
+{
+  "narrative_metadata": {
+    "funder": "NEH",
+    "program": "Digital Humanities Advancement Grants",
+    "word_count": "number",
+    "humanities_framing": {
+      "primary_discipline": "string",
+      "secondary_disciplines": ["string"],
+      "key_humanists_cited": ["string"],
+      "scholarly_questions": ["string"]
+    },
+    "public_benefit_claims": ["string"],
+    "evaluation_methods": ["string"],
+    "key_claims": [
+      {
+        "claim": "string",
+        "evidence_source": "phase1 | phase2 | applicant",
+        "strength": "strong | moderate | weak"
+      }
+    ],
+    "risk_flags": ["string"],
+    "suggested_figures": [
+      {
+        "figure_id": "F1",
+        "description": "string",
+        "purpose": "string"
+      }
+    ]
+  },
+  "metadata": {
+    "service": "chatgpt",
+    "model": "string",
+    "timestamp": "ISO datetime",
+    "token_usage": "number"
+  }
+}
+```
+
+## WRITING GUIDELINES
+
+**Voice**: Scholarly but accessible; rigorous but not dense
+**Framing**: Technology enables humanities inquiry (not the reverse)
+**Citations**: Reference humanities scholars (Auslander, Phelan, Taylor, etc.)
+**Audience**: Humanities review panel (may be skeptical of tech-heavy proposals)
+
+## CRITICAL REFRAMES
+- "Real-time consensus algorithm" → "collective meaning-making in performance"
+- "Multi-modal input processing" → "sensing the full dimension of human expression"
+- "Scalable architecture" → "accessible to diverse communities and venues"

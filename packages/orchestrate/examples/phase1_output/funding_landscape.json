@@ -1,0 +1,324 @@
+{
+  "funding_opportunities": [
+    {
+      "id": "FUND_001",
+      "funder": "National Science Foundation",
+      "program": "Creative IT",
+      "url": "https://www.nsf.gov/funding/pgm_summ.jsp?pims_id=505703",
+      "type": "research",
+      "eligibility": {
+        "geographic": "US institutions (PI affiliation required)",
+        "career_stage": "any",
+        "institutional": true,
+        "citizenship": "No citizenship requirement; institution must be US-based"
+      },
+      "funding": {
+        "amount_min": 100000,
+        "amount_max": 300000,
+        "currency": "USD",
+        "amount_usd_approx": 200000,
+        "duration_months": 24,
+        "indirect_allowed": true,
+        "match_required": false
+      },
+      "timeline": {
+        "next_deadline": "2025-04-15",
+        "notification_weeks": 16,
+        "start_flexibility": "6 months from award"
+      },
+      "fit": {
+        "alignment_score": 5,
+        "rationale": "Explicit focus on computing + creative practice; real-time systems research is core to program. CAL consensus algorithm is novel computational contribution.",
+        "messaging_angle": "Emphasize algorithmic innovation (CAL) and open-source dissemination. Frame as 'democratizing real-time performance technology.'",
+        "competition": "high",
+        "success_profile": "University teams with prior NSF funding; cross-disciplinary collaborations (CS + Arts); strong preliminary work"
+      },
+      "requirements": {
+        "materials": ["Project Description (15 pages)", "References", "Budget", "Data Management Plan", "Collaboration Plan", "Broader Impacts Statement"],
+        "page_limit": 15,
+        "word_limit": null,
+        "review_criteria": ["Intellectual Merit", "Broader Impacts", "Technical Approach", "Team Qualifications"]
+      },
+      "notes": "Requires US institutional affiliation. Consider partnership with university if independent. High alignment but competitive."
+    },
+    {
+      "id": "FUND_002",
+      "funder": "National Endowment for the Humanities",
+      "program": "Digital Humanities Advancement Grants",
+      "url": "https://www.neh.gov/grants/odh/digital-humanities-advancement-grants",
+      "type": "research",
+      "eligibility": {
+        "geographic": "US institutions and individuals",
+        "career_stage": "any",
+        "institutional": false,
+        "citizenship": "US citizens or permanent residents"
+      },
+      "funding": {
+        "amount_min": 50000,
+        "amount_max": 150000,
+        "currency": "USD",
+        "amount_usd_approx": 100000,
+        "duration_months": 18,
+        "indirect_allowed": true,
+        "match_required": false
+      },
+      "timeline": {
+        "next_deadline": "2025-06-01",
+        "notification_weeks": 24,
+        "start_flexibility": "Flexible"
+      },
+      "fit": {
+        "alignment_score": 4,
+        "rationale": "Strong humanities application possible (performance studies, music scholarship). Must lead with humanities questions, not technology.",
+        "messaging_angle": "Frame as tool for studying liveness, audience reception, and collective meaning-making in performance. Downplay technical innovation.",
+        "competition": "medium",
+        "success_profile": "Humanities faculty; projects with clear scholarly output; public engagement component"
+      },
+      "requirements": {
+        "materials": ["Narrative (8 pages)", "Budget", "Data Management", "Letters of Support"],
+        "page_limit": 8,
+        "word_limit": null,
+        "review_criteria": ["Significance", "Methodology", "Competencies", "Final Product"]
+      },
+      "notes": "Individuals can apply. Strong option if unable to secure institutional affiliation for NSF."
+    },
+    {
+      "id": "FUND_003",
+      "funder": "Ars Electronica",
+      "program": "STARTS Prize",
+      "url": "https://starts-prize.aec.at/",
+      "type": "prize",
+      "eligibility": {
+        "geographic": "International",
+        "career_stage": "any",
+        "institutional": false,
+        "citizenship": null
+      },
+      "funding": {
+        "amount_min": 10000,
+        "amount_max": 20000,
+        "currency": "EUR",
+        "amount_usd_approx": 22000,
+        "duration_months": 0,
+        "indirect_allowed": false,
+        "match_required": false
+      },
+      "timeline": {
+        "next_deadline": "2025-03-01",
+        "notification_weeks": 12,
+        "start_flexibility": "N/A (prize)"
+      },
+      "fit": {
+        "alignment_score": 5,
+        "rationale": "STARTS (Science, Technology, Arts) explicitly seeks work at this intersection. Prize brings visibility + network.",
+        "messaging_angle": "Lead with artistic vision; emphasize critical engagement with technology; European experimental tradition.",
+        "competition": "very_high",
+        "success_profile": "Established media artists; projects with strong visual/experiential component; previous exhibitions"
+      },
+      "requirements": {
+        "materials": ["Project Description", "Documentation (video, images)", "Artist CV", "Technical Description"],
+        "page_limit": null,
+        "word_limit": 1500,
+        "review_criteria": ["Innovation", "Artistic Quality", "Social Relevance", "Potential Impact"]
+      },
+      "notes": "Prize, not grant—funds existing work, not development. Good for visibility if POC is complete. Deadline is soon!"
+    },
+    {
+      "id": "FUND_004",
+      "funder": "Social Sciences and Humanities Research Council (Canada)",
+      "program": "Insight Development Grants",
+      "url": "https://www.sshrc-crsh.gc.ca/funding-financement/programs-programmes/insight_development_grants-subventions_de_developpement_savoir-eng.aspx",
+      "type": "research",
+      "eligibility": {
+        "geographic": "Canadian institutions",
+        "career_stage": "emerging",
+        "institutional": true,
+        "citizenship": "Canadian citizens/PR at Canadian institution"
+      },
+      "funding": {
+        "amount_min": 7000,
+        "amount_max": 75000,
+        "currency": "CAD",
+        "amount_usd_approx": 55000,
+        "duration_months": 24,
+        "indirect_allowed": false,
+        "match_required": false
+      },
+      "timeline": {
+        "next_deadline": "2025-02-01",
+        "notification_weeks": 20,
+        "start_flexibility": "Fixed start date"
+      },
+      "fit": {
+        "alignment_score": 3,
+        "rationale": "Digital humanities angle possible but requires social sciences framing. Good for Canadian-based collaborators.",
+        "messaging_angle": "Frame as research into collective creativity and digital participation in arts contexts.",
+        "competition": "medium",
+        "success_profile": "Early-career researchers; interdisciplinary teams; clear methodological rigor"
+      },
+      "requirements": {
+        "materials": ["Application Form", "Detailed Description", "Budget", "CV"],
+        "page_limit": 6,
+        "word_limit": null,
+        "review_criteria": ["Challenge", "Feasibility", "Capability", "Knowledge Mobilization"]
+      },
+      "notes": "Requires Canadian institutional affiliation. Consider if Canadian university partnership available."
+    },
+    {
+      "id": "FUND_005",
+      "funder": "Creative Europe",
+      "program": "Culture - European Cooperation Projects (Small Scale)",
+      "url": "https://culture.ec.europa.eu/funding/creative-europe",
+      "type": "project",
+      "eligibility": {
+        "geographic": "EU member states + associated countries",
+        "career_stage": "any",
+        "institutional": true,
+        "citizenship": "Organization must be established in eligible country"
+      },
+      "funding": {
+        "amount_min": 100000,
+        "amount_max": 200000,
+        "currency": "EUR",
+        "amount_usd_approx": 165000,
+        "duration_months": 24,
+        "indirect_allowed": true,
+        "match_required": true
+      },
+      "timeline": {
+        "next_deadline": "2025-09-15",
+        "notification_weeks": 24,
+        "start_flexibility": "6 months"
+      },
+      "fit": {
+        "alignment_score": 4,
+        "rationale": "Strong fit for European collaboration; digital culture is priority area. Requires 3+ country partnership.",
+        "messaging_angle": "European cultural exchange through technology; democratizing access to live performance innovation.",
+        "competition": "high",
+        "success_profile": "Consortia with 3+ countries; proven track record; clear European dimension"
+      },
+      "requirements": {
+        "materials": ["Application Form", "Project Description", "Budget", "Partner Letters", "Work Plan"],
+        "page_limit": 20,
+        "word_limit": null,
+        "review_criteria": ["Relevance", "Quality of Content", "Quality of Partnership", "Impact"]
+      },
+      "notes": "Requires 40% co-financing and minimum 3 partner countries. Complex but substantial. Good for Phase 2 after POC."
+    },
+    {
+      "id": "FUND_006",
+      "funder": "Knight Foundation",
+      "program": "Arts Innovation",
+      "url": "https://knightfoundation.org/programs/arts/",
+      "type": "project",
+      "eligibility": {
+        "geographic": "US focus (26 Knight communities)",
+        "career_stage": "any",
+        "institutional": false,
+        "citizenship": null
+      },
+      "funding": {
+        "amount_min": 25000,
+        "amount_max": 150000,
+        "currency": "USD",
+        "amount_usd_approx": 75000,
+        "duration_months": 18,
+        "indirect_allowed": false,
+        "match_required": false
+      },
+      "timeline": {
+        "next_deadline": "rolling",
+        "notification_weeks": 8,
+        "start_flexibility": "Flexible"
+      },
+      "fit": {
+        "alignment_score": 4,
+        "rationale": "Explicit interest in technology + arts intersection. Less academic focus than NSF. Rolling deadline is flexible.",
+        "messaging_angle": "Community engagement through technology; expanding access to experimental performance.",
+        "competition": "medium",
+        "success_profile": "Projects with clear community benefit; innovative use of technology; scalability potential"
+      },
+      "requirements": {
+        "materials": ["Online Application", "Budget", "Work Samples", "Organizational Info"],
+        "page_limit": null,
+        "word_limit": 2500,
+        "review_criteria": ["Innovation", "Community Impact", "Sustainability", "Team Capacity"]
+      },
+      "notes": "Geographic preference for Knight Foundation communities. Check if your location qualifies."
+    },
+    {
+      "id": "FUND_007",
+      "funder": "Arts Council England",
+      "program": "National Lottery Project Grants",
+      "url": "https://www.artscouncil.org.uk/national-lottery-project-grants",
+      "type": "project",
+      "eligibility": {
+        "geographic": "England",
+        "career_stage": "any",
+        "institutional": false,
+        "citizenship": "Based in England"
+      },
+      "funding": {
+        "amount_min": 1000,
+        "amount_max": 100000,
+        "currency": "GBP",
+        "amount_usd_approx": 65000,
+        "duration_months": 24,
+        "indirect_allowed": false,
+        "match_required": false
+      },
+      "timeline": {
+        "next_deadline": "rolling",
+        "notification_weeks": 12,
+        "start_flexibility": "Flexible"
+      },
+      "fit": {
+        "alignment_score": 3,
+        "rationale": "General arts funding; technology projects are eligible but not prioritized. Good for UK-based development.",
+        "messaging_angle": "Digital innovation in live performance; expanding audience engagement in arts.",
+        "competition": "medium",
+        "success_profile": "Clear artistic vision; public benefit; realistic timeline and budget"
+      },
+      "requirements": {
+        "materials": ["Online Application", "Budget", "Work Samples", "Eligibility Checks"],
+        "page_limit": null,
+        "word_limit": 3000,
+        "review_criteria": ["Artistic Quality", "Public Engagement", "Management", "Finance"]
+      },
+      "notes": "Requires England base. Rolling deadline allows flexible planning."
+    }
+  ],
+  "summary": {
+    "total_opportunities": 7,
+    "by_type": {
+      "research": 3,
+      "project": 3,
+      "prize": 1
+    },
+    "by_alignment": {
+      "5_perfect": 2,
+      "4_strong": 3,
+      "3_moderate": 2
+    },
+    "total_potential_funding_usd": 680000,
+    "recommended_priority": ["FUND_003", "FUND_001", "FUND_002", "FUND_006"],
+    "immediate_deadlines": [
+      "FUND_004: 2025-02-01 (SSHRC - 6 weeks)",
+      "FUND_003: 2025-03-01 (Ars Electronica - 10 weeks)",
+      "FUND_001: 2025-04-15 (NSF - 14 weeks)"
+    ]
+  },
+  "gaps_identified": [
+    "No non-US, non-EU funding sources identified (consider Australia Council, Japan Foundation)",
+    "No private foundation sources beyond Knight (consider Mellon, Ford, Bloomberg)",
+    "No residency programs identified (consider Eyebeam, NEW INC, Pioneer Works)",
+    "No corporate sponsorship opportunities explored"
+  ],
+  "metadata": {
+    "service": "perplexity",
+    "model": "pplx-70b-online",
+    "timestamp": "2025-01-15T15:45:00Z",
+    "token_usage": 5832,
+    "search_queries_executed": 18
+  }
+}

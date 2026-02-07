@@ -1,0 +1,164 @@
+## PHASE 1b: FUNDING LANDSCAPE MAPPING
+## Service: Perplexity
+## Purpose: Identify and profile realistic grant funding targets
+
+You are mapping the funding landscape for an interdisciplinary research project at the intersection of performing arts, real-time systems, and human-computer interaction.
+
+## PROJECT PROFILE
+- **Name**: Omni-Performative Engine
+- **Domain**: Audience-driven adaptive live performance
+- **Technical Stack**: Rust backend, Flutter frontend, real-time consensus algorithms
+- **Stage**: Pre-POC (proof of concept)
+- **Applicant Profile**: {applicant_profile}
+- **Geographic Eligibility**: {geographic_eligibility}
+
+## RESEARCH TASK
+Identify 15-20 funding opportunities across these categories:
+
+### CATEGORY 1: National Arts Councils & Foundations
+- National Endowment for the Arts (US)
+- Arts Council England
+- Canada Council for the Arts
+- Australia Council for the Arts
+- European national arts councils
+
+### CATEGORY 2: Technology/Innovation Grants
+- NSF Creative IT / Cyberlearning
+- SSHRC (Canada) - digital humanities
+- UKRI / AHRC (UK) digital
+- European Research Council
+
+### CATEGORY 3: Interdisciplinary / Experimental
+- Ars Electronica (residencies, prizes)
+- ZKM Karlsruhe
+- MIT Media Lab affiliates
+- Eyebeam / NEW INC
+- Creative Capital
+
+### CATEGORY 4: Regional / Emerging Artist
+- State/provincial arts councils
+- City-level cultural grants
+- University internal grants
+
+### CATEGORY 5: Private Foundations
+- Knight Foundation
+- Ford Foundation - Creativity & Free Expression
+- Mellon Foundation - arts & culture
+- Bloomberg Philanthropies
+
+## FOR EACH OPPORTUNITY, PROVIDE:
+
+### 1. BASIC INFO
+- **Funder Name**: 
+- **Program Name**: 
+- **URL**: (direct link to program page)
+- **Grant Type**: (project | research | residency | prize | commission)
+
+### 2. ELIGIBILITY
+- **Geographic Restrictions**: 
+- **Career Stage**: (emerging | mid-career | established | any)
+- **Institutional Affiliation Required**: (yes/no)
+- **Citizenship/Residency Requirements**: 
+
+### 3. FUNDING DETAILS
+- **Amount Range**: (min-max in original currency + USD equivalent)
+- **Duration**: (months)
+- **Indirect Costs Allowed**: (yes/no/percentage)
+- **Match Required**: (yes/no/percentage)
+
+### 4. TIMELINE
+- **Next Deadline**: (specific date or "rolling")
+- **Notification Timeline**: (weeks/months after deadline)
+- **Project Start Flexibility**: 
+
+### 5. FIT ASSESSMENT
+- **Alignment Score**: (1-5, where 5 = perfect fit)
+- **Alignment Rationale**: (why this funder would care about Omni-PE)
+- **Messaging Angle**: (how to frame the project for this funder)
+- **Competition Level**: (low | medium | high | very high)
+- **Success Indicators**: (what past winners look like)
+
+### 6. APPLICATION REQUIREMENTS
+- **Required Materials**: (narrative, budget, samples, letters, etc.)
+- **Format Constraints**: (page limits, word counts)
+- **Review Criteria**: (if published)
+
+## OUTPUT FORMAT
+
+### JSON Schema:
+```json
+{
+  "funding_opportunities": [
+    {
+      "id": "FUND_001",
+      "funder": "string",
+      "program": "string",
+      "url": "string",
+      "type": "project | research | residency | prize | commission",
+      "eligibility": {
+        "geographic": "string",
+        "career_stage": "string",
+        "institutional": "boolean",
+        "citizenship": "string | null"
+      },
+      "funding": {
+        "amount_min": "number",
+        "amount_max": "number",
+        "currency": "string",
+        "amount_usd_approx": "number",
+        "duration_months": "number",
+        "indirect_allowed": "boolean | number",
+        "match_required": "boolean | number"
+      },
+      "timeline": {
+        "next_deadline": "ISO date | 'rolling'",
+        "notification_weeks": "number",
+        "start_flexibility": "string"
+      },
+      "fit": {
+        "alignment_score": "1-5",
+        "rationale": "string",
+        "messaging_angle": "string",
+        "competition": "low | medium | high | very_high",
+        "success_profile": "string"
+      },
+      "requirements": {
+        "materials": ["string"],
+        "page_limit": "number | null",
+        "word_limit": "number | null",
+        "review_criteria": ["string"]
+      },
+      "notes": "string"
+    }
+  ],
+  "summary": {
+    "total_opportunities": "number",
+    "by_type": {},
+    "by_alignment": {},
+    "total_potential_funding_usd": "number",
+    "recommended_priority": ["FUND_XXX"],
+    "immediate_deadlines": ["FUND_XXX (date)"]
+  },
+  "gaps_identified": ["string"],
+  "metadata": {
+    "service": "perplexity",
+    "model": "string",
+    "timestamp": "ISO datetime",
+    "token_usage": "number"
+  }
+}
+```
+
+## PRIORITIZATION CRITERIA
+Rank opportunities by:
+1. **Deadline proximity** (next 3-6 months = highest priority)
+2. **Alignment score** (4-5 = pursue immediately)
+3. **Effort-to-reward ratio** (smaller grants for validation vs. large grants for scale)
+4. **Strategic sequencing** (which grants build credibility for larger ones?)
+
+## CRITICAL INSTRUCTIONS
+- Verify all URLs are current and accessible
+- Note if any programs have been discontinued or restructured
+- Flag opportunities that require institutional affiliation (may need partnership)
+- Identify "gateway" grants (smaller amounts that unlock larger opportunities)
+- Include at least 3 opportunities with deadlines in the next 90 days
