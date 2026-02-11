@@ -612,7 +612,7 @@ Omni-Dromenon does not exist in a vacuum. It implements specific theoretical fra
 
 ### From `recursive-engine` (ORGAN-I)
 
-The consensus algorithm's self-reinforcing cluster weighting implements a recursive feedback loop: audience agreement amplifies agreement, producing emergent macro-behavior from micro-inputs. This is a direct application of the recursive systems theory formalized in [`organvm-i-theoria/recursive-engine`](https://github.com/organvm-i-theoria/recursive-engine) — specifically the principle that system identity emerges from iterated self-reference under constraint. In Omni-Dromenon, the constraint is the performer's override authority; the self-reference is the consensus algorithm's sensitivity to its own prior state (via smoothing); and the emergent identity is the performance itself, which is authored by neither audience nor performer alone but by their iterated negotiation.
+The consensus algorithm's self-reinforcing cluster weighting implements a recursive feedback loop: audience agreement amplifies agreement, producing emergent macro-behavior from micro-inputs. This is a direct application of the recursive systems theory formalized in [`organvm-i-theoria/recursive-engine`](https://github.com/organvm-i-theoria/recursive-engine--generative-entity) — specifically the principle that system identity emerges from iterated self-reference under constraint. In Omni-Dromenon, the constraint is the performer's override authority; the self-reference is the consensus algorithm's sensitivity to its own prior state (via smoothing); and the emergent identity is the performance itself, which is authored by neither audience nor performer alone but by their iterated negotiation.
 
 ### From `organon-noumenon--ontogenetic-morphe` (ORGAN-I)
 
@@ -670,7 +670,7 @@ Omni-Dromenon is the **ORGAN-II flagship** within the organvm eight-organ creati
 
 ### ORGAN-I (Theory)
 
-- **[recursive-engine](https://github.com/organvm-i-theoria/recursive-engine)** — Formal recursive systems theory. Omni-Dromenon's consensus feedback loop is an applied instance.
+- **[recursive-engine](https://github.com/organvm-i-theoria/recursive-engine--generative-entity)** — Formal recursive systems theory. Omni-Dromenon's consensus feedback loop is an applied instance.
 - **[organon-noumenon--ontogenetic-morphe](https://github.com/organvm-i-theoria/organon-noumenon--ontogenetic-morphe)** — Epistemological framework. The spatial weighting model operationalizes phenomenal proximity.
 
 ### ORGAN-III (Commerce)
