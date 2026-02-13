@@ -1,0 +1,36 @@
+# Metasystem Core Dependencies
+# Python 3.10+
+
+# Core dependencies
+pyyaml>=6.0          # Configuration files
+sqlalchemy>=2.0       # SQLite ORM (optional, for future)
+
+# MCP Server
+flask>=3.0           # HTTP server for MCP endpoints
+flask-cors>=4.0      # CORS support
+
+# File watching and monitoring
+watchdog>=3.0        # File system monitoring for sorting daemon
+
+# Optional: ML/AI for file classification
+sentence-transformers>=2.2  # For semantic embeddings (optional)
+
+# Utilities
+python-magic>=0.4    # File type detection
+requests>=2.31       # HTTP client
+python-dateutil>=2.8 # Date parsing
+
+# Testing (Phase 9)
+pytest>=7.4          # Test framework
+pytest-cov>=4.1      # Coverage reporting
+pytest-mock>=3.12    # Mocking support
+pytest-benchmark>=4.0 # Performance benchmarks
+freezegun>=1.2       # Time mocking
+faker>=20.0          # Generate test data
+coverage>=7.3        # Coverage measurement
+coverage-badge>=1.1  # Coverage badges
+
+# Test utilities
+pytest-xdist>=3.5    # Parallel test execution
+pytest-timeout>=2.2  # Prevent hanging tests
+pytest-randomly>=3.15 # Randomize test order
