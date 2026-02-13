@@ -1,0 +1,34 @@
+[run]
+source = .
+omit =
+    */tests/*
+    */.venv/*
+    */site-packages/*
+    */__pycache__/*
+    setup.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise AssertionError
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    if TYPE_CHECKING:
+    @abstractmethod
+    @abstract
+
+# Fail if coverage below threshold
+fail_under = 80
+
+# Show missing lines in report
+show_missing = True
+
+# Precision for coverage percentage
+precision = 2
+
+[html]
+directory = htmlcov
+
+[xml]
+output = coverage.xml
