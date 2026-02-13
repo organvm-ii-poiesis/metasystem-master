@@ -1,0 +1,26 @@
+#!/bin/bash
+# Metasystem CLI - Unified command wrapper
+# 
+# This script provides convenient access to the metasystem CLI
+# from anywhere on the system.
+
+METASYSTEM_DIR="$HOME/Workspace/metasystem-core"
+VENV_PYTHON="$METASYSTEM_DIR/.venv/bin/python3"
+
+# Verify the metasystem directory exists
+if [ ! -d "$METASYSTEM_DIR" ]; then
+    echo "Error: metasystem-core directory not found at $METASYSTEM_DIR"
+    echo "Please check your installation."
+    exit 1
+fi
+
+# Verify the virtual environment exists
+if [ ! -f "$VENV_PYTHON" ]; then
+    echo "Error: Python virtual environment not found at $VENV_PYTHON"
+    echo "Please run: cd $METASYSTEM_DIR && python3 -m venv .venv && pip install -r requirements.txt"
+    exit 1
+fi
+
+# Run the CLI
+cd "$METASYSTEM_DIR"
+exec "$VENV_PYTHON" metasystem_cli.py "$@"
