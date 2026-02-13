@@ -1,0 +1,68 @@
+project:
+  name: "metasystem-core"
+  description: "Perpetual meta-system orchestrating all projects, providing unified knowledge graph, context persistence, and auto-organization"
+  category: "infrastructure"
+  created: "2025-12-31"
+
+architecture:
+  type: "daemon"
+  tech_stack:
+    language: "python"
+    version: "3.10+"
+    framework: "flask"
+    database: "sqlite"
+
+  components:
+    - name: "knowledge_graph"
+      description: "SQLite-based unified metadata layer"
+      file: "knowledge_graph.py"
+
+    - name: "meta_orchestrator"
+      description: "Main daemon coordinating all systems"
+      file: "meta_orchestrator.py"
+
+    - name: "discovery_engine"
+      description: "Auto-discovers projects, files, and tools"
+      file: "discovery_engine.py"
+
+    - name: "context_manager"
+      description: "Conversation persistence and resume"
+      file: "context_manager.py"
+
+    - name: "sorting_daemon"
+      description: "File organization automation"
+      file: "sorting_daemon.py"
+
+    - name: "sync_engine"
+      description: "Multi-machine synchronization"
+      file: "sync_engine.py"
+
+    - name: "mcp_bridge"
+      description: "MCP server for AI integration"
+      file: "mcp_bridge.py"
+
+dependencies:
+  integrates_with:
+    - "my--father-mother"   # Clipboard LTM system
+    - "omni-dromenon-machina"  # Universal orchestrator
+    - "chezmoi"             # Dotfiles management
+
+  requires:
+    - python: "3.10+"
+    - sqlite3: "3.35+"
+
+operations:
+  run:
+    daemon: "python3 meta_orchestrator.py --daemon"
+    mcp_server: "python3 mcp_bridge.py --port 5000"
+
+  commands:
+    status: "python3 meta_orchestrator.py status"
+    scan: "python3 discovery_engine.py scan"
+    query: "python3 knowledge_graph.py query"
+
+metadata:
+  purpose: "Single source of truth for entire system state"
+  perpetual: true  # Designed to run forever
+  self_maintaining: true
+  priority: "critical"  # Core infrastructure
