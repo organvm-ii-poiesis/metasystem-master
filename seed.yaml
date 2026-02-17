@@ -1,7 +1,6 @@
 # seed.yaml — Automation Contract for organvm-ii-poiesis/metasystem-master
 # Schema: seed/v1.0
-# Generated: 2026-02-12 (AUTONOMY Sprint)
-# Category: flagship_with_deps
+# Generated: 2026-02-17 (SENSORIA Sprint)
 
 schema_version: "1.0"
 organ: II
@@ -10,12 +9,13 @@ repo: metasystem-master
 org: organvm-ii-poiesis
 
 metadata:
-  implementation_status: PRODUCTION
+  implementation_status: ACTIVE
   tier: flagship
   promotion_status: PUBLIC_PROCESS
   last_validated: "2026-02-11"
-  generated: "2026-02-12"
-  sprint: "AUTONOMY"
+  generated: "2026-02-17"
+  sprint: "SENSORIA"
+  language: typescript
 
 agents:
   - name: ci
@@ -24,47 +24,13 @@ agents:
     description: "Continuous integration pipeline"
 
 produces:
-  - type: dependency
-    description: Consumed by organvm-ii-poiesis/core-engine
-    consumers: [organvm-ii-poiesis/core-engine]
-  - type: dependency
-    description: Consumed by organvm-ii-poiesis/performance-sdk
-    consumers: [organvm-ii-poiesis/performance-sdk]
-  - type: dependency
-    description: Consumed by organvm-ii-poiesis/example-generative-music
-    consumers: [organvm-ii-poiesis/example-generative-music]
-  - type: dependency
-    description: Consumed by organvm-ii-poiesis/example-choreographic-interface
-    consumers: [organvm-ii-poiesis/example-choreographic-interface]
-  - type: dependency
-    description: Consumed by organvm-ii-poiesis/example-generative-visual
-    consumers: [organvm-ii-poiesis/example-generative-visual]
-  - type: dependency
-    description: Consumed by organvm-ii-poiesis/example-interactive-installation
-    consumers: [organvm-ii-poiesis/example-interactive-installation]
-  - type: dependency
-    description: Consumed by organvm-ii-poiesis/docs
-    consumers: [organvm-ii-poiesis/docs]
-  - type: dependency
-    description: Consumed by organvm-ii-poiesis/a-i-council--coliseum
-    consumers: [organvm-ii-poiesis/a-i-council--coliseum]
-  - type: dependency
-    description: Consumed by organvm-ii-poiesis/client-sdk
-    consumers: [organvm-ii-poiesis/client-sdk]
-  - type: dependency
-    description: Consumed by organvm-ii-poiesis/example-theatre-dialogue
-    consumers: [organvm-ii-poiesis/example-theatre-dialogue]
-  - type: dependency
-    description: Consumed by organvm-ii-poiesis/audio-synthesis-bridge
-    consumers: [organvm-ii-poiesis/audio-synthesis-bridge]
-  - type: dependency
-    description: Consumed by organvm-v-logos/public-process
-    consumers: [organvm-v-logos/public-process]
+  - type: creative-artifact
+    description: "Generative art, interactive system, or experiential work"
 
 consumes:
-  - type: dependency
-    source: organvm-i-theoria/recursive-engine--generative-entity
-    description: Depends on organvm-i-theoria/recursive-engine--generative-entity
+  - type: theory-artifact
+    source: ORGAN-I
+    description: Theoretical frameworks inform art creation
 
 subscriptions:
   - event: governance.updated
