@@ -85,7 +85,7 @@ jobs:
 
       - name: Comment gate failure
         if: steps.gates.outputs.gates_passed == 'false'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             github.rest.issues.createComment({
