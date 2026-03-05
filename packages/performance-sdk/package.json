@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "socket.io-client": "^4.7.2",
-    "react-router-dom": "^6.21.1",
+    "react-router-dom": "^7.13.0",
     "@solana/wallet-adapter-base": "^0.9.23",
     "@solana/wallet-adapter-react": "^0.15.35",
     "@solana/wallet-adapter-react-ui": "^0.9.35",
