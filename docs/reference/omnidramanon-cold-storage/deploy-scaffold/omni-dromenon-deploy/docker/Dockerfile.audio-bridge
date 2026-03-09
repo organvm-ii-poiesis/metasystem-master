@@ -1,0 +1,66 @@
+# ============================================================================
+# OMNI-DROMENON-ENGINE: AUDIO-SYNTHESIS-BRIDGE DOCKERFILE
+# OSC gateway for external synthesizers (SuperCollider, Max, Pure Data, etc.)
+# ============================================================================
+
+FROM node:20-alpine AS base
+WORKDIR /app
+RUN apk add --no-cache python3 make g++ curl
+
+# ============================================================================
+# STAGE 1: DEPENDENCIES
+# ============================================================================
+FROM base AS dependencies
+COPY audio-synthesis-bridge/package*.json ./
+RUN npm ci --omit=dev
+
+# ============================================================================
+# STAGE 2: BUILDER
+# ============================================================================
+FROM base AS builder
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY audio-synthesis-bridge/ ./
+RUN npm run build || true
+
+# ============================================================================
+# STAGE 3: PRODUCTION
+# ============================================================================
+FROM base AS production
+ENV NODE_ENV=production
+ENV LOG_LEVEL=info
+ENV OSC_PORT=9000
+ENV WEB_SOCKET_PORT=9001
+
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/package.json ./
+
+RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
+USER nodejs
+
+EXPOSE 9000/udp 9001 9229
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
+  CMD curl -f http://localhost:9001/health || exit 1
+
+CMD ["node", "dist/bridge.js"]
+
+# ============================================================================
+# STAGE 4: DEVELOPMENT
+# ============================================================================
+FROM base AS development
+ENV NODE_ENV=development
+ENV LOG_LEVEL=debug
+
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY audio-synthesis-bridge/ ./
+
+EXPOSE 9000/udp 9001 9229
+CMD ["npm", "run", "dev"]
+
+# ============================================================================
+# LABELS
+# ============================================================================
+LABEL org.opencontainers.image.title="Omni-Dromenon-Audio-Bridge"
+LABEL org.opencontainers.image.description="OSC gateway for external synthesizers"
+LABEL org.opencontainers.image.url="https://github.com/omni-dromenon-engine"

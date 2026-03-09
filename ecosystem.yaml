@@ -1,0 +1,9 @@
+schema_version: '1.0'
+repo: metasystem-master
+organ: II
+display_name: "Omni-Dromenon Engine — canonical monorepo for ORGAN-II. Real-time
+  performance system consolidating core-engine, performance-sdk, client-sdk,
+  audio-synthesis-bridge, orchestrate CLI, examples, and docs."
+delivery:
+- platform: web_app
+  status: not_started

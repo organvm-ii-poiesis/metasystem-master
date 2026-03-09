@@ -14,4 +14,4 @@
 2. **Review:** periodically review contents.
 3. **Distill:** Extract key insights, code snippets, or action items.
 4. **Sort:** Move processed artifacts to their permanent home (e.g., `docs/`, `core-engine/src/`, `_COORDINATION_DOCS/`).
-5. **Archive:** Move original raw files to `_archive/` or delete if no longer needed.
+5. **Archive:** Move original raw files to `docs/reference/omnidramanon-cold-storage/` or delete if no longer needed.

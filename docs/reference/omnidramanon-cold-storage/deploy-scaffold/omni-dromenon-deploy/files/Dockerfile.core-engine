@@ -1,0 +1,79 @@
+# ============================================================================
+# OMNI-DROMENON-ENGINE: CORE SERVICE DOCKERFILE
+# Multi-stage build: development → production
+# ============================================================================
+
+FROM node:20-alpine AS base
+WORKDIR /app
+RUN apk add --no-cache python3 make g++ curl
+
+# ============================================================================
+# STAGE 1: DEPENDENCIES
+# ============================================================================
+FROM base AS dependencies
+COPY core-engine/package*.json ./
+RUN npm ci --omit=dev && npm cache clean --force
+RUN npm ci  # Full install with dev deps
+
+# ============================================================================
+# STAGE 2: BUILDER
+# ============================================================================
+FROM base AS builder
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY core-engine/ ./
+
+# Build TypeScript
+RUN npm run build
+
+# Type checking
+RUN npm run type-check || true
+
+# ============================================================================
+# STAGE 3: TESTING
+# ============================================================================
+FROM builder AS tester
+RUN npm run test -- --coverage || true
+RUN npm run lint || true
+
+# ============================================================================
+# STAGE 4: PRODUCTION (minimal image)
+# ============================================================================
+FROM base AS production
+ENV NODE_ENV=production
+ENV LOG_LEVEL=info
+
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/package.json ./
+COPY --from=builder /app/.env.example ./.env.example
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
+USER nodejs
+
+EXPOSE 3000
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:3000/health || exit 1
+
+CMD ["node", "dist/server.js"]
+
+# ============================================================================
+# STAGE 5: DEVELOPMENT (with source maps & hot reload)
+# ============================================================================
+FROM base AS development
+ENV NODE_ENV=development
+ENV LOG_LEVEL=debug
+
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY core-engine/ ./
+
+EXPOSE 3000 9229
+CMD ["npm", "run", "dev"]
+
+# ============================================================================
+# LABELS
+# ============================================================================
+LABEL org.opencontainers.image.title="Omni-Dromenon-Engine"
+LABEL org.opencontainers.image.description="Real-time audience-participatory performance system"
+LABEL org.opencontainers.image.authors="Anthony J. Pryor"
+LABEL org.opencontainers.image.url="https://github.com/omni-dromenon-engine"

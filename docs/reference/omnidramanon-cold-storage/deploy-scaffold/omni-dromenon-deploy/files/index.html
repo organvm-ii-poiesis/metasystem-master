@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Omni-Dromenon-Engine: Real-time audience-participatory performance system. Transform spectators into computational agents.">
+    <meta name="og:title" content="Omni-Dromenon-Engine">
+    <meta name="og:description" content="Interactive performance system where audiences become computational agents in real-time creative processes.">
+    <meta name="og:type" content="website">
+    <meta name="og:url" content="https://omni-dromenon-engine.com">
+    
+    <title>Omni-Dromenon-Engine</title>
+    
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/syntax.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ================================================================
+         NAVIGATION
+         ================================================================ -->
+    <nav class="nav-main">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/" class="wordmark">OMNI-DROMENON</a>
+                <span class="nav-subtext">interactive performance system</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">about</a></li>
+                <li><a href="#project">system</a></li>
+                <li><a href="#technical">technical</a></li>
+                <li><a href="#docs">documentation</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        
+        <!-- ================================================================
+             HERO / INTRO
+             ================================================================ -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Transform Spectators into Computational Agents</h1>
+                <p class="hero-subtitle">
+                    A real-time performance system where audiences participate in live creative processes 
+                    through smartphone interfaces, collective consensus, and performer-maintained authority.
+                </p>
+                <div class="hero-cta">
+                    <a href="#demo" class="btn btn-primary">View Demo</a>
+                    <a href="#technical" class="btn btn-secondary">Technical Specs</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="system-diagram">
+                    <div class="diagram-node performers">
+                        <span class="label">Performers</span>
+                        <span class="icon">🎭</span>
+                    </div>
+                    <div class="diagram-flow">
+                        <svg viewBox="0 0 100 100" class="flow-svg">
+                            <circle cx="50" cy="50" r="40" class="circle-main"/>
+                            <circle cx="50" cy="50" r="35" class="circle-inner"/>
+                            <text x="50" y="55" text-anchor="middle" class="flow-text">Parameter Bus</text>
+                        </svg>
+                    </div>
+                    <div class="diagram-node audience">
+                        <span class="label">Audience (100s)</span>
+                        <span class="icon">👥</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             ABOUT / VISION
+             ================================================================ -->
+        <section id="about" class="section section-about">
+            <div class="section-header">
+                <h2>About the Project</h2>
+                <p class="section-subtitle">A research system exploring reciprocal creation through distributed agency</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-block">
+                    <h3>Core Question</h3>
+                    <p>
+                        How can we design performance systems where audiences participate meaningfully 
+                        in creative processes while performers maintain artistic authority? 
+                        Rather than removing constraints, we optimize for <em>constrained variation</em>—
+                        the generative space where meaningful creativity emerges.
+                    </p>
+                </div>
+                
+                <div class="content-block">
+                    <h3>Technical Validation</h3>
+                    <ul class="feature-list">
+                        <li><strong>P95 Latency:</strong> 2ms (target: &lt;100ms) ✓</li>
+                        <li><strong>Message Delivery:</strong> 100% with zero errors ✓</li>
+                        <li><strong>Concurrent Users:</strong> 50+ simultaneous participants ✓</li>
+                        <li><strong>Architecture:</strong> Node.js + Socket.io + Web Audio APIs</li>
+                    </ul>
+                </div>
+                
+                <div class="content-block">
+                    <h3>Artistic Impact</h3>
+                    <p>
+                        Genre-agnostic through modular <code>Contextual Awareness Layer</code>. 
+                        Applicable to music, dance, theater, opera, and visual art. 
+                        Audiences experience immediate consequences of their inputs, 
+                        creating feedback loops that enrich both creation and participation.
+                    </p>
+                </div>
+            </div>
+
+            <div class="principles">
+                <h3>Core Principles</h3>
+                <div class="principle-grid">
+                    <div class="principle-card">
+                        <h4>Reciprocal Creation</h4>
+                        <p>Audiences and performers influence each other in real-time</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>Performer Authority</h4>
+                        <p>Transparent hierarchies and override capabilities preserve artistic control</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>Constrained Variation</h4>
+                        <p>Meaningful novelty emerges from bounded creative parameters</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>Distributed Agency</h4>
+                        <p>Consensus algorithms aggregate collective input without erasing individuality</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             PROJECT SHOWCASE
+             ================================================================ -->
+        <section id="project" class="section section-project">
+            <div class="section-header">
+                <h2>The System</h2>
+                <p class="section-subtitle">11 modular repositories for complete implementation</p>
+            </div>
+
+            <div class="architecture-overview">
+                <h3>Architecture Layers</h3>
+                
+                <div class="arch-layer">
+                    <div class="arch-label">Core System</div>
+                    <div class="arch-repos">
+                        <div class="repo-card">
+                            <h4>core-engine</h4>
+                            <p>WebSocket server, consensus algorithms, parameter distribution</p>
+                            <code>Node.js + Socket.io</code>
+                        </div>
+                        <div class="repo-card">
+                            <h4>performance-sdk</h4>
+                            <p>Unified interface for performers and audience participants</p>
+                            <code>React + TypeScript</code>
+                        </div>
+                        <div class="repo-card">
+                            <h4>audio-synthesis-bridge</h4>
+                            <p>OSC ↔ Web Audio gateway for external synthesizers</p>
+                            <code>Node.js + osc.js</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arch-layer">
+                    <div class="arch-label">Documentation & Examples</div>
+                    <div class="arch-repos">
+                        <div class="repo-card">
+                            <h4>docs</h4>
+                            <p>Theory, specifications, deployment guides, API reference</p>
+                            <code>MkDocs + Material</code>
+                        </div>
+                        <div class="repo-card">
+                            <h4>example-generative-music</h4>
+                            <p>Working proof-of-concept: audience controls tempo, timbre, form</p>
+                            <code>SuperCollider + Node.js</code>
+                        </div>
+                        <div class="repo-card">
+                            <h4>example-choreographic-interface</h4>
+                            <p>Dancers receive spatial parameters from audience consensus</p>
+                            <code>Motion capture + OSC</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arch-layer">
+                    <div class="arch-label">Ecosystem & Publishing</div>
+                    <div class="arch-repos">
+                        <div class="repo-card">
+                            <h4>academic-publication</h4>
+                            <p>Peer-reviewed papers, conference submissions, research artifacts</p>
+                        </div>
+                        <div class="repo-card">
+                            <h4>artist-toolkit-and-templates</h4>
+                            <p>Grant prospecting templates, artist onboarding materials</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             TECHNICAL DEEP DIVE
+             ================================================================ -->
+        <section id="technical" class="section section-technical">
+            <div class="section-header">
+                <h2>Technical Specifications</h2>
+                <p class="section-subtitle">Validated prototype with production-ready architecture</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h3>Consensus Algorithm</h3>
+                    <p>Weighted temporal-proximity voting aggregates audience inputs without centralized authority</p>
+                    <pre><code>
+// Simplified consensus logic
+const weights = participants.map(p => 
+  Math.exp(-alpha * (now - p.timestamp))
+);
+const parameter = average(
+  participants.map((p, i) => p.value * weights[i])
+) / sum(weights);
+                    </code></pre>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Real-Time Parameter Bus</h3>
+                    <p>Distributed event system routing performer overrides and audience consensus to performance engines</p>
+                    <ul class="spec-list">
+                        <li>P95 Latency: 2ms</li>
+                        <li>Message Delivery: 100%</li>
+                        <li>Throughput: 1000+ events/sec</li>
+                        <li>Concurrent: 50+ participants</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Contextual Awareness Layer</h3>
+                    <p>Genre-agnostic abstraction enabling same core system across music, dance, theater</p>
+                    <pre><code>
+interface ContextualAwareness {
+  performanceMode: string;
+  parameterSchema: Schema;
+  consensusWeighting: WeightFunction;
+  overrideHierarchy: Permission[];
+}
+                    </code></pre>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Deployment Stack</h3>
+                    <ul class="tech-stack">
+                        <li><strong>Runtime:</strong> Node.js 20+ LTS</li>
+                        <li><strong>Communication:</strong> Socket.io (WebSocket fallback)</li>
+                        <li><strong>Database:</strong> Firestore (Google Cloud)</li>
+                        <li><strong>Cache:</strong> Redis (Memorystore)</li>
+                        <li><strong>Container:</strong> Docker + Cloud Run</li>
+                        <li><strong>CI/CD:</strong> GitHub Actions</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Synthesis Integration</h3>
+                    <p>OSC bridge connects Web Audio API to external synthesizers</p>
+                    <ul class="spec-list">
+                        <li>SuperCollider integration (working)</li>
+                        <li>Max/MSP compatible</li>
+                        <li>Pure Data compatible</li>
+                        <li>Custom synthesizers (via OSC)</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Mobile-First Audience Interface</h3>
+                    <p>Progressive Web App for participant smartphones</p>
+                    <ul class="spec-list">
+                        <li>Works offline (queued messaging)</li>
+                        <li>No installation required</li>
+                        <li>Responsive design (phone → tablet)</li>
+                        <li>Accessible (WCAG 2.1 AA)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             LIVE DEMO / VIDEO
+             ================================================================ -->
+        <section id="demo" class="section section-demo">
+            <div class="section-header">
+                <h2>See It In Action</h2>
+                <p class="section-subtitle">Working prototype demonstration</p>
+            </div>
+
+            <div class="demo-container">
+                <div class="demo-video">
+                    <iframe width="100%" height="600" 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="demo-info">
+                    <h3>Proof of Concept: Generative Music Performance</h3>
+                    <p>
+                        This demonstration shows 30 audience members controlling musical parameters in real-time. 
+                        Sliders control: tempo, timbre filter, harmonic density, and reverb. 
+                        The performer maintains override authority and can freeze/reset consensus votes.
+                    </p>
+                    <div class="demo-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Participants:</span> 30
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Latency:</span> 2ms P95
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Duration:</span> 12 min
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-cta">
+                <p>Want to try it? Scan this QR code or visit the live performer interface:</p>
+                <a href="https://omni-dromenon-engine.com/performer" class="btn btn-primary">
+                    Open Performer Dashboard
+                </a>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             DOCUMENTATION
+             ================================================================ -->
+        <section id="docs" class="section section-docs">
+            <div class="section-header">
+                <h2>Documentation</h2>
+                <p class="section-subtitle">Complete guides, API references, and research materials</p>
+            </div>
+
+            <div class="docs-grid">
+                <a href="/docs/getting-started/" class="docs-card">
+                    <h3>Getting Started</h3>
+                    <p>Set up a local development environment and run the first example</p>
+                </a>
+
+                <a href="/docs/architecture/" class="docs-card">
+                    <h3>System Architecture</h3>
+                    <p>Deep dive into core-engine design, consensus algorithms, and module interactions</p>
+                </a>
+
+                <a href="/docs/api/" class="docs-card">
+                    <h3>API Reference</h3>
+                    <p>WebSocket events, REST endpoints, and integration patterns</p>
+                </a>
+
+                <a href="/docs/deployment/" class="docs-card">
+                    <h3>Deployment Guide</h3>
+                    <p>Docker setup, Google Cloud configuration, production best practices</p>
+                </a>
+
+                <a href="/docs/research/" class="docs-card">
+                    <h3>Research & Theory</h3>
+                    <p>Peer-reviewed papers, precedent analysis, philosophical foundations</p>
+                </a>
+
+                <a href="/docs/artist-guide/" class="docs-card">
+                    <h3>Artist Guide</h3>
+                    <p>How to create new performance templates and integrate your own systems</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             CREATOR / ABOUT
+             ================================================================ -->
+        <section id="creator" class="section section-creator">
+            <div class="section-header">
+                <h2>The Creator</h2>
+            </div>
+
+            <div class="creator-profile">
+                <div class="creator-bio">
+                    <h3>Anthony J. Pryor</h3>
+                    <p class="creator-title">Multimedia Artist, Technologist, Researcher</p>
+                    
+                    <p>
+                        Anthony is a multimedia artist and researcher with an MFA in Creative Writing 
+                        (Florida Atlantic University) and BA in Literature (CUNY College of Staten Island). 
+                        His practice spans performance theory, technical systems design, and philosophical 
+                        frameworks grounded in process philosophy, quantum mechanics, and complexity theory.
+                    </p>
+
+                    <p>
+                        The Omni-Dromenon-Engine addresses a personal pattern of "hoarding the microphone"—
+                        instead of solving this through forced equality, the system builds frameworks where 
+                        others can meaningfully participate in creative processes while preserving artistic 
+                        coherence and performer authority.
+                    </p>
+
+                    <div class="creator-links">
+                        <a href="https://github.com/4444JPP" class="link-btn">GitHub Profile</a>
+                        <a href="https://twitter.com/4444JPP" class="link-btn">Twitter/X</a>
+                        <a href="mailto:anthony@omni-dromenon-engine.com" class="link-btn">Email</a>
+                    </div>
+                </div>
+
+                <div class="creator-cv">
+                    <h3>Selected Background</h3>
+                    <ul class="cv-list">
+                        <li><strong>Education:</strong> MFA Creative Writing (FAU), BA Literature (CUNY-CSI)</li>
+                        <li><strong>Technical Stack:</strong> Node.js, TypeScript, React, Python, SuperCollider, Docker</li>
+                        <li><strong>Specialties:</strong> Interactive systems design, real-time performance, algorithmic composition</li>
+                        <li><strong>Philosophy:</strong> Process philosophy, distributed agency, reciprocal creation</li>
+                        <li><strong>Funders:</strong> S+T+ARTS Prize, Ars Electronica, Creative Capital</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             CONTACT / CTA
+             ================================================================ -->
+        <section id="contact" class="section section-contact">
+            <div class="section-header">
+                <h2>Get Involved</h2>
+                <p class="section-subtitle">Collaborate, contribute, or deploy your own instance</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>For Artists</h3>
+                    <p>Create new performance templates using the Artist Toolkit</p>
+                    <a href="/docs/artist-guide/" class="btn btn-secondary">Read Artist Guide</a>
+                </div>
+
+                <div class="contact-card">
+                    <h3>For Developers</h3>
+                    <p>Contribute to core system or extend with new synthesis engines</p>
+                    <a href="https://github.com/omni-dromenon-engine" class="btn btn-secondary">GitHub Organization</a>
+                </div>
+
+                <div class="contact-card">
+                    <h3>For Researchers</h3>
+                    <p>Access academic papers, datasets, and evaluation frameworks</p>
+                    <a href="/docs/research/" class="btn btn-secondary">Research Hub</a>
+                </div>
+
+                <div class="contact-card">
+                    <h3>For Presenters</h3>
+                    <p>Book a performance or workshop for your venue</p>
+                    <a href="mailto:booking@omni-dromenon-engine.com" class="btn btn-secondary">booking@omni-dromenon-engine.com</a>
+                </div>
+            </div>
+
+            <div class="newsletter-signup">
+                <h3>Stay Updated</h3>
+                <form class="signup-form">
+                    <input type="email" placeholder="your@email.com" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <p class="form-note">Monthly updates on deployments, research findings, and upcoming performances</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================================================================
+         FOOTER
+         ================================================================ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Omni-Dromenon-Engine</h4>
+                <p>Real-time audience-participatory performance system</p>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/omni-dromenon-engine">GitHub</a></li>
+                    <li><a href="/docs/">Documentation</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/press/">Press Kit</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="/license/">License (Apache 2.0)</a></li>
+                    <li><a href="/privacy/">Privacy Policy</a></li>
+                    <li><a href="/conduct/">Code of Conduct</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Creator</h4>
+                <p>Anthony J. Pryor</p>
+                <p><a href="mailto:anthony@omni-dromenon-engine.com">anthony@omni-dromenon-engine.com</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Omni-Dromenon-Engine. Licensed under Apache 2.0.</p>
+            <p>Built with clarity, rigor, and reciprocal creation.</p>
+        </div>
+    </footer>
+
+    <script src="/main.js"></script>
+</body>
+</html>

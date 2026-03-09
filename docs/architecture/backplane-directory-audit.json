@@ -1,0 +1,146 @@
+{
+  "consumers": [
+    {
+      "repo": "a-i-council--coliseum",
+      "org": "organvm-ii-poiesis",
+      "tier": "standard",
+      "promotion_status": "CANDIDATE",
+      "implementation_status": "PRODUCTION",
+      "source_file": "/Users/4jp/Workspace/organvm-ii-poiesis/a-i-council--coliseum/seed.yaml",
+      "dependency_refs": [
+        "Depends on organvm-ii-poiesis/metasystem-master",
+        "organvm-ii-poiesis/metasystem-master"
+      ],
+      "archived": false
+    },
+    {
+      "repo": "audio-synthesis-bridge",
+      "org": "organvm-ii-poiesis",
+      "tier": "standard",
+      "promotion_status": "CANDIDATE",
+      "implementation_status": "PRODUCTION",
+      "source_file": "/Users/4jp/Workspace/organvm-ii-poiesis/audio-synthesis-bridge/seed.yaml",
+      "dependency_refs": [
+        "Depends on organvm-ii-poiesis/metasystem-master",
+        "organvm-ii-poiesis/metasystem-master"
+      ],
+      "archived": false
+    },
+    {
+      "repo": "client-sdk",
+      "org": "organvm-ii-poiesis",
+      "tier": "standard",
+      "promotion_status": "CANDIDATE",
+      "implementation_status": "PRODUCTION",
+      "source_file": "/Users/4jp/Workspace/organvm-ii-poiesis/client-sdk/seed.yaml",
+      "dependency_refs": [
+        "Depends on organvm-ii-poiesis/metasystem-master",
+        "organvm-ii-poiesis/metasystem-master"
+      ],
+      "archived": false
+    },
+    {
+      "repo": "core-engine",
+      "org": "omni-dromenon-machina",
+      "tier": "flagship",
+      "promotion_status": "CANDIDATE",
+      "implementation_status": "PROTOTYPE",
+      "source_file": "/Users/4jp/Workspace/organvm-ii-poiesis/core-engine/seed.yaml",
+      "dependency_refs": [
+        "Depends on metasystem-master for manifest and orchestration",
+        "omni-dromenon-machina/metasystem-master"
+      ],
+      "archived": false
+    },
+    {
+      "repo": "docs",
+      "org": "omni-dromenon-machina",
+      "tier": "archive",
+      "promotion_status": "ARCHIVED",
+      "implementation_status": "ARCHIVED",
+      "source_file": "/Users/4jp/Workspace/organvm-ii-poiesis/docs/seed.yaml",
+      "dependency_refs": [
+        "organvm-ii-poiesis/metasystem-master"
+      ],
+      "archived": true
+    },
+    {
+      "repo": "example-choreographic-interface",
+      "org": "organvm-ii-poiesis",
+      "tier": "standard",
+      "promotion_status": "CANDIDATE",
+      "implementation_status": "PRODUCTION",
+      "source_file": "/Users/4jp/Workspace/organvm-ii-poiesis/example-choreographic-interface/seed.yaml",
+      "dependency_refs": [
+        "Depends on organvm-ii-poiesis/metasystem-master",
+        "organvm-ii-poiesis/metasystem-master"
+      ],
+      "archived": false
+    },
+    {
+      "repo": "example-generative-music",
+      "org": "organvm-ii-poiesis",
+      "tier": "standard",
+      "promotion_status": "CANDIDATE",
+      "implementation_status": "ACTIVE",
+      "source_file": "/Users/4jp/Workspace/organvm-ii-poiesis/example-generative-music/seed.yaml",
+      "dependency_refs": [
+        "Depends on organvm-ii-poiesis/metasystem-master",
+        "organvm-ii-poiesis/metasystem-master"
+      ],
+      "archived": false
+    },
+    {
+      "repo": "example-generative-visual",
+      "org": "omni-dromenon-machina",
+      "tier": "archive",
+      "promotion_status": "ARCHIVED",
+      "implementation_status": "ARCHIVED",
+      "source_file": "/Users/4jp/Workspace/organvm-ii-poiesis/example-generative-visual/seed.yaml",
+      "dependency_refs": [
+        "organvm-ii-poiesis/metasystem-master"
+      ],
+      "archived": true
+    },
+    {
+      "repo": "example-interactive-installation",
+      "org": "organvm-ii-poiesis",
+      "tier": "standard",
+      "promotion_status": "CANDIDATE",
+      "implementation_status": "ACTIVE",
+      "source_file": "/Users/4jp/Workspace/organvm-ii-poiesis/example-interactive-installation/seed.yaml",
+      "dependency_refs": [
+        "Depends on organvm-ii-poiesis/metasystem-master",
+        "organvm-ii-poiesis/metasystem-master"
+      ],
+      "archived": false
+    },
+    {
+      "repo": "example-theatre-dialogue",
+      "org": "organvm-ii-poiesis",
+      "tier": "standard",
+      "promotion_status": "CANDIDATE",
+      "implementation_status": "PRODUCTION",
+      "source_file": "/Users/4jp/Workspace/organvm-ii-poiesis/example-theatre-dialogue/seed.yaml",
+      "dependency_refs": [
+        "Depends on organvm-ii-poiesis/metasystem-master",
+        "organvm-ii-poiesis/metasystem-master"
+      ],
+      "archived": false
+    },
+    {
+      "repo": "performance-sdk",
+      "org": "omni-dromenon-machina",
+      "tier": "archive",
+      "promotion_status": "ARCHIVED",
+      "implementation_status": "ARCHIVED",
+      "source_file": "/Users/4jp/Workspace/organvm-ii-poiesis/performance-sdk/seed.yaml",
+      "dependency_refs": [
+        "organvm-ii-poiesis/metasystem-master"
+      ],
+      "archived": true
+    }
+  ],
+  "confusion_sources": [],
+  "target": null
+}

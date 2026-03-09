@@ -160,6 +160,22 @@ Authentication is namespace-scoped: audience connections are anonymous (identifi
 
 ---
 
+## Repository Boundaries
+
+The live repository surface is intentionally small:
+
+- `packages/` contains the versioned workspace packages that define the active backplane.
+- `examples/` contains the maintained reference applications that exercise that backplane.
+- `infra/` contains the current deployment assets.
+- `docs/` contains the current documentation tree.
+
+The following top-level items are not canonical runtime or dependency sources:
+
+- historical OmniDramanon material lives under `docs/reference/omnidramanon-cold-storage/` and should not be used to infer current deployment shape or package boundaries.
+- sibling repo `seed.yaml` `consumes` entries are the source of truth for downstream dependency mapping; preserved snapshots such as `docs/reference/omnidramanon-cold-storage/metadata/dependencies.json` and `docs/reference/omnidramanon-cold-storage/metadata/ecosystem.yaml` are historical only.
+
+---
+
 ## Package Reference
 
 This is a **pnpm monorepo** (`pnpm@9.15.0`) with five packages and four example applications:
