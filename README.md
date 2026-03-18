@@ -814,3 +814,11 @@ The `docs/` directory contains 200+ files across academic templates, deployment 
 ---
 
 <sub>This README is a Silver Sprint portfolio document for the organvm system. It is written for grant reviewers, hiring managers, and collaborators who want to understand what Omni-Dromenon does, why it exists, and how it fits within a larger creative-institutional architecture. For developer-focused quick reference, see [`docs/guides/QUICK_REFERENCE.md`](docs/guides/QUICK_REFERENCE.md). For the full documentation site, see [`docs/mkdocs.yml`](docs/mkdocs.yml).</sub>
+
+<!-- SYSTEM-NAV-START -->
+
+---
+
+<sub>[Case Study](https://4444j99.github.io/portfolio/projects/metasystem-master/) · [Portfolio](https://4444j99.github.io/portfolio/) · [System Directory](https://4444j99.github.io/portfolio/directory/) · [ORGAN II · Poiesis](https://organvm-ii-poiesis.github.io/) · Part of the <a href="https://4444j99.github.io/portfolio/directory/">ORGANVM eight-organ system</a></sub>
+
+<!-- SYSTEM-NAV-END -->
