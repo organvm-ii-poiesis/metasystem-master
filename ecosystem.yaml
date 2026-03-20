@@ -1,9 +1,40 @@
 schema_version: '1.0'
 repo: metasystem-master
 organ: II
-display_name: "Omni-Dromenon Engine — canonical monorepo for ORGAN-II. Real-time
-  performance system consolidating core-engine, performance-sdk, client-sdk,
-  audio-synthesis-bridge, orchestrate CLI, examples, and docs."
+display_name: "Omni-Dromenon Engine — canonical monorepo for ORGAN-II real-time performance system"
+
 delivery:
+- platform: npm_package
+  status: in_progress
+  priority: critical
+  notes: "Core engine, performance SDK, client SDK, audio synthesis bridge, orchestrate CLI"
+  next_action: "Publish v1.0 packages to npm"
+- platform: cli_tool
+  status: in_progress
+  priority: high
+  notes: "orchestrate CLI for performance composition and execution"
+  next_action: "Complete CLI command coverage for all engine features"
 - platform: web_app
+  status: planned
+  priority: medium
+  notes: "Demo/documentation site for engine capabilities"
+  next_action: "Design interactive demo showcasing real-time performance"
+
+content:
+- platform: docs_site
+  status: planned
+  priority: critical
+  notes: "API reference, SDK guides, architecture docs, examples"
+  next_action: "Generate API docs from TypeScript source"
+- platform: blog
   status: not_started
+  priority: medium
+  notes: "Development log, creative coding tutorials, performance art tech"
+  next_action: "Write introductory post on real-time performance architecture"
+
+community:
+- platform: discord
+  status: not_started
+  priority: medium
+  notes: "Developer and artist community for performance creation"
+  next_action: "Create Discord after first public release"
