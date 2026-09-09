@@ -344,6 +344,6 @@ export function isOverrideActive(
   evaluationTime: number = Date.now(),
 ): boolean {
   if (!override) return false;
-  if (!override.expiresAt) return true;
+  if (override.expiresAt === undefined) return true;
   return evaluationTime < override.expiresAt;
 }

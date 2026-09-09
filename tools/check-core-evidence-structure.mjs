@@ -15,7 +15,7 @@ const REQUIRED_TESTS = new Set([
 const EXPECTED_SCRIPTS = {
   typecheck: 'tsc --noEmit --pretty false',
   test: 'vitest run --reporter=verbose',
-  'test:bench': 'tsx src/benchmarks/consensus-bench.ts',
+  'test:bench': 'node --import tsx src/benchmarks/consensus-bench.ts',
   evidence: 'pnpm typecheck && pnpm test && pnpm test:bench',
 };
 
@@ -55,6 +55,7 @@ for (const name of testFiles) {
 
 const workflow = await readFile(WORKFLOW, 'utf8');
 const requiredWorkflowFragments = [
+  'node --test tools/check-core-claim-boundaries.test.mjs',
   'node tools/check-core-claim-boundaries.mjs',
   'node tools/check-core-evidence-structure.mjs',
   'pnpm install --frozen-lockfile',

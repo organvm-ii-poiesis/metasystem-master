@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit --pretty false",
     "test": "vitest run --reporter=verbose",
     "test:watch": "vitest",
-    "test:bench": "tsx src/benchmarks/consensus-bench.ts",
+    "test:bench": "node --import tsx src/benchmarks/consensus-bench.ts",
     "evidence": "pnpm typecheck && pnpm test && pnpm test:bench",
     "docker:build": "docker build -t omni-dromenon-engine:latest .",
     "docker:run": "docker-compose up"

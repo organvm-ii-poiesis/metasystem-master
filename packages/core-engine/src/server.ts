@@ -8,7 +8,7 @@
 
 import { randomUUID } from 'node:crypto';
 import { createServer } from 'node:http';
-import express from 'express';
+import express, { type Express } from 'express';
 import { Server as SocketIOServer, Socket } from 'socket.io';
 
 import { config } from './config.js';
@@ -27,7 +27,7 @@ import { createAggregator } from './consensus/parameter-aggregation.js';
 // SERVER INITIALIZATION
 // =============================================================================
 
-const app = express();
+const app: Express = express();
 const httpServer = createServer(app);
 
 const io = new SocketIOServer(httpServer, {
