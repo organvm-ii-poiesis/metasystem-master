@@ -242,3 +242,16 @@ PR #70 should remain draft until:
 - no review language converts unexecuted code into successful evidence.
 
 The known active narrative claim debt identified in this audit is repaired on the branch. Execution evidence remains the principal external gate.
+
+
+## September 9 source and execution correction
+
+This dated update supersedes conflicting earlier current-status sentences without changing the historical record. Production source `6f1270d793217783889b5f22779f34ad93228247` descends from evidence integration `18a8e31441b39af26a997d1916ae6238fb2158bd`. The September6 isolated experiment source remains `323c12f6c17753b0b408a3f0e34265939395d864`; historical outputs and missing-provenance attempts were not rewritten.
+
+All11 changed file bytes and75 materialized Git blobs were verified against the new source commit. The identical earlier candidate passed pinned pnpm9.15 frozen installation, both preinstall gates,26 claim-verifier regression tests, strict core typecheck and65 core tests across6 files. Earlier TS7016 and candidate TS2883 compiler failures remain preserved; the final source-identical compiler run passed. These results do not establish that all repository packages or GitHub Actions ran.
+
+After commit verification, five new canonical benchmark processes used the exact source SHA, preserving1250 measured calls and250 warmups with unchanged rounded outputs. Full-dependency probes preserved500 minority fixtures,19 aggregator assertions (17 retained plus2 epoch-zero cleanup assertions) and8 real OSC codec/event cases with socket opening stubbed. Epoch-zero expiry is repaired; minority filtering, invalid direct smoothing, temporal discontinuity and median policy remain unchanged observations. See [the committed-source evidence](convergence-2026-09-09/README.md), its protocol, source identities, raw archive and receipts.
+
+The exact-source push run34403004996/job102639174869 and PR run34403010684/job102639195448 each report runner_id0, no steps and no artifacts. Gate A remains `infrastructure_execution_blocked`. Local correctness and repeated compute evidence do not close the workflow-specific gate, end-to-end Gate D, or rehearsal/live Gate E. No applicant mastery or social/artistic outcome claim follows.
+
+A subsequent local Node20.20.2 compatibility run at the exact source SHA passed both preinstall gates,26 verifier tests, strict core typecheck,65 core tests and one canonical benchmark (250 measured calls,50 warmups). It reused the frozen dependency tree installed under Node24. This closes the observed local Node20 launcher/runtime compatibility question; it does not establish a fresh Node20 dependency installation, repeated Node20 measurements or GitHub execution.
